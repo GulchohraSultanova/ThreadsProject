@@ -1,0 +1,6 @@
+@ThreadsProject_HostAddress = http://localhost:5142
+
+GET {{ThreadsProject_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

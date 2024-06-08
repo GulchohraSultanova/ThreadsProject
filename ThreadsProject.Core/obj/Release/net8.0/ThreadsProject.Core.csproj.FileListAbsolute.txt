@@ -1,0 +1,14 @@
+C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Core\bin\Release\net8.0\ThreadsProject.Core.deps.json
+C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Core\bin\Release\net8.0\ThreadsProject.Core.runtimeconfig.json
+C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Core\bin\Release\net8.0\ThreadsProject.Core.dll
+C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Core\bin\Release\net8.0\ThreadsProject.Core.pdb
+C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Core\obj\Release\net8.0\ThreadsProject.Core.csproj.AssemblyReference.cache
+C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Core\obj\Release\net8.0\ThreadsProject.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Core\obj\Release\net8.0\ThreadsProject.Core.AssemblyInfoInputs.cache
+C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Core\obj\Release\net8.0\ThreadsProject.Core.AssemblyInfo.cs
+C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Core\obj\Release\net8.0\ThreadsProject.Core.csproj.CoreCompileInputs.cache
+C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Core\obj\Release\net8.0\ThreadsProject.Core.dll
+C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Core\obj\Release\net8.0\refint\ThreadsProject.Core.dll
+C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Core\obj\Release\net8.0\ThreadsProject.Core.pdb
+C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Core\obj\Release\net8.0\ThreadsProject.Core.genruntimeconfig.cache
+C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Core\obj\Release\net8.0\ref\ThreadsProject.Core.dll

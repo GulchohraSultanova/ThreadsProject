@@ -1,0 +1,17 @@
+C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Data\bin\Release\net8.0\ThreadsProject.Data.deps.json
+C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Data\bin\Release\net8.0\ThreadsProject.Data.runtimeconfig.json
+C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Data\bin\Release\net8.0\ThreadsProject.Data.dll
+C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Data\bin\Release\net8.0\ThreadsProject.Data.pdb
+C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Data\bin\Release\net8.0\ThreadsProject.Core.dll
+C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Data\bin\Release\net8.0\ThreadsProject.Core.pdb
+C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Data\obj\Release\net8.0\ThreadsProject.Data.csproj.AssemblyReference.cache
+C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Data\obj\Release\net8.0\ThreadsProject.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Data\obj\Release\net8.0\ThreadsProject.Data.AssemblyInfoInputs.cache
+C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Data\obj\Release\net8.0\ThreadsProject.Data.AssemblyInfo.cs
+C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Data\obj\Release\net8.0\ThreadsProject.Data.csproj.CoreCompileInputs.cache
+C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Data\obj\Release\net8.0\ThreadsP.E25C8368.Up2Date
+C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Data\obj\Release\net8.0\ThreadsProject.Data.dll
+C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Data\obj\Release\net8.0\refint\ThreadsProject.Data.dll
+C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Data\obj\Release\net8.0\ThreadsProject.Data.pdb
+C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Data\obj\Release\net8.0\ThreadsProject.Data.genruntimeconfig.cache
+C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Data\obj\Release\net8.0\ref\ThreadsProject.Data.dll
