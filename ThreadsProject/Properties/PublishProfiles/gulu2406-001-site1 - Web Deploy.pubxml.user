@@ -6,11 +6,8 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project>
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <EncryptedPassword />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAeKkC5MLruUeGkAvERy2YJAAAAAACAAAAAAAQZgAAAAEAACAAAAAdmNjImbaJC6E2ZRdlYAqOEk5YmgCzdUdbXEOvfuziHwAAAAAOgAAAAAIAACAAAACkgiAvSYnhpQdis4ryfU8To5EpuVTc298YKObX3xPzOCAAAABPcIqoWOfXEc4vznNlACLDgvY1xDvYG5Go5f0ZfE35N0AAAADKXCTP/QvzNFO3K9g5KV9i/fzipb3FT1vmebc/q+CtNFdwTfqzAh7wx7EZtVcZzYhw9zYh2wCvuxoFUcY//qVl</EncryptedPassword>
+    <History>True|2024-06-11T20:56:42.3302202Z||;True|2024-06-12T00:44:31.0424221+04:00||;True|2024-06-12T00:23:55.0543210+04:00||;True|2024-06-12T00:17:19.4217879+04:00||;True|2024-06-12T00:14:05.0710220+04:00||;True|2024-06-12T00:09:55.8856549+04:00||;True|2024-06-12T00:05:14.6822687+04:00||;True|2024-06-12T00:01:26.7814136+04:00||;True|2024-06-11T23:42:53.1148360+04:00||;True|2024-06-10T01:12:42.9095763+04:00||;True|2024-06-10T00:55:50.2263620+04:00||;True|2024-06-09T23:47:32.6438545+04:00||;True|2024-06-09T23:16:52.7670792+04:00||;True|2024-06-09T22:59:56.0875799+04:00||;True|2024-06-09T22:05:50.6204487+04:00||;True|2024-06-09T14:41:01.1150548+04:00||;True|2024-06-09T14:21:17.1843046+04:00||;True|2024-06-09T12:56:59.2852303+04:00||;True|2024-06-09T12:34:23.2810870+04:00||;True|2024-06-09T12:27:40.6162839+04:00||;</History>
+    <LastFailureDetails />
   </PropertyGroup>
-  <ItemGroup>
-    <DestinationConnectionStrings Include="Default">
-      <Value>   Data Source=SQL8006.site4now.net%3bInitial Catalog=db_aa9b92_threads%3bUser Id=db_aa9b92_threads_admin%3bPassword=Shayis16_</Value>
-    </DestinationConnectionStrings>
-  </ItemGroup>
 </Project>

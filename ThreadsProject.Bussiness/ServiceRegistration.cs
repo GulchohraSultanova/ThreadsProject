@@ -1,11 +1,13 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.Extensions.DependencyInjection;
+using ThreadsProject.Bussiness.ExternalServices.Implementations;
+using ThreadsProject.Bussiness.ExternalServices.Interfaces;
+
 using ThreadsProject.Bussiness.Services.Implementations;
 using ThreadsProject.Bussiness.Services.Interfaces;
+
 
 namespace ThreadsProject.Bussiness
 {
@@ -13,7 +15,11 @@ namespace ThreadsProject.Bussiness
     {
         public static void AddServices(this IServiceCollection services)
         {
-            services.AddScoped<IUserService,UserService>();
+            services.AddScoped<IUserService, UserService>();
+          
+            services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<IUserEmailSender, UserEmailSender>();
+
         }
     }
 }

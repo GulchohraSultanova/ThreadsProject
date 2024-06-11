@@ -17,3 +17,4 @@ C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Bussiness\obj\Release\
 C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Bussiness\obj\Release\net8.0\ThreadsProject.Bussiness.pdb
 C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Bussiness\obj\Release\net8.0\ThreadsProject.Bussiness.genruntimeconfig.cache
 C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Bussiness\obj\Release\net8.0\ref\ThreadsProject.Bussiness.dll
+C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Bussiness\obj\Release\net8.0\ThreadsProject.Bussiness.sourcelink.json

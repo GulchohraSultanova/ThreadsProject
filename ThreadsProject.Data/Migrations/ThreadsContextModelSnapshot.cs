@@ -176,6 +176,7 @@ namespace ThreadsProject.Data.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("ImgUrl")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")

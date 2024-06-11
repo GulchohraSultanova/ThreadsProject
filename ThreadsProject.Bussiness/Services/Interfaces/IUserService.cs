@@ -13,6 +13,12 @@ namespace ThreadsProject.Bussiness.Services.Interfaces
     {
         Task Register(RegisterDto registerDto);
         Task<IEnumerable<UsersGetDto>> GetAllUsersAsync(Expression<Func<User, bool>>? filter = null, params string[] includes);
+        Task<TokenResponseDto> LoginAsync(LoginDto dto);
+        Task<UsersGetDto> GetUserByIdAsync(string userId);
+     
+
+
     }
 }
+
 

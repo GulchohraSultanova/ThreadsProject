@@ -12,3 +12,4 @@ C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Core\obj\Debug\net8.0\
 C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Core\obj\Debug\net8.0\ThreadsProject.Core.pdb
 C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Core\obj\Debug\net8.0\ThreadsProject.Core.genruntimeconfig.cache
 C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Core\obj\Debug\net8.0\ref\ThreadsProject.Core.dll
+C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Core\obj\Debug\net8.0\ThreadsProject.Core.sourcelink.json
