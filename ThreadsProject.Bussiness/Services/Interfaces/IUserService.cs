@@ -15,7 +15,10 @@ namespace ThreadsProject.Bussiness.Services.Interfaces
         Task<IEnumerable<UsersGetDto>> GetAllUsersAsync(Expression<Func<User, bool>>? filter = null, params string[] includes);
         Task<TokenResponseDto> LoginAsync(LoginDto dto);
         Task<UsersGetDto> GetUserByIdAsync(string userId);
-     
+        Task EditUserAsync(string userId, UserEditDto userEditDto);
+        Task DeleteUserAsync(string userId);
+
+
 
 
     }

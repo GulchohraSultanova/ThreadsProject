@@ -7,6 +7,7 @@ using ThreadsProject.Bussiness.ExternalServices.Interfaces;
 
 using ThreadsProject.Bussiness.Services.Implementations;
 using ThreadsProject.Bussiness.Services.Interfaces;
+using YourApiProject.Filters;
 
 
 namespace ThreadsProject.Bussiness
@@ -19,7 +20,7 @@ namespace ThreadsProject.Bussiness
           
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IUserEmailSender, UserEmailSender>();
-
+            services.AddScoped<CustomValidationFilter>();
         }
     }
 }

@@ -1,22 +1,17 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI.Services;
+﻿using Microsoft.AspNetCore.Identity;
+using System.Threading.Tasks;
+using ThreadsProject.Core.Entities;
+using ThreadsProject.Bussiness.DTOs.UserDtos;
+using ThreadsProject.Bussiness.GlobalException;
+using Microsoft.Extensions.Logging;
+using AutoMapper;
+using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
-using Microsoft.IdentityModel.Tokens;
-using System;
-using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
-using ThreadsProject.Bussiness.DTOs.UserDtos;
+using System.Linq;
 using ThreadsProject.Bussiness.ExternalServices.Interfaces;
-using ThreadsProject.Bussiness.GlobalException;
 using ThreadsProject.Bussiness.Services.Interfaces;
-using ThreadsProject.Core.Entities;
 using ThreadsProject.Data.DAL;
 
 namespace ThreadsProject.Bussiness.Services.Implementations
@@ -29,9 +24,7 @@ namespace ThreadsProject.Bussiness.Services.Implementations
         private readonly ThreadsContext _context;
         private readonly ITokenService _tokenService;
         private readonly IUserEmailSender _emailSender;
-
         private readonly IConfiguration _configuration;
-
 
         public UserService(IMapper mapper, UserManager<User> userManager, ILogger<UserService> logger, ThreadsContext context, ITokenService tokenService, IUserEmailSender emailSender, IConfiguration configuration)
         {
@@ -52,14 +45,19 @@ namespace ThreadsProject.Bussiness.Services.Implementations
                 user.Name = registerDto.FirstName;
                 user.Surname = registerDto.LastName;
                 user.ImgUrl = "https://static.vecteezy.com/system/resources/previews/002/534/006/original/social-media-chatting-online-blank-profile-picture-head-and-body-icon-people-standing-icon-grey-background-free-vector.jpg"; // Default profile picture
+                user.Bio = "";
 
-                var existingUser = await _userManager.FindByNameAsync(user.UserName);
+                var existingUser = await _userManager.Users
+                    .Where(u => u.UserName == user.UserName && !u.IsDeleted)
+                    .FirstOrDefaultAsync();
                 if (existingUser != null)
                 {
                     throw new GlobalAppException("Username is already taken.");
                 }
 
-                var existingEmail = await _userManager.FindByEmailAsync(user.Email);
+                var existingEmail = await _userManager.Users
+                    .Where(u => u.Email == user.Email && !u.IsDeleted)
+                    .FirstOrDefaultAsync();
                 if (existingEmail != null)
                 {
                     throw new GlobalAppException("Email is already in use.");
@@ -96,12 +94,9 @@ namespace ThreadsProject.Bussiness.Services.Implementations
         }
 
 
-
-
-
         public async Task<IEnumerable<UsersGetDto>> GetAllUsersAsync(Expression<Func<User, bool>>? filter = null, params string[] includes)
         {
-            IQueryable<User> query = _context.Users;
+            IQueryable<User> query = _context.Users.Where(u => !u.IsDeleted);
 
             if (filter != null)
             {
@@ -121,18 +116,22 @@ namespace ThreadsProject.Bussiness.Services.Implementations
                 return userDto;
             });
         }
+
+
         public async Task<UsersGetDto> GetUserByIdAsync(string userId)
         {
             try
             {
                 var user = await _userManager.FindByIdAsync(userId);
-                if (user == null)
+                if (user == null || user.IsDeleted)
                 {
                     throw new GlobalAppException("User not found");
                 }
 
                 var userDto = _mapper.Map<UsersGetDto>(user);
                 userDto.ImgUrl = user.ImgUrl;
+                userDto.Bio = user.Bio;
+                userDto.IsPublic = user.IsPublic;
 
                 return userDto;
             }
@@ -147,14 +146,13 @@ namespace ThreadsProject.Bussiness.Services.Implementations
         {
             try
             {
-                var user = await _userManager.FindByNameAsync(dto.UserNameOrEmail);
+                var user = await _userManager.Users
+                    .Where(u => (u.UserName == dto.UserNameOrEmail || u.Email == dto.UserNameOrEmail) && !u.IsDeleted)
+                    .FirstOrDefaultAsync();
+
                 if (user == null)
                 {
-                    user = await _userManager.FindByEmailAsync(dto.UserNameOrEmail);
-                    if (user == null)
-                    {
-                        throw new GlobalAppException("User not found with the provided username or email.");
-                    }
+                    throw new GlobalAppException("User not found with the provided username or email.");
                 }
 
                 if (!user.EmailConfirmed)
@@ -181,6 +179,112 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             {
                 _logger.LogError(ex, "An error occurred while logging in the user");
                 throw new GlobalAppException("An unexpected error occurred while logging in the user", ex);
+            }
+        }
+
+
+        public async Task EditUserAsync(string userId, UserEditDto userEditDto)
+        {
+            if (string.IsNullOrEmpty(userId))
+            {
+                throw new GlobalAppException("User ID cannot be null or empty");
+            }
+
+            try
+            {
+                // Username boşluk içeriyorsa hata fırlat
+                if (userEditDto.UserName.Contains(" "))
+                {
+                    throw new GlobalAppException("Username cannot contain spaces.");
+                }
+
+                var user = await _userManager.FindByIdAsync(userId);
+                if (user == null)
+                {
+                    throw new GlobalAppException("User not found");
+                }
+
+                if (!string.Equals(user.UserName, userEditDto.UserName, StringComparison.OrdinalIgnoreCase))
+                {
+                    var existingUser = await _userManager.Users
+                        .Where(u => u.UserName == userEditDto.UserName && !u.IsDeleted)
+                        .FirstOrDefaultAsync();
+                    if (existingUser != null && existingUser.Id != user.Id)
+                    {
+                        throw new GlobalAppException("Username is already taken.");
+                    }
+                }
+
+                user.UserName = userEditDto.UserName;
+                user.Bio = userEditDto.Bio;
+                user.IsPublic = userEditDto.IsPublic;
+                user.ImgUrl = userEditDto.ImgUrl;
+
+                var result = await _userManager.UpdateAsync(user);
+                if (!result.Succeeded)
+                {
+                    var errors = string.Join(", ", result.Errors.Select(e => e.Description));
+                    throw new GlobalAppException($"User update failed: {errors}");
+                }
+            }
+            catch (GlobalAppException ex)
+            {
+                _logger.LogError(ex, ex.Message);
+                throw;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while updating the user");
+                throw new GlobalAppException("An unexpected error occurred while updating the user", ex);
+            }
+        }
+
+        public async Task DeleteUserAsync(string userId)
+        {
+            if (string.IsNullOrEmpty(userId))
+            {
+                throw new GlobalAppException("User ID cannot be null or empty");
+            }
+
+            try
+            {
+                var user = await _userManager.FindByIdAsync(userId);
+                if (user == null)
+                {
+                    throw new GlobalAppException("User not found");
+                }
+
+                user.IsDeleted = true;
+                string guid = $"_deleted_{Guid.NewGuid()}";
+
+                if (user.UserName.Length + guid.Length > 256)  // Uzunluk kontrolü
+                {
+                    user.UserName = user.UserName.Substring(0, 256 - guid.Length);
+                }
+                user.UserName += guid;
+
+                if (user.Email.Length + guid.Length > 512)  // Uzunluk kontrolü
+                {
+                    user.Email = user.Email.Substring(0, 512 - guid.Length);
+                }
+                user.Email += guid;
+
+                var result = await _userManager.UpdateAsync(user);
+                if (!result.Succeeded)
+                {
+                    var errors = string.Join(", ", result.Errors.Select(e => e.Description));
+                    throw new GlobalAppException($"User deletion failed: {errors}");
+                }
+            }
+            catch (GlobalAppException ex)
+            {
+                _logger.LogError(ex, ex.Message);
+                throw;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while deleting the user");
+                throw new GlobalAppException("An unexpected error occurred while deleting the user", ex);
             }
         }
 

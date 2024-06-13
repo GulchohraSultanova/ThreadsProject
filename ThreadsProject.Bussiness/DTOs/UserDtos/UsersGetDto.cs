@@ -8,11 +8,13 @@ namespace ThreadsProject.Bussiness.DTOs.UserDtos
 {
     public class UsersGetDto
     {
-        public string Id { get; set; }
+     
         public string UserName { get; set; }
         public string Email { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public string ImgUrl { get; set; }  
+        public string Bio {  get; set; }
+        public bool IsPublic { get; set; } = true;
     }
 }

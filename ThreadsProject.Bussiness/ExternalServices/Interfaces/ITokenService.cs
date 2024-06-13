@@ -10,6 +10,6 @@ namespace ThreadsProject.Bussiness.ExternalServices.Interfaces
 {
   public  interface  ITokenService
     {
-        TokenResponseDto CreateToken(User user,int expireDate=60);
+        TokenResponseDto CreateToken(User user,int expireDate=1440);
     }
 }

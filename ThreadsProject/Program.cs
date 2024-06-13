@@ -1,6 +1,7 @@
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -11,13 +12,12 @@ using ThreadsProject.Bussiness.GlobalException;
 using ThreadsProject.Bussiness.Profilies;
 using ThreadsProject.Core.Entities;
 using ThreadsProject.Data.DAL;
+using YourApiProject.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(opt =>
 {
@@ -47,21 +47,45 @@ builder.Services.AddSwaggerGen(opt =>
         }
     });
 });
+
 builder.Services.AddDbContext<ThreadsContext>(opt =>
 {
     opt.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
 });
+
 builder.Services.AddIdentity<User, IdentityRole>(opt =>
 {
     opt.Password.RequireNonAlphanumeric = false;
     opt.User.RequireUniqueEmail = true;
-
 }).AddEntityFrameworkStores<ThreadsContext>().AddDefaultTokenProviders();
+
 builder.Services.AddControllers()
-             .AddFluentValidation(fv =>
-                 fv.RegisterValidatorsFromAssemblyContaining<RegisterDtoValidation>());
+    .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<RegisterDtoValidation>())
+    .ConfigureApiBehaviorOptions(options =>
+    {
+        options.InvalidModelStateResponseFactory = context =>
+        {
+            var errors = context.ModelState
+                .Where(e => e.Value.Errors.Count > 0)
+                .SelectMany(kvp => kvp.Value.Errors.Select(e => e.ErrorMessage))
+                .ToArray();
+
+            var errorResponse = new
+            {
+                StatusCode = 400,
+                Error = errors
+            };
+
+            return new BadRequestObjectResult(errorResponse);
+        };
+    });
 
 builder.Services.AddServices();
+builder.Services.AddControllers(config =>
+{
+    config.Filters.Add<CustomValidationFilter>();
+});
+
 builder.Services.AddAuthentication(opt =>
 {
     opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -77,11 +101,11 @@ builder.Services.AddAuthentication(opt =>
         ValidateLifetime = true,
         ValidIssuer = builder.Configuration["Jwt:Issuer"],
         ValidAudience = builder.Configuration["Jwt:Audience"],
-        IssuerSigningKey= new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:SigningKey"])),
-        LifetimeValidator=(_,expireDate,token,_)=>token!=null? expireDate>DateTime.UtcNow:false
-
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:SigningKey"])),
+        LifetimeValidator = (_, expireDate, token, _) => token != null ? expireDate > DateTime.UtcNow : false
     };
 });
+
 builder.Services.AddAutoMapper(typeof(UserMapProfilies));
 builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
 {
@@ -89,23 +113,14 @@ builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
 }));
 builder.Services.Configure<DataProtectionTokenProviderOptions>(options =>
 {
-    options.TokenLifespan = TimeSpan.FromHours(3);
+    options.TokenLifespan = TimeSpan.FromHours(24);
 });
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-//if (app.Environment.IsDevelopment())
-//{
 app.UseDeveloperExceptionPage();
 app.UseSwagger();
 app.UseSwaggerUI();
-//}
-//else
-//{
-//    app.UseHsts();
-//}
-
 
 app.UseMiddleware<GlobalExceptionMiddleware>();
 

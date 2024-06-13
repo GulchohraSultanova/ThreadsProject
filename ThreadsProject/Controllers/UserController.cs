@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using ThreadsProject.Bussiness.DTOs.UserDtos;
@@ -77,7 +76,11 @@ namespace ThreadsProject.Controllers
             if (string.IsNullOrEmpty(token) || string.IsNullOrEmpty(userId))
             {
                 _logger.LogWarning("Invalid token or user ID.");
-                return BadRequest("Invalid token or user ID.");
+                return BadRequest(new
+                {
+                    StatusCode = StatusCodes.Status400BadRequest,
+                    Error = "Invalid token or user ID."
+                });
             }
 
             try
@@ -86,61 +89,60 @@ namespace ThreadsProject.Controllers
                 if (user == null)
                 {
                     _logger.LogWarning($"User not found with userId: {userId}");
-                    return BadRequest("Invalid token or user ID.");
+                    return BadRequest(new
+                    {
+                        StatusCode = StatusCodes.Status400BadRequest,
+                        Error = "Invalid token or user ID."
+                    });
                 }
 
-                // Confirm the email
                 var result = await _userManager.ConfirmEmailAsync(user, token);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation($"Email confirmed successfully for userId: {userId}");
-                    return Ok("Email confirmed successfully.");
+                    return Ok(new
+                    {
+                        StatusCode = StatusCodes.Status200OK,
+                        Message = "Email confirmed successfully."
+                    });
                 }
                 else
                 {
                     var errors = string.Join(", ", result.Errors.Select(e => e.Description));
                     _logger.LogWarning($"Email confirmation failed for userId: {userId}, errors: {errors}");
-                    return BadRequest($"Email confirmation failed: {errors}");
+                    return BadRequest(new
+                    {
+                        StatusCode = StatusCodes.Status400BadRequest,
+                        Error = $"Email confirmation failed: {errors}"
+                    });
                 }
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "An error occurred while confirming the email");
-                return StatusCode(StatusCodes.Status500InternalServerError, "An unexpected error occurred. Please try again later.");
+                return StatusCode(StatusCodes.Status500InternalServerError, new
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError,
+                    Error = "An unexpected error occurred. Please try again later."
+                });
             }
         }
-
-
-
-
 
         [HttpGet("getAll")]
         public async Task<IActionResult> GetAllUsers()
         {
-            var users = await _userService.GetAllUsersAsync();
-            return StatusCode(StatusCodes.Status200OK, new
-            {
-                StatusCode = StatusCodes.Status200OK,
-                Data = users
-            });
-        }
-
-        [HttpPost("login")]
-        public async Task<IActionResult> Login(LoginDto loginDto)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
             try
             {
-                var result = await _userService.LoginAsync(loginDto);
-
-                return Ok(result);
+                var users = await _userService.GetAllUsersAsync();
+                return StatusCode(StatusCodes.Status200OK, new
+                {
+                    StatusCode = StatusCodes.Status200OK,
+                    Data = users
+                });
             }
             catch (GlobalAppException ex)
             {
+                _logger.LogError(ex, "An error occurred while retrieving users");
                 return BadRequest(new
                 {
                     StatusCode = StatusCodes.Status400BadRequest,
@@ -149,8 +151,53 @@ namespace ThreadsProject.Controllers
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "An unexpected error occurred");
+                return StatusCode(StatusCodes.Status500InternalServerError, new
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError,
+                    Error = "An unexpected error occurred. Please try again later."
+                });
+            }
+        }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login(LoginDto loginDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(new
+                {
+                    StatusCode = StatusCodes.Status400BadRequest,
+                    Error = "Invalid input data"
+                });
+            }
+
+            try
+            {
+                var result = await _userService.LoginAsync(loginDto);
+                return Ok(new
+                {
+                    StatusCode = StatusCodes.Status200OK,
+                    Data = result
+                });
+            }
+            catch (GlobalAppException ex)
+            {
                 _logger.LogError(ex, "An error occurred while logging in the user");
-                return StatusCode(StatusCodes.Status500InternalServerError, new { message = "An unexpected error occurred while logging in the user" });
+                return BadRequest(new
+                {
+                    StatusCode = StatusCodes.Status400BadRequest,
+                    Error = ex.Message
+                });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An unexpected error occurred while logging in the user");
+                return StatusCode(StatusCodes.Status500InternalServerError, new
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError,
+                    Error = "An unexpected error occurred. Please try again later."
+                });
             }
         }
 
@@ -161,7 +208,11 @@ namespace ThreadsProject.Controllers
             var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             if (userId == null)
             {
-                return BadRequest(new { message = "Invalid token" });
+                return BadRequest(new
+                {
+                    StatusCode = StatusCodes.Status400BadRequest,
+                    Error = "Invalid token"
+                });
             }
 
             try
@@ -192,5 +243,100 @@ namespace ThreadsProject.Controllers
                 });
             }
         }
+
+        [HttpPut("edit")]
+        [Authorize]
+        public async Task<IActionResult> EditUser([FromBody] UserEditDto userEditDto)
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (userId == null)
+            {
+                return BadRequest(new
+                {
+                    StatusCode = StatusCodes.Status400BadRequest,
+                    Error = "Invalid token"
+                });
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(new
+                {
+                    StatusCode = StatusCodes.Status400BadRequest,
+                    Error = "Invalid input data"
+                });
+            }
+
+            try
+            {
+                await _userService.EditUserAsync(userId, userEditDto);
+                return Ok(new
+                {
+                    StatusCode = StatusCodes.Status200OK,
+                    Message = "User updated successfully."
+                });
+            }
+            catch (GlobalAppException ex)
+            {
+                _logger.LogError(ex, "An error occurred while updating the user");
+                return BadRequest(new
+                {
+                    StatusCode = StatusCodes.Status400BadRequest,
+                    Error = ex.Message
+                });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An unexpected error occurred");
+                return StatusCode(StatusCodes.Status500InternalServerError, new
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError,
+                    Error = "An unexpected error occurred. Please try again later."
+                });
+            }
+        }
+        [HttpDelete("delete")]
+        [Authorize]
+        public async Task<IActionResult> DeleteUser()
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (userId == null)
+            {
+                return BadRequest(new
+                {
+                    StatusCode = StatusCodes.Status400BadRequest,
+                    Error = "Invalid token"
+                });
+            }
+
+            try
+            {
+                await _userService.DeleteUserAsync(userId);
+                return Ok(new
+                {
+                    StatusCode = StatusCodes.Status200OK,
+                    Message = "User deleted successfully."
+                });
+            }
+            catch (GlobalAppException ex)
+            {
+                _logger.LogError(ex, "An error occurred while deleting the user");
+                return BadRequest(new
+                {
+                    StatusCode = StatusCodes.Status400BadRequest,
+                    Error = ex.Message
+                });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An unexpected error occurred");
+                return StatusCode(StatusCodes.Status500InternalServerError, new
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError,
+                    Error = "An unexpected error occurred. Please try again later."
+                });
+            }
+        }
+
     }
 }

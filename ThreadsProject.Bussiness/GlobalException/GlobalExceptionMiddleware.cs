@@ -47,7 +47,7 @@ namespace ThreadsProject.Bussiness.GlobalException
             {
                 StatusCode = context.Response.StatusCode,
                 Error = exception.Message,
-                StackTrace = exception.StackTrace // Include stack trace for debugging
+            
             }.ToString());
         }
 

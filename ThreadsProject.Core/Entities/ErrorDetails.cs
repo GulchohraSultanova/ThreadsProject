@@ -11,7 +11,7 @@ namespace ThreadsProject.Core.Entities
     {
         public int StatusCode { get; set; }
         public string Error { get; set; }
-        public string StackTrace { get; set; }
+  
 
         public override string ToString()
         {
