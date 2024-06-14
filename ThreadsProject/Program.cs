@@ -8,7 +8,7 @@ using Microsoft.OpenApi.Models;
 using System.Text;
 using ThreadsProject.Bussiness;
 using ThreadsProject.Bussiness.DTOs.UserDtos;
-using ThreadsProject.Bussiness.GlobalException;
+using ThreadsProject.Core.GlobalException;
 using ThreadsProject.Bussiness.Profilies;
 using ThreadsProject.Core.Entities;
 using ThreadsProject.Data.DAL;

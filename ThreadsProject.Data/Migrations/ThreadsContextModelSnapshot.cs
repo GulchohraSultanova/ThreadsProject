@@ -291,17 +291,13 @@ namespace ThreadsProject.Data.Migrations
 
                     b.Property<string>("Content")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("GETDATE()");
-
-                    b.Property<string>("ImageUrl")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("UserId")
                         .IsRequired()
@@ -312,6 +308,28 @@ namespace ThreadsProject.Data.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Posts");
+                });
+
+            modelBuilder.Entity("ThreadsProject.Core.Entities.PostImage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PostId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PostId");
+
+                    b.ToTable("PostImages", (string)null);
                 });
 
             modelBuilder.Entity("ThreadsProject.Core.Entities.PostTag", b =>
@@ -693,6 +711,17 @@ namespace ThreadsProject.Data.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("ThreadsProject.Core.Entities.PostImage", b =>
+                {
+                    b.HasOne("ThreadsProject.Core.Entities.Post", "Post")
+                        .WithMany("Images")
+                        .HasForeignKey("PostId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Post");
+                });
+
             modelBuilder.Entity("ThreadsProject.Core.Entities.PostTag", b =>
                 {
                     b.HasOne("ThreadsProject.Core.Entities.Post", "Post")
@@ -780,6 +809,8 @@ namespace ThreadsProject.Data.Migrations
                     b.Navigation("Actions");
 
                     b.Navigation("Comments");
+
+                    b.Navigation("Images");
 
                     b.Navigation("Likes");
 

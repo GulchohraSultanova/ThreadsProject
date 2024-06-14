@@ -15,6 +15,7 @@ namespace ThreadsProject.Data.DAL
         public DbSet<Follower> Followers { get; set; }
         public DbSet<Following> Followings { get; set; }
         public DbSet<UserAction> Actions { get; set; }
+        public DbSet<PostImage> PostImages { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<PostTag> PostTags { get; set; }
         public DbSet<Request> Requests { get; set; }
@@ -35,6 +36,7 @@ namespace ThreadsProject.Data.DAL
             builder.ApplyConfiguration(new TagConfiguration());
             builder.ApplyConfiguration(new PostTagConfiguration());
             builder.ApplyConfiguration(new RequestConfiguration());
+            builder.ApplyConfiguration(new PostImageConfugration());
 
         }
     }

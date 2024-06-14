@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using ThreadsProject.Core.Entities;
 using ThreadsProject.Bussiness.DTOs.UserDtos;
-using ThreadsProject.Bussiness.GlobalException;
+using ThreadsProject.Core.GlobalException;
 using Microsoft.Extensions.Logging;
 using AutoMapper;
 using System;

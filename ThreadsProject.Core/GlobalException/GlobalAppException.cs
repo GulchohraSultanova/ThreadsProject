@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ThreadsProject.Bussiness.GlobalException
+namespace ThreadsProject.Core.GlobalException
 {
     public class GlobalAppException : Exception
     {

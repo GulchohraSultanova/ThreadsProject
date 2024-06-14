@@ -7,6 +7,8 @@ using ThreadsProject.Bussiness.ExternalServices.Interfaces;
 
 using ThreadsProject.Bussiness.Services.Implementations;
 using ThreadsProject.Bussiness.Services.Interfaces;
+using ThreadsProject.Core.RepositoryAbstracts;
+using ThreadsProject.Data.RepositoryConcreters;
 using YourApiProject.Filters;
 
 
@@ -21,6 +23,9 @@ namespace ThreadsProject.Bussiness
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IUserEmailSender, UserEmailSender>();
             services.AddScoped<CustomValidationFilter>();
+         
+            services.AddScoped<IPostService, PostService>();
+            services.AddScoped<IPostRepository,PostRepository>();
         }
     }
 }

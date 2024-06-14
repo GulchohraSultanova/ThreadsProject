@@ -2,12 +2,12 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using System.Net;
-using ThreadsProject.Bussiness.GlobalException;
+
 using ThreadsProject.Core.Entities;
 
 
 
-namespace ThreadsProject.Bussiness.GlobalException
+namespace ThreadsProject.Core.GlobalException
 {
     public class GlobalExceptionMiddleware
     {

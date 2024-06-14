@@ -21,13 +21,13 @@ namespace ThreadsProject.Core.Entities
         public DateTime? BanStartDate { get; set; }
         public DateTime? BanEndDate { get; set; }
         public int BanCount { get; set; }
-        public virtual ICollection<Post> Posts { get; set; }
-        public virtual ICollection<Follower> Followers { get; set; }
-        public virtual ICollection<Following> Following { get; set; }
-        public virtual ICollection<UserAction> Actions { get; set; }
-        public virtual ICollection<Repost> Reposts { get; set; }
-        public virtual ICollection<Request> SentRequests { get; set; }
-        public virtual ICollection<Request> ReceivedRequests { get; set; }
+        public virtual ICollection<Post> Posts { get; set; }= new List<Post>();
+        public virtual ICollection<Follower> Followers { get; set; } = new List<Follower>();
+        public virtual ICollection<Following> Following { get; set; } = new List<Following>();
+        public virtual ICollection<UserAction> Actions { get; set; }= new List<UserAction>();
+        public virtual ICollection<Repost> Reposts { get; set; } = new List<Repost>();
+        public virtual ICollection<Request> SentRequests { get; set; }= new List<Request>();
+        public virtual ICollection<Request> ReceivedRequests { get; set; }= new List<Request>();
     }
 
 }

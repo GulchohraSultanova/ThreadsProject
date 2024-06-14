@@ -6,7 +6,7 @@ using Microsoft.Extensions.Logging;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using ThreadsProject.Bussiness.DTOs.UserDtos;
-using ThreadsProject.Bussiness.GlobalException;
+using ThreadsProject.Core.GlobalException;
 using ThreadsProject.Bussiness.Services.Interfaces;
 using ThreadsProject.Core.Entities;
 

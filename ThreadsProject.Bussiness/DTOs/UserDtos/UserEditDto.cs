@@ -34,7 +34,7 @@ namespace ThreadsProject.Bussiness.DTOs.UserDtos
              .WithMessage("The username cannot contain spaces!")
                .Matches("[a-zA-Z]").WithMessage("The username must contain at least one letter!");
             RuleFor(x => x.Bio)
-            .MaximumLength(60)
+            .MaximumLength(90)
             .WithMessage("The length cannot be more than 30!");
 
         }
