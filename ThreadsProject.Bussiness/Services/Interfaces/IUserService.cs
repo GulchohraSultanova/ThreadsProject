@@ -17,6 +17,7 @@ namespace ThreadsProject.Bussiness.Services.Interfaces
         Task<UsersGetDto> GetUserByIdAsync(string userId);
         Task EditUserAsync(string userId, UserEditDto userEditDto);
         Task DeleteUserAsync(string userId);
+        Task<UsersGetDto> GetUserByUsernameAsync(string username);
 
 
 

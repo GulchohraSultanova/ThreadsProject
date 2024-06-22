@@ -14,13 +14,14 @@ namespace ThreadsProject.Bussiness.Profilies
         public  PostMapProfilies()
         {
             CreateMap<Post, PostGetDto>()
-                .ForMember(dest => dest.Images, opt => opt.MapFrom(src => src.Images.Select(i => i.ImageUrl).ToList()));
+                .ForMember(dest => dest.Images, opt => opt.MapFrom(src => src.Images.Select(i => i.ImageUrl).ToList()))
+                 .ForMember(dest => dest.Tags, opt => opt.MapFrom(src => src.PostTags.Select(pt => pt.Tag.Name).ToList())); ;
 
             CreateMap<CreatePostDto, Post>()
-                .ForMember(dest => dest.Images, opt => opt.MapFrom(src => src.Images != null ? src.Images.Select(i => new PostImage { ImageUrl = i }).ToList() : new List<PostImage>()));
+                .ForMember(dest => dest.Images, opt => opt.MapFrom(src => src.Images != null ? src.Images.Select(i => new PostImage { ImageUrl = i }).ToList() : new List<PostImage>()))
+                .ForMember(dest => dest.PostTags, opt => opt.Ignore()); 
 
-            CreateMap<UpdatePostDto, Post>()
-                .ForMember(dest => dest.Images, opt => opt.MapFrom(src => src.Images != null ? src.Images.Select(i => new PostImage { ImageUrl = i }).ToList() : new List<PostImage>()));
+          
         }
     }
 }

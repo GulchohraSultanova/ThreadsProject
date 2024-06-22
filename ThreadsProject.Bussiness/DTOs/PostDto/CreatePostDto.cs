@@ -12,6 +12,7 @@ namespace ThreadsProject.Bussiness.DTOs.PostDto
     {
         public string Content { get; set; }
         public List<string> ? Images { get; set; } = new List<string>();
+        public List<int> TagIds { get; set; }
     }
     public class CreatePostDtoValidation:AbstractValidator<CreatePostDto>
     { 

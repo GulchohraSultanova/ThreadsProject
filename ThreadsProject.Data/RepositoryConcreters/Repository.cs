@@ -86,6 +86,17 @@ namespace ThreadsProject.Data.RepositoryConcreters
                 throw new GlobalAppException($"An error occurred while getting the {typeof(T).Name.ToLower()} by condition.", ex);
             }
         }
-      
+        public async Task<T> GetByIdAsync(int id)
+        {
+            try
+            {
+                return await _context.Set<T>().FindAsync(id);
+            }
+            catch (Exception ex)
+            {
+                throw new GlobalAppException($"An error occurred while getting the {typeof(T).Name.ToLower()} by ID.", ex);
+            }
+        }
+
     }
 }

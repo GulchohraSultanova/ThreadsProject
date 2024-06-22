@@ -7,6 +7,7 @@ using ThreadsProject.Bussiness.ExternalServices.Interfaces;
 
 using ThreadsProject.Bussiness.Services.Implementations;
 using ThreadsProject.Bussiness.Services.Interfaces;
+using ThreadsProject.Core.Entities;
 using ThreadsProject.Core.RepositoryAbstracts;
 using ThreadsProject.Data.RepositoryConcreters;
 using YourApiProject.Filters;
@@ -25,7 +26,13 @@ namespace ThreadsProject.Bussiness
             services.AddScoped<CustomValidationFilter>();
          
             services.AddScoped<IPostService, PostService>();
+            services.AddScoped<ITagService, TagService>();
+
             services.AddScoped<IPostRepository,PostRepository>();
+            services.AddScoped<IRepository<Tag>, Repository<Tag>>();
+            services.AddScoped<ITagRepository,TagRepository>();
+         
+           
         }
     }
 }

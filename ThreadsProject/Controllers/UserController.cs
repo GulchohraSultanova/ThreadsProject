@@ -337,6 +337,38 @@ namespace ThreadsProject.Controllers
                 });
             }
         }
+        [HttpGet("username")]
+        public async Task<IActionResult> GetUserByUsername(string username)
+        {
+            try
+            {
+                var user = await _userService.GetUserByUsernameAsync(username);
+                return Ok(new
+                {
+                    StatusCode = StatusCodes.Status200OK,
+                    Data = user
+                });
+            }
+            catch (GlobalAppException ex)
+            {
+                _logger.LogError(ex, ex.Message);
+                return BadRequest(new
+                {
+                    StatusCode = StatusCodes.Status400BadRequest,
+                    Error = ex.Message
+                });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An unexpected error occurred while retrieving the user by username");
+                return StatusCode(StatusCodes.Status500InternalServerError, new
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError,
+                    Error = "An unexpected error occurred. Please try again later."
+                });
+            }
+        }
+
 
     }
 }

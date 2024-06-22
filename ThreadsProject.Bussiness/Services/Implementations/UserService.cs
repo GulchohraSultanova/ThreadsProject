@@ -287,6 +287,33 @@ namespace ThreadsProject.Bussiness.Services.Implementations
                 throw new GlobalAppException("An unexpected error occurred while deleting the user", ex);
             }
         }
+        public async Task<UsersGetDto> GetUserByUsernameAsync(string username)
+        {
+            try
+            {
+                var user = await _userManager.Users
+                    .Where(u => u.UserName == username && !u.IsDeleted)
+                    .FirstOrDefaultAsync();
+
+                if (user == null)
+                {
+                    throw new GlobalAppException("User not found.");
+                }
+
+                var userDto = _mapper.Map<UsersGetDto>(user);
+                userDto.ImgUrl = user.ImgUrl;
+                userDto.Bio = user.Bio;
+                userDto.IsPublic = user.IsPublic;
+
+                return userDto;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while retrieving the user by username");
+                throw new GlobalAppException("User not found!", ex);
+            }
+        }
+
 
     }
 }

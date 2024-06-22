@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 using ThreadsProject.Bussiness.DTOs.PostDto;
 using ThreadsProject.Bussiness.Services.Interfaces;
@@ -17,13 +16,14 @@ namespace ThreadsProject.Bussiness.Services.Implementations
     {
         private readonly IPostRepository _postRepository;
         private readonly IMapper _mapper;
+        private readonly ITagRepository _tagRepository;
 
-        public PostService(IPostRepository postRepository, IMapper mapper)
+        public PostService(IPostRepository postRepository, IMapper mapper, ITagRepository tagRepository)
         {
             _postRepository = postRepository;
             _mapper = mapper;
+            _tagRepository = tagRepository;
         }
-
 
         public async Task AddPostAsync(CreatePostDto createPostDto, string userId)
         {
@@ -31,13 +31,25 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             {
                 throw new InvalidOperationException("A post can have a maximum of 4 images.");
             }
+
+            var post = _mapper.Map<Post>(createPostDto);
+            post.UserId = userId;
+            post.CreatedDate = DateTime.UtcNow;
+
+            if (createPostDto.TagIds != null && createPostDto.TagIds.Any())
+            {
+                foreach (var tagId in createPostDto.TagIds)
+                {
+                    var tag = await _tagRepository.GetByIdAsync(tagId);
+                    if (tag != null)
+                    {
+                        post.PostTags.Add(new PostTag { TagId = tagId });
+                    }
+                }
+            }
+
             try
             {
-               
-                var post = _mapper.Map<Post>(createPostDto);
-                post.UserId = userId;
-                post.CreatedDate = DateTime.UtcNow;
-
                 await _postRepository.AddAsync(post);
             }
             catch (Exception ex)
@@ -50,7 +62,7 @@ namespace ThreadsProject.Bussiness.Services.Implementations
         {
             try
             {
-                var post = await _postRepository.GetAsync(p => p.Id == id && p.UserId == userId);
+                var post = await _postRepository.GetPostWithTagsAndImagesAsync(p => p.Id == id && p.UserId == userId);
                 if (post == null)
                 {
                     throw new GlobalAppException("Post not found or user not authorized.");
@@ -68,7 +80,7 @@ namespace ThreadsProject.Bussiness.Services.Implementations
         {
             try
             {
-                var posts = await _postRepository.GetAllAsync(filter, includes);
+                var posts = await _postRepository.GetAllPostsWithTagsAndImagesAsync(filter);
                 return posts.Select(post => _mapper.Map<PostGetDto>(post)).AsQueryable();
             }
             catch (Exception ex)
@@ -82,8 +94,8 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             try
             {
                 var post = filter != null
-                    ? await _postRepository.GetAsync(filter, includes)
-                    : await _postRepository.GetAsync(p => true, includes); // Default filter to return first item
+                    ? await _postRepository.GetPostWithTagsAndImagesAsync(filter)
+                    : await _postRepository.GetPostWithTagsAndImagesAsync(p => true);
 
                 return _mapper.Map<PostGetDto>(post);
             }
@@ -92,7 +104,5 @@ namespace ThreadsProject.Bussiness.Services.Implementations
                 throw new GlobalAppException("An error occurred while getting the post by condition.", ex);
             }
         }
-
-       
     }
 }
