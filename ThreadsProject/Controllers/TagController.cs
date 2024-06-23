@@ -95,5 +95,36 @@ namespace ThreadsProject.Controllers
                 });
             }
         }
+        [HttpDelete("delete/{id}")]
+        public async Task<IActionResult> DeleteTag(int id)
+        {
+            try
+            {
+                await _tagService.DeleteTagAsync(id);
+                return Ok(new
+                {
+                    StatusCode = StatusCodes.Status200OK,
+                    Message = "Tag deleted successfully."
+                });
+            }
+            catch (GlobalAppException ex)
+            {
+                _logger.LogError(ex, ex.Message);
+                return BadRequest(new
+                {
+                    StatusCode = StatusCodes.Status400BadRequest,
+                    Error = ex.Message
+                });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An unexpected error occurred while deleting the tag");
+                return StatusCode(StatusCodes.Status500InternalServerError, new
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError,
+                    Error = "An unexpected error occurred. Please try again later."
+                });
+            }
+        }
     }
 }

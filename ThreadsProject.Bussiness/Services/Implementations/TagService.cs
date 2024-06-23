@@ -12,10 +12,10 @@ namespace ThreadsProject.Bussiness.Services.Implementations
 {
     public class TagService : ITagService
     {
-        private readonly IRepository<Tag> _tagRepository;
+        private readonly ITagRepository _tagRepository;
         private readonly IMapper _mapper;
 
-        public TagService(IRepository<Tag> tagRepository, IMapper mapper)
+        public TagService(ITagRepository tagRepository, IMapper mapper)
         {
             _tagRepository = tagRepository;
             _mapper = mapper;
@@ -67,5 +67,24 @@ namespace ThreadsProject.Bussiness.Services.Implementations
                 throw new GlobalAppException("An error occurred while getting the tag by ID.", ex);
             }
         }
+        public async Task DeleteTagAsync(int id)
+        {
+            try
+            {
+                var tag = await _tagRepository.GetByIdAsync(id);
+                if (tag == null)
+                {
+                    throw new GlobalAppException("Tag not found.");
+                }
+
+                await _tagRepository.DeleteAsync(tag);
+            }
+            catch (Exception ex)
+            {
+                throw new GlobalAppException("An error occurred while deleting the tag.", ex);
+            }
+        }
+
     }
+
 }

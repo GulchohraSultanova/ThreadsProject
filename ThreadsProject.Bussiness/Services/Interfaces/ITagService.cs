@@ -12,5 +12,6 @@ namespace ThreadsProject.Bussiness.Services.Interfaces
         Task AddTagAsync(CreateTagDto createTagDto);
         Task<IEnumerable<TagGetDto>> GetAllTagsAsync();
         Task<TagGetDto> GetTagByIdAsync(int id);
+        Task DeleteTagAsync(int id);
     }
 }

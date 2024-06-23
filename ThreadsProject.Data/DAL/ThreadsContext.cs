@@ -18,7 +18,7 @@ namespace ThreadsProject.Data.DAL
         public DbSet<PostImage> PostImages { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<PostTag> PostTags { get; set; }
-        public DbSet<Request> Requests { get; set; }
+        public DbSet<FollowRequest> Requests { get; set; }
         public ThreadsContext(DbContextOptions<ThreadsContext> options) : base(options)
         {
         }

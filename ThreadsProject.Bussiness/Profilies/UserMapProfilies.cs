@@ -22,13 +22,14 @@ namespace ThreadsProject.Bussiness.Profilies
                 .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.UserName));
             CreateMap<RegisterDto, User>().ReverseMap();
             CreateMap<User, UsersGetDto>()
-           
              .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.UserName))
-             .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email))
+             .ForMember(dest => dest.IsVerified, opt => opt.MapFrom(src => src.IsVerified))
              .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
-             .ForMember(dest => dest.Surname, opt => opt.MapFrom(src => src.Surname));
+             .ForMember(dest => dest.Surname, opt => opt.MapFrom(src => src.Surname))
+             .ForMember(dest => dest.Followers, opt => opt.MapFrom(src => src.Followers))
+            .ForMember(dest => dest.Followings, opt => opt.MapFrom(src => src.Following));
         }
     }
-    }
+}
 
 

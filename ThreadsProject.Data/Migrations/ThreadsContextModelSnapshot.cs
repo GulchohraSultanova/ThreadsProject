@@ -188,6 +188,36 @@ namespace ThreadsProject.Data.Migrations
                     b.ToTable("Comments");
                 });
 
+            modelBuilder.Entity("ThreadsProject.Core.Entities.FollowRequest", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<string>("ReceiverId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("SenderId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ReceiverId");
+
+                    b.HasIndex("SenderId");
+
+                    b.ToTable("Requests");
+                });
+
             modelBuilder.Entity("ThreadsProject.Core.Entities.Follower", b =>
                 {
                     b.Property<int>("Id")
@@ -235,19 +265,15 @@ namespace ThreadsProject.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("FollowingUserId1")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("FollowingUserId");
 
-                    b.HasIndex("FollowingUserId1");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Followings");
                 });
@@ -374,36 +400,6 @@ namespace ThreadsProject.Data.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Reposts");
-                });
-
-            modelBuilder.Entity("ThreadsProject.Core.Entities.Request", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreatedDate")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValueSql("GETDATE()");
-
-                    b.Property<string>("ReceiverId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("SenderId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ReceiverId");
-
-                    b.HasIndex("SenderId");
-
-                    b.ToTable("Requests");
                 });
 
             modelBuilder.Entity("ThreadsProject.Core.Entities.Tag", b =>
@@ -643,12 +639,31 @@ namespace ThreadsProject.Data.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("ThreadsProject.Core.Entities.FollowRequest", b =>
+                {
+                    b.HasOne("ThreadsProject.Core.Entities.User", "Receiver")
+                        .WithMany("ReceivedRequests")
+                        .HasForeignKey("ReceiverId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("ThreadsProject.Core.Entities.User", "Sender")
+                        .WithMany("SentRequests")
+                        .HasForeignKey("SenderId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Receiver");
+
+                    b.Navigation("Sender");
+                });
+
             modelBuilder.Entity("ThreadsProject.Core.Entities.Follower", b =>
                 {
                     b.HasOne("ThreadsProject.Core.Entities.User", "FollowerUser")
                         .WithMany()
                         .HasForeignKey("FollowerUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("ThreadsProject.Core.Entities.User", "User")
@@ -664,16 +679,16 @@ namespace ThreadsProject.Data.Migrations
 
             modelBuilder.Entity("ThreadsProject.Core.Entities.Following", b =>
                 {
-                    b.HasOne("ThreadsProject.Core.Entities.User", "User")
-                        .WithMany("Following")
+                    b.HasOne("ThreadsProject.Core.Entities.User", "FollowingUser")
+                        .WithMany()
                         .HasForeignKey("FollowingUserId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("ThreadsProject.Core.Entities.User", "FollowingUser")
-                        .WithMany()
-                        .HasForeignKey("FollowingUserId1")
-                        .OnDelete(DeleteBehavior.Cascade)
+                    b.HasOne("ThreadsProject.Core.Entities.User", "User")
+                        .WithMany("Following")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("FollowingUser");
@@ -760,25 +775,6 @@ namespace ThreadsProject.Data.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ThreadsProject.Core.Entities.Request", b =>
-                {
-                    b.HasOne("ThreadsProject.Core.Entities.User", "Receiver")
-                        .WithMany("ReceivedRequests")
-                        .HasForeignKey("ReceiverId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("ThreadsProject.Core.Entities.User", "Sender")
-                        .WithMany("SentRequests")
-                        .HasForeignKey("SenderId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Receiver");
-
-                    b.Navigation("Sender");
-                });
-
             modelBuilder.Entity("ThreadsProject.Core.Entities.UserAction", b =>
                 {
                     b.HasOne("ThreadsProject.Core.Entities.Post", "Post")
@@ -786,7 +782,7 @@ namespace ThreadsProject.Data.Migrations
                         .HasForeignKey("PostId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("ThreadsProject.Core.Entities.Request", "Request")
+                    b.HasOne("ThreadsProject.Core.Entities.FollowRequest", "Request")
                         .WithMany("Actions")
                         .HasForeignKey("RequestId")
                         .OnDelete(DeleteBehavior.Restrict);
@@ -804,6 +800,11 @@ namespace ThreadsProject.Data.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("ThreadsProject.Core.Entities.FollowRequest", b =>
+                {
+                    b.Navigation("Actions");
+                });
+
             modelBuilder.Entity("ThreadsProject.Core.Entities.Post", b =>
                 {
                     b.Navigation("Actions");
@@ -817,11 +818,6 @@ namespace ThreadsProject.Data.Migrations
                     b.Navigation("PostTags");
 
                     b.Navigation("Reposts");
-                });
-
-            modelBuilder.Entity("ThreadsProject.Core.Entities.Request", b =>
-                {
-                    b.Navigation("Actions");
                 });
 
             modelBuilder.Entity("ThreadsProject.Core.Entities.Tag", b =>

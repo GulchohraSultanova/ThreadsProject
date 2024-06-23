@@ -9,12 +9,12 @@ using ThreadsProject.Core.Entities;
 
 namespace ThreadsProject.Bussiness.Services.Interfaces
 {
-    public  interface  IPostService
+    public interface IPostService
     {
         Task<IQueryable<PostGetDto>> GetAllPostsAsync(Expression<Func<Post, bool>>? filter = null, params string[] includes);
         Task<PostGetDto> GetPostAsync(Expression<Func<Post, bool>>? filter = null, params string[] includes);
         Task AddPostAsync(CreatePostDto createPostDto, string userId);
-     
+        Task<IQueryable<PostGetDto>> GetUserPostsAsync(string userId);
         Task DeletePostAsync(int id, string userId);
     }
 }

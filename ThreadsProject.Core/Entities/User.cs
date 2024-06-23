@@ -26,8 +26,8 @@ namespace ThreadsProject.Core.Entities
         public virtual ICollection<Following> Following { get; set; } = new List<Following>();
         public virtual ICollection<UserAction> Actions { get; set; }= new List<UserAction>();
         public virtual ICollection<Repost> Reposts { get; set; } = new List<Repost>();
-        public virtual ICollection<Request> SentRequests { get; set; }= new List<Request>();
-        public virtual ICollection<Request> ReceivedRequests { get; set; }= new List<Request>();
+        public virtual ICollection<FollowRequest> SentRequests { get; set; }= new List<FollowRequest>();
+        public virtual ICollection<FollowRequest> ReceivedRequests { get; set; }= new List<FollowRequest>();
     }
 
 }

@@ -13,6 +13,7 @@ using System.Linq;
 using ThreadsProject.Bussiness.ExternalServices.Interfaces;
 using ThreadsProject.Bussiness.Services.Interfaces;
 using ThreadsProject.Data.DAL;
+using ThreadsProject.Bussiness.DTOs.FollowsDto;
 
 namespace ThreadsProject.Bussiness.Services.Implementations
 {
@@ -96,7 +97,12 @@ namespace ThreadsProject.Bussiness.Services.Implementations
 
         public async Task<IEnumerable<UsersGetDto>> GetAllUsersAsync(Expression<Func<User, bool>>? filter = null, params string[] includes)
         {
-            IQueryable<User> query = _context.Users.Where(u => !u.IsDeleted);
+            IQueryable<User> query = _context.Users
+                .Include(u => u.Followers)
+                    .ThenInclude(f => f.FollowerUser)
+                .Include(u => u.Following)
+                    .ThenInclude(f => f.FollowingUser)
+                .Where(u => !u.IsDeleted);
 
             if (filter != null)
             {
@@ -113,26 +119,31 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             {
                 var userDto = _mapper.Map<UsersGetDto>(user);
                 userDto.ImgUrl = user.ImgUrl;
+                userDto.Followers = _mapper.Map<List<FollowDto>>(user.Followers);
+                userDto.Followings = _mapper.Map<List<FollowDto>>(user.Following);
                 return userDto;
             });
         }
+
 
 
         public async Task<UsersGetDto> GetUserByIdAsync(string userId)
         {
             try
             {
-                var user = await _userManager.FindByIdAsync(userId);
-                if (user == null || user.IsDeleted)
+                var user = await _userManager.Users
+                    .Include(u => u.Followers)
+                        .ThenInclude(f => f.FollowerUser)
+                    .Include(u => u.Following)
+                        .ThenInclude(f => f.FollowingUser)
+                    .FirstOrDefaultAsync(u => u.Id == userId && !u.IsDeleted);
+
+                if (user == null)
                 {
                     throw new GlobalAppException("User not found");
                 }
 
                 var userDto = _mapper.Map<UsersGetDto>(user);
-                userDto.ImgUrl = user.ImgUrl;
-                userDto.Bio = user.Bio;
-                userDto.IsPublic = user.IsPublic;
-
                 return userDto;
             }
             catch (Exception ex)
@@ -141,6 +152,7 @@ namespace ThreadsProject.Bussiness.Services.Implementations
                 throw new GlobalAppException("An unexpected error occurred while retrieving the user", ex);
             }
         }
+
 
         public async Task<TokenResponseDto> LoginAsync(LoginDto dto)
         {
@@ -219,6 +231,7 @@ namespace ThreadsProject.Bussiness.Services.Implementations
                 user.Bio = userEditDto.Bio;
                 user.IsPublic = userEditDto.IsPublic;
                 user.ImgUrl = userEditDto.ImgUrl;
+               
 
                 var result = await _userManager.UpdateAsync(user);
                 if (!result.Succeeded)
@@ -292,8 +305,11 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             try
             {
                 var user = await _userManager.Users
-                    .Where(u => u.UserName == username && !u.IsDeleted)
-                    .FirstOrDefaultAsync();
+                    .Include(u => u.Followers)
+                        .ThenInclude(f => f.FollowerUser)
+                    .Include(u => u.Following)
+                        .ThenInclude(f => f.FollowingUser)
+                    .FirstOrDefaultAsync(u => u.UserName == username && !u.IsDeleted);
 
                 if (user == null)
                 {
@@ -301,10 +317,6 @@ namespace ThreadsProject.Bussiness.Services.Implementations
                 }
 
                 var userDto = _mapper.Map<UsersGetDto>(user);
-                userDto.ImgUrl = user.ImgUrl;
-                userDto.Bio = user.Bio;
-                userDto.IsPublic = user.IsPublic;
-
                 return userDto;
             }
             catch (Exception ex)
@@ -313,6 +325,7 @@ namespace ThreadsProject.Bussiness.Services.Implementations
                 throw new GlobalAppException("User not found!", ex);
             }
         }
+
 
 
     }

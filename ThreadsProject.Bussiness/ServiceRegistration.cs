@@ -29,8 +29,12 @@ namespace ThreadsProject.Bussiness
             services.AddScoped<ITagService, TagService>();
 
             services.AddScoped<IPostRepository,PostRepository>();
-            services.AddScoped<IRepository<Tag>, Repository<Tag>>();
+            services.AddScoped<IFollowerRepository,FollowerRepository>();
             services.AddScoped<ITagRepository,TagRepository>();
+            services.AddScoped<IRequestRepository, RequestRepository>();
+            services.AddScoped<IFollowingRepository,FollowingRepository>();
+            services.AddScoped<IFollowService,FollowService>();
+
          
            
         }

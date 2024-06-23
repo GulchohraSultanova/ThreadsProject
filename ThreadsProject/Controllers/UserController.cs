@@ -129,6 +129,7 @@ namespace ThreadsProject.Controllers
         }
 
         [HttpGet("getAll")]
+        [Authorize]
         public async Task<IActionResult> GetAllUsers()
         {
             try

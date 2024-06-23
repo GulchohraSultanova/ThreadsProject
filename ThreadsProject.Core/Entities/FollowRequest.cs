@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ThreadsProject.Core.Entities
 {
-   public  class Request
+   public  class FollowRequest
     {
         public int Id { get; set; }
         public string SenderId { get; set; }

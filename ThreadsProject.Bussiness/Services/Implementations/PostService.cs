@@ -80,7 +80,7 @@ namespace ThreadsProject.Bussiness.Services.Implementations
         {
             try
             {
-                var posts = await _postRepository.GetAllPostsWithTagsAndImagesAsync(filter);
+                var posts = await _postRepository.GetAllPostsWithTagsAndImagesAsync(filter != null ? filter : p => p.User.IsDeleted == false);
                 return posts.Select(post => _mapper.Map<PostGetDto>(post)).AsQueryable();
             }
             catch (Exception ex)
@@ -102,6 +102,19 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             catch (Exception ex)
             {
                 throw new GlobalAppException("An error occurred while getting the post by condition.", ex);
+            }
+        }
+
+        public async Task<IQueryable<PostGetDto>> GetUserPostsAsync(string userId)
+        {
+            try
+            {
+                var posts = await _postRepository.GetAllPostsWithTagsAndImagesAsync(p => p.UserId == userId && p.User.IsDeleted == false);
+                return posts.Select(post => _mapper.Map<PostGetDto>(post)).AsQueryable();
+            }
+            catch (Exception ex)
+            {
+                throw new GlobalAppException("An error occurred while getting the user posts.", ex);
             }
         }
     }
