@@ -15,7 +15,9 @@ namespace ThreadsProject.Bussiness.Profilies
         {
             CreateMap<Post, PostGetDto>()
                 .ForMember(dest => dest.Images, opt => opt.MapFrom(src => src.Images.Select(i => i.ImageUrl).ToList()))
-                 .ForMember(dest => dest.Tags, opt => opt.MapFrom(src => src.PostTags.Select(pt => pt.Tag.Name).ToList())); ;
+                 .ForMember(dest => dest.Tags, opt => opt.MapFrom(src => src.PostTags.Select(pt => pt.Tag.Name).ToList()))
+                 .ForMember(dest => dest.Likes, opt => opt.MapFrom(src => src.Likes.Select(l => l.User.UserName).ToList()));
+
 
             CreateMap<CreatePostDto, Post>()
                 .ForMember(dest => dest.Images, opt => opt.MapFrom(src => src.Images != null ? src.Images.Select(i => new PostImage { ImageUrl = i }).ToList() : new List<PostImage>()))

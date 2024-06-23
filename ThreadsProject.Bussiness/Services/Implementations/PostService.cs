@@ -80,7 +80,7 @@ namespace ThreadsProject.Bussiness.Services.Implementations
         {
             try
             {
-                var posts = await _postRepository.GetAllPostsWithTagsAndImagesAsync(filter != null ? filter : p => p.User.IsDeleted == false);
+                var posts = await _postRepository.GetAllPostsWithTagsAndImagesAsync(filter ?? (p => p.User.IsDeleted == false), includes);
                 return posts.Select(post => _mapper.Map<PostGetDto>(post)).AsQueryable();
             }
             catch (Exception ex)
@@ -94,8 +94,8 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             try
             {
                 var post = filter != null
-                    ? await _postRepository.GetPostWithTagsAndImagesAsync(filter)
-                    : await _postRepository.GetPostWithTagsAndImagesAsync(p => true);
+                    ? await _postRepository.GetPostWithTagsAndImagesAsync(filter, includes)
+                    : await _postRepository.GetPostWithTagsAndImagesAsync(p => true, includes);
 
                 return _mapper.Map<PostGetDto>(post);
             }

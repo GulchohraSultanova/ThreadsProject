@@ -13,5 +13,6 @@ namespace ThreadsProject.Bussiness.DTOs.PostDto
         public DateTime CreatedDate { get; set; }
         public List<string> Images { get; set; } = new List<string>();
         public List<string> Tags { get; set; } = new List<string>();
+        public List<string> Likes { get; set; } = new List<string>();
     }
 }

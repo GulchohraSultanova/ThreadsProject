@@ -27,14 +27,18 @@ namespace ThreadsProject.Bussiness
          
             services.AddScoped<IPostService, PostService>();
             services.AddScoped<ITagService, TagService>();
+            services.AddScoped<IFollowService, FollowService>();
+            services.AddScoped<ILikeService, LikeService>();
+
 
             services.AddScoped<IPostRepository,PostRepository>();
             services.AddScoped<IFollowerRepository,FollowerRepository>();
             services.AddScoped<ITagRepository,TagRepository>();
             services.AddScoped<IRequestRepository, RequestRepository>();
             services.AddScoped<IFollowingRepository,FollowingRepository>();
-            services.AddScoped<IFollowService,FollowService>();
-
+            services.AddScoped<ILikeRepository,LikeRepository>();
+            
+       
          
            
         }

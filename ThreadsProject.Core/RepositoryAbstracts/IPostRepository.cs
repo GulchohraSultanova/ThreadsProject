@@ -10,7 +10,7 @@ namespace ThreadsProject.Core.RepositoryAbstracts
 {
     public interface IPostRepository : IRepository<Post>
     {
-        Task<Post> GetPostWithTagsAndImagesAsync(Expression<Func<Post, bool>> filter);
-        Task<IQueryable<Post>> GetAllPostsWithTagsAndImagesAsync(Expression<Func<Post, bool>>? filter = null);
+        Task<IQueryable<Post>> GetAllPostsWithTagsAndImagesAsync(Expression<Func<Post, bool>> filter, params string[] includes);
+        Task<Post> GetPostWithTagsAndImagesAsync(Expression<Func<Post, bool>> filter, params string[] includes);
     }
 }
