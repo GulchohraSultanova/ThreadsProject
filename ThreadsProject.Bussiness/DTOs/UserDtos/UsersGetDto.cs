@@ -11,6 +11,7 @@ namespace ThreadsProject.Bussiness.DTOs.UserDtos
     public class UsersGetDto
     {
      
+        public string UserId { get; set; }
         public string UserName { get; set; }
         public bool IsVerified { get; set; }
         public string Name { get; set; }

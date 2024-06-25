@@ -29,6 +29,9 @@ namespace ThreadsProject.Bussiness
             services.AddScoped<ITagService, TagService>();
             services.AddScoped<IFollowService, FollowService>();
             services.AddScoped<ILikeService, LikeService>();
+            services.AddScoped<ICommentService, CommentService>();
+            services.AddScoped<IRepostService, RepostService>();
+           
 
 
             services.AddScoped<IPostRepository,PostRepository>();
@@ -37,10 +40,14 @@ namespace ThreadsProject.Bussiness
             services.AddScoped<IRequestRepository, RequestRepository>();
             services.AddScoped<IFollowingRepository,FollowingRepository>();
             services.AddScoped<ILikeRepository,LikeRepository>();
-            
-       
-         
-           
+            services.AddScoped<ICommentRepository, CommentRepository>();
+            services.AddScoped<ICommentLikeRepository, CommentLikeRepository>();
+            services.AddScoped<IRepostRepository, RepostRepository>();
+            services.AddSignalR();
+
+
+
+
         }
     }
 }

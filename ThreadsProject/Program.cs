@@ -1,4 +1,4 @@
-using FluentValidation.AspNetCore;
+﻿using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -12,6 +12,7 @@ using ThreadsProject.Core.GlobalException;
 using ThreadsProject.Bussiness.Profilies;
 using ThreadsProject.Core.Entities;
 using ThreadsProject.Data.DAL;
+using ThreadsProject.Core.Hubs;  // SignalR Hub için ekleme
 using YourApiProject.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -116,6 +117,9 @@ builder.Services.Configure<DataProtectionTokenProviderOptions>(options =>
     options.TokenLifespan = TimeSpan.FromHours(24);
 });
 
+// SignalR Ekleme
+builder.Services.AddSignalR();
+
 var app = builder.Build();
 
 app.UseDeveloperExceptionPage();
@@ -131,5 +135,9 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapHub<LikeHub>("/likeHub");
+app.MapHub<CommentHub>("/commentHub");
+
 
 app.Run();

@@ -14,7 +14,7 @@ namespace ThreadsProject.Bussiness.DTOs.FollowsDto
         public string SenderUserName { get; set; }
         public string SenderSurname { get; set; }
         public string ImgUrl { get; set; }
-
+      
         public DateTime CreatedDate { get; set; }
     }
 }

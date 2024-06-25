@@ -22,6 +22,7 @@ namespace ThreadsProject.Bussiness.Profilies
                 .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.UserName));
             CreateMap<RegisterDto, User>().ReverseMap();
             CreateMap<User, UsersGetDto>()
+             .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.Id))
              .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.UserName))
              .ForMember(dest => dest.IsVerified, opt => opt.MapFrom(src => src.IsVerified))
              .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))

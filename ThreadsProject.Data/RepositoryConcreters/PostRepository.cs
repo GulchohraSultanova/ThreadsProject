@@ -20,7 +20,12 @@ namespace ThreadsProject.Data.RepositoryConcreters
 
         public async Task<IQueryable<Post>> GetAllPostsWithTagsAndImagesAsync(Expression<Func<Post, bool>> filter, params string[] includes)
         {
-            IQueryable<Post> query = _context.Posts.Include(p => p.User).Include(p => p.Images).Include(p => p.PostTags).ThenInclude(pt => pt.Tag).Include(p => p.Likes).ThenInclude(l => l.User);
+            IQueryable<Post> query = _context.Posts
+                .Include(p => p.User)
+                .Include(p => p.Images)
+                .Include(p => p.PostTags).ThenInclude(pt => pt.Tag)
+                .Include(p => p.Likes).ThenInclude(l => l.User)
+                .Include(p => p.Comments).ThenInclude(c => c.CommentLikes);
 
             if (filter != null)
             {
@@ -37,7 +42,12 @@ namespace ThreadsProject.Data.RepositoryConcreters
 
         public async Task<Post> GetPostWithTagsAndImagesAsync(Expression<Func<Post, bool>> filter, params string[] includes)
         {
-            IQueryable<Post> query = _context.Posts.Include(p => p.User).Include(p => p.Images).Include(p => p.PostTags).ThenInclude(pt => pt.Tag).Include(p => p.Likes).ThenInclude(l => l.User);
+            IQueryable<Post> query = _context.Posts
+                .Include(p => p.User)
+                .Include(p => p.Images)
+                .Include(p => p.PostTags).ThenInclude(pt => pt.Tag)
+                .Include(p => p.Likes).ThenInclude(l => l.User)
+                .Include(p => p.Comments).ThenInclude(c => c.CommentLikes);
 
             if (filter != null)
             {

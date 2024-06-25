@@ -1,13 +1,11 @@
 ﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Microsoft.AspNetCore.SignalR;
 using System.Threading.Tasks;
 using ThreadsProject.Bussiness.DTOs.LikesDto;
 using ThreadsProject.Bussiness.Services.Interfaces;
 using ThreadsProject.Core.Entities;
 using ThreadsProject.Core.GlobalException;
+using ThreadsProject.Core.Hubs;
 using ThreadsProject.Core.RepositoryAbstracts;
 
 namespace ThreadsProject.Bussiness.Services.Implementations
@@ -17,17 +15,27 @@ namespace ThreadsProject.Bussiness.Services.Implementations
         private readonly ILikeRepository _likeRepository;
         private readonly IPostRepository _postRepository;
         private readonly IUserService _userService;
+        private readonly IFollowerRepository _followerRepository;
         private readonly IMapper _mapper;
+        private readonly IHubContext<LikeHub> _likeHubContext;
 
-        public LikeService(ILikeRepository likeRepository, IPostRepository postRepository, IUserService userService, IMapper mapper)
+        public LikeService(
+            ILikeRepository likeRepository,
+            IPostRepository postRepository,
+            IUserService userService,
+            IFollowerRepository followerRepository,
+            IMapper mapper,
+            IHubContext<LikeHub> likeHubContext)
         {
             _likeRepository = likeRepository;
             _postRepository = postRepository;
             _userService = userService;
+            _followerRepository = followerRepository;
             _mapper = mapper;
+            _likeHubContext = likeHubContext;
         }
 
-        public async  Task LikePostAsync(int postId, string userId)
+        public async Task LikePostAsync(int postId, string userId)
         {
             var post = await _postRepository.GetByIdAsync(postId);
             if (post == null)
@@ -35,10 +43,23 @@ namespace ThreadsProject.Bussiness.Services.Implementations
                 throw new GlobalAppException("Post not found.");
             }
 
+            var postOwner = await _userService.GetUserByIdAsync(post.UserId);
+            if (postOwner == null)
+            {
+                throw new GlobalAppException("Post owner not found.");
+            }
+
             var user = await _userService.GetUserByIdAsync(userId);
             if (user == null)
             {
                 throw new GlobalAppException("User not found.");
+            }
+
+            // Takip kontrolü
+            var isFollowing = await _followerRepository.GetAsync(f => f.UserId == post.UserId && f.FollowerUserId == userId);
+            if (postOwner.IsPublic == false && isFollowing == null)
+            {
+                throw new GlobalAppException("You can only like posts from users you follow or public profiles.");
             }
 
             var existingLike = await _likeRepository.GetAsync(l => l.PostId == postId && l.UserId == userId);
@@ -56,6 +77,9 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             var like = _mapper.Map<Like>(likeDto);
 
             await _likeRepository.AddAsync(like);
+
+            // SignalR ile bildirim gönderme
+            await _likeHubContext.Clients.All.SendAsync("ReceiveLikeNotification", postId, userId);
         }
 
         public async Task UnlikePostAsync(int postId, string userId)
@@ -68,6 +92,8 @@ namespace ThreadsProject.Bussiness.Services.Implementations
 
             await _likeRepository.DeleteAsync(like);
 
+            // SignalR ile bildirim gönderme
+            await _likeHubContext.Clients.All.SendAsync("ReceiveUnlikeNotification", postId, userId);
         }
     }
 }

@@ -64,17 +64,31 @@ namespace ThreadsProject.Bussiness.Services.Implementations
                 throw new GlobalAppException("User not found.");
             }
 
+            // Zaten gönderilmiş bir istek var mı kontrol et
+            var existingRequest = await _requestRepository.GetAsync(r => r.SenderId == senderId && r.ReceiverId == receiverId);
+            if (existingRequest != null)
+            {
+                throw new GlobalAppException("A follow request to this user has already been sent and is pending.");
+            }
+
+            // Kullanıcı zaten takip ediliyor mu kontrol et
+            var existingFollowing = await _followingRepository.GetAsync(f => f.UserId == senderId && f.FollowingUserId == receiverId);
+            if (existingFollowing != null)
+            {
+                throw new GlobalAppException("You are already following this user.");
+            }
+
             if (receiver.IsPublic)
             {
                 await _followerRepository.AddAsync(new Follower { UserId = receiverId, FollowerUserId = senderId, CreatedDate = DateTime.UtcNow });
                 await _followingRepository.AddAsync(new Following { UserId = senderId, FollowingUserId = receiverId, CreatedDate = DateTime.UtcNow });
-                
             }
             else
             {
-                await _requestRepository.AddAsync(new FollowRequest { SenderId = senderId, ReceiverId = receiverId, CreatedDate = DateTime.UtcNow } );
+                await _requestRepository.AddAsync(new FollowRequest { SenderId = senderId, ReceiverId = receiverId, CreatedDate = DateTime.UtcNow });
             }
         }
+
 
         public async Task<IEnumerable<FollowDto>> GetFollowersAsync(string userId)
         {
@@ -137,5 +151,22 @@ namespace ThreadsProject.Bussiness.Services.Implementations
 
             await _followerRepository.DeleteAsync(follower);
         }
+        public async Task<IEnumerable<SentFollowRequestDto>> GetSentFollowRequestsAsync(string userId)
+        {
+            var sentRequests = await _requestRepository.GetAllAsync(r => r.SenderId == userId, "Receiver");
+            return _mapper.Map<IEnumerable<SentFollowRequestDto>>(sentRequests);
+        }
+        public async Task CancelFollowRequestAsync(string senderId, string receiverId)
+        {
+            var request = await _requestRepository.GetAsync(r => r.SenderId == senderId && r.ReceiverId == receiverId);
+
+            if (request == null)
+            {
+                throw new GlobalAppException("Follow request not found.");
+            }
+
+            await _requestRepository.DeleteAsync(request);
+        }
+
     }
 }

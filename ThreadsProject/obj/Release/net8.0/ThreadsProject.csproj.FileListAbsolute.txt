@@ -152,3 +152,4 @@ C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject\obj\Release\net8.0\Thr
 C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject\obj\Release\net8.0\ThreadsProject.genruntimeconfig.cache
 C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject\obj\Release\net8.0\ref\ThreadsProject.dll
 C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject\obj\Release\net8.0\ThreadsProject.sourcelink.json
+C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject\bin\Release\net8.0\System.Net.WebSockets.WebSocketProtocol.dll

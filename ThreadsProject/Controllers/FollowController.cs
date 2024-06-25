@@ -324,6 +324,89 @@ namespace ThreadsProject.Controllers
                 });
             }
         }
+        [HttpGet("sent-requests")]
+        [Authorize]
+        public async Task<IActionResult> GetSentFollowRequests()
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (userId == null)
+            {
+                return Unauthorized(new
+                {
+                    StatusCode = StatusCodes.Status401Unauthorized,
+                    Error = "Unauthorized"
+                });
+            }
+
+            try
+            {
+                var sentRequests = await _followService.GetSentFollowRequestsAsync(userId);
+                return Ok(new
+                {
+                    StatusCode = StatusCodes.Status200OK,
+                    Data = sentRequests
+                });
+            }
+            catch (GlobalAppException ex)
+            {
+                return BadRequest(new
+                {
+                    StatusCode = StatusCodes.Status400BadRequest,
+                    Error = ex.Message
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError,
+                    Error = "An unexpected error occurred. Please try again later."
+                });
+            }
+        }
+        [HttpDelete("cancel/{receiverId}")]
+        [Authorize]
+        public async Task<IActionResult> CancelFollowRequest(string receiverId)
+        {
+            var senderId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (senderId == null)
+            {
+                return Unauthorized(new
+                {
+                    StatusCode = StatusCodes.Status401Unauthorized,
+                    Error = "Unauthorized"
+                });
+            }
+
+            try
+            {
+                await _followService.CancelFollowRequestAsync(senderId, receiverId);
+                return Ok(new
+                {
+                    StatusCode = StatusCodes.Status200OK,
+                    Message = "Follow request cancelled successfully."
+                });
+            }
+            catch (GlobalAppException ex)
+            {
+                return BadRequest(new
+                {
+                    StatusCode = StatusCodes.Status400BadRequest,
+                    Error = ex.Message
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError,
+                    Error = "An unexpected error occurred. Please try again later."
+                });
+            }
+        }
+
+
+
 
     }
 }

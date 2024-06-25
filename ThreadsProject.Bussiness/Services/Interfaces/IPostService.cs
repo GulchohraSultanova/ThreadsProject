@@ -11,7 +11,8 @@ namespace ThreadsProject.Bussiness.Services.Interfaces
 {
     public interface IPostService
     {
-        Task<IQueryable<PostGetDto>> GetAllPostsAsync(Expression<Func<Post, bool>>? filter = null, params string[] includes);
+        Task<IQueryable<PostGetDto>> GetExplorePostsAsync();
+        Task<IQueryable<PostGetDto>> GetHomePostsAsync(string userId);
         Task<PostGetDto> GetPostAsync(Expression<Func<Post, bool>>? filter = null, params string[] includes);
         Task AddPostAsync(CreatePostDto createPostDto, string userId);
         Task<IQueryable<PostGetDto>> GetUserPostsAsync(string userId);

@@ -17,12 +17,24 @@ namespace ThreadsProject.Bussiness.Services.Implementations
         private readonly IPostRepository _postRepository;
         private readonly IMapper _mapper;
         private readonly ITagRepository _tagRepository;
+        private readonly ICommentRepository _commentRepository;
+        private readonly ILikeRepository _likeRepository;
+        private readonly IFollowerRepository _followerRepository;
 
-        public PostService(IPostRepository postRepository, IMapper mapper, ITagRepository tagRepository)
+        public PostService(
+            IPostRepository postRepository,
+            IMapper mapper,
+            ITagRepository tagRepository,
+            ICommentRepository commentRepository,
+            ILikeRepository likeRepository,
+            IFollowerRepository followerRepository)
         {
             _postRepository = postRepository;
             _mapper = mapper;
             _tagRepository = tagRepository;
+            _commentRepository = commentRepository;
+            _likeRepository = likeRepository;
+            _followerRepository = followerRepository;
         }
 
         public async Task AddPostAsync(CreatePostDto createPostDto, string userId)
@@ -62,7 +74,7 @@ namespace ThreadsProject.Bussiness.Services.Implementations
         {
             try
             {
-                var post = await _postRepository.GetPostWithTagsAndImagesAsync(p => p.Id == id && p.UserId == userId);
+                var post = await _postRepository.GetPostWithTagsAndImagesAsync(p => p.Id == id && p.UserId == userId, "Comments", "Comments.CommentLikes", "Likes", "User");
                 if (post == null)
                 {
                     throw new GlobalAppException("Post not found or user not authorized.");
@@ -76,16 +88,32 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             }
         }
 
-        public async Task<IQueryable<PostGetDto>> GetAllPostsAsync(Expression<Func<Post, bool>>? filter = null, params string[] includes)
+        public async Task<IQueryable<PostGetDto>> GetExplorePostsAsync()
         {
             try
             {
-                var posts = await _postRepository.GetAllPostsWithTagsAndImagesAsync(filter ?? (p => p.User.IsDeleted == false), includes);
+                var posts = await _postRepository.GetAllPostsWithTagsAndImagesAsync(p => p.User.IsPublic && !p.User.IsDeleted, "Comments", "Comments.CommentLikes", "Likes", "User");
                 return posts.Select(post => _mapper.Map<PostGetDto>(post)).AsQueryable();
             }
             catch (Exception ex)
             {
-                throw new GlobalAppException("An error occurred while getting all posts.", ex);
+                throw new GlobalAppException("An error occurred while getting explore posts.", ex);
+            }
+        }
+
+        public async Task<IQueryable<PostGetDto>> GetHomePostsAsync(string userId)
+        {
+            try
+            {
+                var followings = await _followerRepository.GetAllAsync(f => f.FollowerUserId == userId);
+                var followingIds = followings.Select(f => f.UserId).ToList();
+
+                var posts = await _postRepository.GetAllPostsWithTagsAndImagesAsync(p => followingIds.Contains(p.UserId) && !p.User.IsDeleted, "Comments", "Comments.CommentLikes", "Likes", "User");
+                return posts.Select(post => _mapper.Map<PostGetDto>(post)).AsQueryable();
+            }
+            catch (Exception ex)
+            {
+                throw new GlobalAppException("An error occurred while getting home posts.", ex);
             }
         }
 
@@ -109,7 +137,7 @@ namespace ThreadsProject.Bussiness.Services.Implementations
         {
             try
             {
-                var posts = await _postRepository.GetAllPostsWithTagsAndImagesAsync(p => p.UserId == userId && p.User.IsDeleted == false);
+                var posts = await _postRepository.GetAllPostsWithTagsAndImagesAsync(p => p.UserId == userId && !p.User.IsDeleted, "Comments", "Comments.CommentLikes", "Likes", "User");
                 return posts.Select(post => _mapper.Map<PostGetDto>(post)).AsQueryable();
             }
             catch (Exception ex)

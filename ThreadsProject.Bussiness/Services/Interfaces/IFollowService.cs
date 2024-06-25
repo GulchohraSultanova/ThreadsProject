@@ -17,5 +17,7 @@ namespace ThreadsProject.Bussiness.Services.Interfaces
         Task RejectFollowRequestAsync(int requestId);
         Task RemoveFollowerAsync(string userId, string followerId);
         Task RemoveFollowingAsync(string userId, string followerId);
+        Task<IEnumerable<SentFollowRequestDto>> GetSentFollowRequestsAsync(string userId);
+        Task CancelFollowRequestAsync(string senderId, string receiverId);
     }
 }

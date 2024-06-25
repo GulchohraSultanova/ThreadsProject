@@ -188,6 +188,33 @@ namespace ThreadsProject.Data.Migrations
                     b.ToTable("Comments");
                 });
 
+            modelBuilder.Entity("ThreadsProject.Core.Entities.CommentLike", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CommentId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CommentId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("CommentLikes");
+                });
+
             modelBuilder.Entity("ThreadsProject.Core.Entities.FollowRequest", b =>
                 {
                     b.Property<int>("Id")
@@ -631,10 +658,29 @@ namespace ThreadsProject.Data.Migrations
                     b.HasOne("ThreadsProject.Core.Entities.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Post");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ThreadsProject.Core.Entities.CommentLike", b =>
+                {
+                    b.HasOne("ThreadsProject.Core.Entities.Comment", "Comment")
+                        .WithMany("CommentLikes")
+                        .HasForeignKey("CommentId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("ThreadsProject.Core.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Comment");
 
                     b.Navigation("User");
                 });
@@ -798,6 +844,11 @@ namespace ThreadsProject.Data.Migrations
                     b.Navigation("Request");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ThreadsProject.Core.Entities.Comment", b =>
+                {
+                    b.Navigation("CommentLikes");
                 });
 
             modelBuilder.Entity("ThreadsProject.Core.Entities.FollowRequest", b =>

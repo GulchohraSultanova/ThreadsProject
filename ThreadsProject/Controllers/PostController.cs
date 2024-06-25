@@ -101,34 +101,33 @@ namespace ThreadsProject.Controllers
             }
         }
 
-        [HttpGet("allposts")]
-        public async Task<IActionResult> GetAllPosts()
+        [HttpGet("explore")]
+        public async Task<IActionResult> GetExplorePosts()
         {
-            try
+            var posts = await _postService.GetExplorePostsAsync();
+            return Ok(new
             {
-                var posts = await _postService.GetAllPostsAsync();
-                return Ok(new
-                {
-                    StatusCode = StatusCodes.Status200OK,
-                    Data = posts
-                });
-            }
-            catch (GlobalAppException ex)
+                StatusCode = StatusCodes.Status200OK,
+                Data = posts
+            });
+        }
+
+        [HttpGet("home")]
+        [Authorize]
+        public async Task<IActionResult> GetHomePosts()
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (userId == null)
             {
-                return BadRequest(new
-                {
-                    StatusCode = StatusCodes.Status400BadRequest,
-                    Error = ex.Message
-                });
+                return Unauthorized();
             }
-            catch (Exception ex)
+
+            var posts = await _postService.GetHomePostsAsync(userId);
+            return Ok(new
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, new
-                {
-                    StatusCode = StatusCodes.Status500InternalServerError,
-                    Error = "An unexpected error occurred. Please try again later."
-                });
-            }
+                StatusCode = StatusCodes.Status200OK,
+                Data = posts
+            });
         }
 
         [HttpGet("userposts")]

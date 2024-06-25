@@ -20,6 +20,12 @@ namespace ThreadsProject.Bussiness.Profilies
                 ForMember(dest => dest.SenderSurname, opt => opt.MapFrom(src => src.Sender.Surname))
                 .ForMember(dest => dest.ImgUrl, opt => opt.MapFrom(src => src.Sender.ImgUrl));
 
+            CreateMap<FollowRequest, SentFollowRequestDto>()
+            .ForMember(dest => dest.RequestId, opt => opt.MapFrom(src => src.Id))
+            .ForMember(dest => dest.ReceiverUserId, opt => opt.MapFrom(src => src.ReceiverId))
+            .ForMember(dest => dest.CreatedDate, opt => opt.MapFrom(src => src.CreatedDate));
+
+
             CreateMap<Follower, FollowDto>()
                 .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.FollowerUser.UserName))
                 .ForMember(dest=>dest.UserId,opt=>opt.MapFrom(src=>src.FollowerUser.Id))

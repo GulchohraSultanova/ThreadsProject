@@ -41,6 +41,7 @@ C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject\obj\Release\net8.0\Pub
 C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject\obj\Release\net8.0\PubTmp\Out\System.Drawing.Common.dll
 C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject\obj\Release\net8.0\PubTmp\Out\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject\obj\Release\net8.0\PubTmp\Out\System.Memory.Data.dll
+C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject\obj\Release\net8.0\PubTmp\Out\System.Net.WebSockets.WebSocketProtocol.dll
 C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject\obj\Release\net8.0\PubTmp\Out\System.Runtime.Caching.dll
 C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject\obj\Release\net8.0\PubTmp\Out\System.Security.Cryptography.ProtectedData.dll
 C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject\obj\Release\net8.0\PubTmp\Out\System.Security.Permissions.dll

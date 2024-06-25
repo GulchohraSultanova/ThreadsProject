@@ -19,6 +19,7 @@ namespace ThreadsProject.Data.DAL
         public DbSet<Tag> Tags { get; set; }
         public DbSet<PostTag> PostTags { get; set; }
         public DbSet<FollowRequest> Requests { get; set; }
+        public DbSet<CommentLike> CommentLikes { get; set; }
         public ThreadsContext(DbContextOptions<ThreadsContext> options) : base(options)
         {
         }
@@ -37,6 +38,7 @@ namespace ThreadsProject.Data.DAL
             builder.ApplyConfiguration(new PostTagConfiguration());
             builder.ApplyConfiguration(new RequestConfiguration());
             builder.ApplyConfiguration(new PostImageConfugration());
+            builder.ApplyConfiguration(new CommentLikeConfiguration());
 
         }
     }
