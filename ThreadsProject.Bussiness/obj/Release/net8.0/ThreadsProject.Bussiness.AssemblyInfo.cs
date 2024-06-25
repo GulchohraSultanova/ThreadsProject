@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ThreadsProject.Bussiness")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b72dda3e91169a1bdcceacc81d9812727dff4c35")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8aecb2e4ac97b7713b77180199a49a6c8b0a9079")]
 [assembly: System.Reflection.AssemblyProductAttribute("ThreadsProject.Bussiness")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ThreadsProject.Bussiness")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

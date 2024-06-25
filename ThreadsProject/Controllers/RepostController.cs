@@ -19,7 +19,7 @@ namespace ThreadsProject.API.Controllers
             _repostService = repostService;
         }
 
-        [HttpPost]
+        [HttpPost("create")]
         [Authorize]
         public async Task<IActionResult> AddRepost(RepostCreateDto repostCreateDto)
         {
@@ -60,7 +60,7 @@ namespace ThreadsProject.API.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("delete/{id}")]
         [Authorize]
         public async Task<IActionResult> RemoveRepost(int id)
         {
@@ -101,7 +101,7 @@ namespace ThreadsProject.API.Controllers
             }
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("repost/{id}")]
         public async Task<IActionResult> GetRepost(int id)
         {
             try
@@ -139,7 +139,7 @@ namespace ThreadsProject.API.Controllers
             }
         }
 
-        [HttpGet]
+        [HttpGet("userReposts")]
         public async Task<IActionResult> GetAllReposts()
         {
             try
@@ -168,5 +168,55 @@ namespace ThreadsProject.API.Controllers
                 });
             }
         }
+        [HttpGet("{userId}/reposts")]
+        [Authorize]
+        public async Task<IActionResult> GetRepostsByUserId(string userId)
+        {
+            var requesterId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (requesterId == null)
+            {
+                return Unauthorized(new
+                {
+                    StatusCode = StatusCodes.Status401Unauthorized,
+                    Error = "Unauthorized"
+                });
+            }
+
+            try
+            {
+                var reposts = await _repostService.GetRepostsByUserIdAsync(userId, requesterId);
+                if (!reposts.Any())
+                {
+                    return NotFound(new
+                    {
+                        StatusCode = StatusCodes.Status404NotFound,
+                        Error = "No reposts found for this user."
+                    });
+                }
+
+                return Ok(new
+                {
+                    StatusCode = StatusCodes.Status200OK,
+                    Data = reposts
+                });
+            }
+            catch (GlobalAppException ex)
+            {
+                return BadRequest(new
+                {
+                    StatusCode = StatusCodes.Status400BadRequest,
+                    Error = ex.Message
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError,
+                    Error = "An unexpected error occurred. Please try again later."
+                });
+            }
+        }
+
     }
 }

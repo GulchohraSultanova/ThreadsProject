@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ThreadsProject.Bussiness.DTOs.FollowsDto;
+using ThreadsProject.Bussiness.DTOs.PostDto;
+using ThreadsProject.Bussiness.DTOs.RepostDto;
 
 
 namespace ThreadsProject.Bussiness.DTOs.UserDtos
@@ -19,7 +21,9 @@ namespace ThreadsProject.Bussiness.DTOs.UserDtos
         public string ImgUrl { get; set; }  
         public string Bio {  get; set; }
         public bool IsPublic { get; set; } = true;
-        public List<FollowDto> Followers { get; set; } = new List<FollowDto>();
-        public List<FollowDto> Followings { get; set; } = new List<FollowDto>();
+        public DateTime CreatedTime { get; set; }
+        public ICollection<FollowDto> Followers { get; set; }
+        public ICollection<FollowDto> Followings { get; set; }
+  
     }
 }

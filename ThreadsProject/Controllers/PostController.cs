@@ -208,5 +208,46 @@ namespace ThreadsProject.Controllers
                 });
             }
         }
+
+        [HttpGet("user/{userId}/posts")]
+        [Authorize]
+        public async Task<IActionResult> GetPostsByUserId(string userId)
+        {
+            var requesterId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (requesterId == null)
+            {
+                return Unauthorized(new
+                {
+                    StatusCode = StatusCodes.Status401Unauthorized,
+                    Error = "Unauthorized"
+                });
+            }
+
+            try
+            {
+                var posts = await _postService.GetPostsByUserIdAsync(userId, requesterId);
+                return Ok(new
+                {
+                    StatusCode = StatusCodes.Status200OK,
+                    Data = posts
+                });
+            }
+            catch (GlobalAppException ex)
+            {
+                return BadRequest(new
+                {
+                    StatusCode = StatusCodes.Status400BadRequest,
+                    Error = ex.Message
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError,
+                    Error = "An unexpected error occurred. Please try again later."
+                });
+            }
+        }
     }
 }

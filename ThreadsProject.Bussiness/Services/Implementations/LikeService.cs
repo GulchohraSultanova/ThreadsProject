@@ -43,21 +43,15 @@ namespace ThreadsProject.Bussiness.Services.Implementations
                 throw new GlobalAppException("Post not found.");
             }
 
-            var postOwner = await _userService.GetUserByIdAsync(post.UserId);
-            if (postOwner == null)
-            {
-                throw new GlobalAppException("Post owner not found.");
-            }
-
             var user = await _userService.GetUserByIdAsync(userId);
             if (user == null)
             {
                 throw new GlobalAppException("User not found.");
             }
 
-            // Takip kontrolü
+            // Kullanıcı kendi postunu veya takip ettiği postları beğenebilir
             var isFollowing = await _followerRepository.GetAsync(f => f.UserId == post.UserId && f.FollowerUserId == userId);
-            if (postOwner.IsPublic == false && isFollowing == null)
+            if (post.UserId != userId && post.User.IsPublic == false && isFollowing == null)
             {
                 throw new GlobalAppException("You can only like posts from users you follow or public profiles.");
             }

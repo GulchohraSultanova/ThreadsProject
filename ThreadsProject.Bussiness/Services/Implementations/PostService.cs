@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +11,7 @@ using ThreadsProject.Bussiness.Services.Interfaces;
 using ThreadsProject.Core.Entities;
 using ThreadsProject.Core.GlobalException;
 using ThreadsProject.Core.RepositoryAbstracts;
+using ThreadsProject.Data.DAL;
 
 namespace ThreadsProject.Bussiness.Services.Implementations
 {
@@ -20,6 +23,8 @@ namespace ThreadsProject.Bussiness.Services.Implementations
         private readonly ICommentRepository _commentRepository;
         private readonly ILikeRepository _likeRepository;
         private readonly IFollowerRepository _followerRepository;
+        private readonly UserManager<User> _userManager;
+        private readonly ThreadsContext _context;
 
         public PostService(
             IPostRepository postRepository,
@@ -27,7 +32,9 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             ITagRepository tagRepository,
             ICommentRepository commentRepository,
             ILikeRepository likeRepository,
-            IFollowerRepository followerRepository)
+            IFollowerRepository followerRepository,
+            UserManager<User> userManager,
+            ThreadsContext context)
         {
             _postRepository = postRepository;
             _mapper = mapper;
@@ -35,6 +42,8 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             _commentRepository = commentRepository;
             _likeRepository = likeRepository;
             _followerRepository = followerRepository;
+            _userManager = userManager;
+            _context = context;
         }
 
         public async Task AddPostAsync(CreatePostDto createPostDto, string userId)
@@ -143,6 +152,40 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             catch (Exception ex)
             {
                 throw new GlobalAppException("An error occurred while getting the user posts.", ex);
+            }
+        }
+
+        public async Task<IQueryable<PostGetDto>> GetPostsByUserIdAsync(string userId, string requesterId)
+        {
+            try
+            {
+                var user = await _userManager.Users
+                    .Include(u => u.Followers)
+                    .FirstOrDefaultAsync(u => u.Id == userId);
+
+                if (user == null)
+                {
+                    throw new GlobalAppException("User not found.");
+                }
+
+                var isFollowing = await _context.Followers
+                    .AnyAsync(f => f.UserId == userId && f.FollowerUserId == requesterId);
+
+                if (!user.IsPublic && userId != requesterId && !isFollowing)
+                {
+                    return Enumerable.Empty<PostGetDto>().AsQueryable();
+                }
+
+                var posts = await _postRepository.GetAllPostsWithTagsAndImagesAsync(
+                    p => p.UserId == userId && !p.User.IsDeleted,
+                    "Comments", "Comments.CommentLikes", "Likes", "User"
+                );
+
+                return posts.Select(post => _mapper.Map<PostGetDto>(post)).AsQueryable();
+            }
+            catch (Exception ex)
+            {
+                throw new GlobalAppException("An error occurred while retrieving the user's posts.", ex);
             }
         }
     }

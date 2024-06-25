@@ -13,6 +13,7 @@ namespace ThreadsProject.Bussiness.DTOs.FollowsDto
         public string Name { get; set; }
         public string Surname { get; set; }
         public string ImgUrl { get; set; }
+        public bool IsVerified { get; set; }
 
         public DateTime CreatedDate { get; set; }
     }

@@ -52,5 +52,24 @@ namespace ThreadsProject.Data.RepositoryConcreters
                         .ThenInclude(c => c.CommentLikes)
                 .ToListAsync();
         }
+
+        public async Task<IEnumerable<Repost>> GetRepostsByUserIdWithDetailsAsync(string userId)
+        {
+            return await _context.Reposts
+                .Where(r => r.UserId == userId)
+                .Include(r => r.Post)
+                    .ThenInclude(p => p.User)
+                .Include(r => r.Post)
+                    .ThenInclude(p => p.Images)
+                .Include(r => r.Post)
+                    .ThenInclude(p => p.PostTags)
+                        .ThenInclude(pt => pt.Tag)
+                .Include(r => r.Post)
+                    .ThenInclude(p => p.Likes)
+                .Include(r => r.Post)
+                    .ThenInclude(p => p.Comments)
+                        .ThenInclude(c => c.CommentLikes)
+                .ToListAsync();
+        }
     }
 }

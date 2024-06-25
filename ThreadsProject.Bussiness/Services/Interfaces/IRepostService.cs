@@ -9,5 +9,6 @@ namespace ThreadsProject.Bussiness.Services.Interfaces
         Task RemoveRepostAsync(int repostId, string userId);
         Task<RepostGetDto> GetRepostByIdAsync(int repostId);
         Task<IEnumerable<RepostGetDto>> GetAllRepostsAsync();
+        Task<IQueryable<RepostGetDto>> GetRepostsByUserIdAsync(string userId, string requesterId);
     }
 }

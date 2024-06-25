@@ -1,11 +1,15 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using ThreadsProject.Bussiness.DTOs.RepostDto;
 using ThreadsProject.Bussiness.Services.Interfaces;
 using ThreadsProject.Core.Entities;
 using ThreadsProject.Core.GlobalException;
 using ThreadsProject.Core.RepositoryAbstracts;
+using ThreadsProject.Data.DAL;
 
 namespace ThreadsProject.Bussiness.Services.Implementations
 {
@@ -14,12 +18,16 @@ namespace ThreadsProject.Bussiness.Services.Implementations
         private readonly IRepostRepository _repostRepository;
         private readonly IPostRepository _postRepository;
         private readonly IMapper _mapper;
+        private readonly UserManager<User> _userManager;
+        private readonly ThreadsContext _context;
 
-        public RepostService(IRepostRepository repostRepository, IPostRepository postRepository, IMapper mapper)
+        public RepostService(IRepostRepository repostRepository, IPostRepository postRepository, IMapper mapper, UserManager<User> userManager, ThreadsContext context)
         {
             _repostRepository = repostRepository;
             _postRepository = postRepository;
             _mapper = mapper;
+            _userManager = userManager;
+            _context = context;
         }
 
         public async Task AddRepostAsync(RepostCreateDto repostCreateDto, string userId)
@@ -81,5 +89,29 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             var reposts = await _repostRepository.GetAllRepostsWithDetailsAsync();
             return _mapper.Map<IEnumerable<RepostGetDto>>(reposts);
         }
+        public async Task<IQueryable<RepostGetDto>> GetRepostsByUserIdAsync(string userId, string requesterId)
+        {
+            var user = await _userManager.Users
+                .Include(u => u.Followers)
+                .FirstOrDefaultAsync(u => u.Id == userId);
+
+            if (user == null)
+            {
+                throw new GlobalAppException("User not found.");
+            }
+
+            var isFollowing = await _context.Followers
+                .AnyAsync(f => f.UserId == userId && f.FollowerUserId == requesterId);
+
+            if (!user.IsPublic && userId != requesterId && !isFollowing)
+            {
+                return Enumerable.Empty<RepostGetDto>().AsQueryable();
+            }
+
+            var reposts = await _repostRepository.GetRepostsByUserIdWithDetailsAsync(userId);
+
+            return reposts.Select(repost => _mapper.Map<RepostGetDto>(repost)).AsQueryable();
+        }
+
     }
 }

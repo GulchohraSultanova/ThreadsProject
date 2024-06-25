@@ -13,6 +13,7 @@ namespace ThreadsProject.Bussiness.Profilies
                 .ForMember(dest => dest.Images, opt => opt.MapFrom(src => src.Images.Select(i => i.ImageUrl).ToList()))
                 .ForMember(dest => dest.Tags, opt => opt.MapFrom(src => src.PostTags.Select(pt => pt.Tag.Name).ToList()))
                 .ForMember(dest => dest.Likes, opt => opt.MapFrom(src => src.Likes.Select(l => l.UserId).ToList()))
+
                 .ForMember(dest => dest.Comments, opt => opt.MapFrom(src => src.Comments.Select(c => new CommentGetDto
                 {
                     Id = c.Id,
@@ -24,6 +25,8 @@ namespace ThreadsProject.Bussiness.Profilies
                 }).ToList()))
                 .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.User.UserName))
                 .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.User.Id))
+                .ForMember(dest => dest.IsVerified, opt => opt.MapFrom(src => src.User.IsVerified))
+
                 .ForMember(dest => dest.UserImgUrl, opt => opt.MapFrom(src => src.User.ImgUrl));
 
             CreateMap<CreatePostDto, Post>()

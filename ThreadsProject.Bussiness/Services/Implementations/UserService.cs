@@ -154,6 +154,8 @@ namespace ThreadsProject.Bussiness.Services.Implementations
         }
 
 
+
+
         public async Task<TokenResponseDto> LoginAsync(LoginDto dto)
         {
             try
@@ -300,7 +302,7 @@ namespace ThreadsProject.Bussiness.Services.Implementations
                 throw new GlobalAppException("An unexpected error occurred while deleting the user", ex);
             }
         }
-        public async Task<UsersGetDto> GetUserByUsernameAsync(string username)
+        public async Task<UsersGetDto> GetUserByUsernameAsync(string username, string requesterId)
         {
             try
             {
@@ -316,7 +318,12 @@ namespace ThreadsProject.Bussiness.Services.Implementations
                     throw new GlobalAppException("User not found.");
                 }
 
+                var isFollowing = await _context.Followers
+                    .AnyAsync(f => f.UserId == user.Id && f.FollowerUserId == requesterId);
+
                 var userDto = _mapper.Map<UsersGetDto>(user);
+
+              
                 return userDto;
             }
             catch (Exception ex)
@@ -325,6 +332,8 @@ namespace ThreadsProject.Bussiness.Services.Implementations
                 throw new GlobalAppException("User not found!", ex);
             }
         }
+
+
 
 
 

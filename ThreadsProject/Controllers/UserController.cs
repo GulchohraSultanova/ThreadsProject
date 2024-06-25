@@ -3,12 +3,13 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using ThreadsProject.Bussiness.DTOs.UserDtos;
-using ThreadsProject.Core.GlobalException;
 using ThreadsProject.Bussiness.Services.Interfaces;
 using ThreadsProject.Core.Entities;
+using ThreadsProject.Core.GlobalException;
 
 namespace ThreadsProject.Controllers
 {
@@ -296,6 +297,7 @@ namespace ThreadsProject.Controllers
                 });
             }
         }
+
         [HttpDelete("delete")]
         [Authorize]
         public async Task<IActionResult> DeleteUser()
@@ -338,21 +340,32 @@ namespace ThreadsProject.Controllers
                 });
             }
         }
-        [HttpGet("username")]
+
+        [HttpGet("{username}")]
+        [Authorize]
         public async Task<IActionResult> GetUserByUsername(string username)
         {
+            var requesterId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(requesterId))
+            {
+                return Unauthorized(new
+                {
+                    StatusCode = StatusCodes.Status401Unauthorized,
+                    Error = "Unauthorized"
+                });
+            }
+
             try
             {
-                var user = await _userService.GetUserByUsernameAsync(username);
+                var userDto = await _userService.GetUserByUsernameAsync(username, requesterId);
                 return Ok(new
                 {
                     StatusCode = StatusCodes.Status200OK,
-                    Data = user
+                    Data = userDto
                 });
             }
             catch (GlobalAppException ex)
             {
-                _logger.LogError(ex, ex.Message);
                 return BadRequest(new
                 {
                     StatusCode = StatusCodes.Status400BadRequest,
@@ -361,7 +374,6 @@ namespace ThreadsProject.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "An unexpected error occurred while retrieving the user by username");
                 return StatusCode(StatusCodes.Status500InternalServerError, new
                 {
                     StatusCode = StatusCodes.Status500InternalServerError,
@@ -369,7 +381,5 @@ namespace ThreadsProject.Controllers
                 });
             }
         }
-
-
     }
 }

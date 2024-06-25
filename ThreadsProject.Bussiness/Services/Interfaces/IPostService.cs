@@ -17,5 +17,6 @@ namespace ThreadsProject.Bussiness.Services.Interfaces
         Task AddPostAsync(CreatePostDto createPostDto, string userId);
         Task<IQueryable<PostGetDto>> GetUserPostsAsync(string userId);
         Task DeletePostAsync(int id, string userId);
+        Task<IQueryable<PostGetDto>> GetPostsByUserIdAsync(string userId, string requesterId);
     }
 }

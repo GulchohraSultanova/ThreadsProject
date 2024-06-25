@@ -15,9 +15,11 @@ namespace ThreadsProject.Bussiness.DTOs.PostDto
         public string UserName { get; set; }
         public string UserImgUrl { get; set; }
         public string UserId { get; set; }
+        public bool IsVerified { get; set; }
         public List<string> Images { get; set; } = new List<string>();
         public List<string> Tags { get; set; } = new List<string>();
         public List<string> Likes { get; set; } = new List<string>();
+
 
         public List<CommentGetDto> Comments { get; set; } = new List<CommentGetDto>();
 
