@@ -21,6 +21,7 @@ namespace ThreadsProject.Data.RepositoryConcreters
         public async Task<IQueryable<Post>> GetAllPostsWithTagsAndImagesAsync(Expression<Func<Post, bool>> filter, params string[] includes)
         {
             IQueryable<Post> query = _context.Posts
+                .AsNoTracking()
                 .Include(p => p.User)
                 .Include(p => p.Images)
                 .Include(p => p.PostTags).ThenInclude(pt => pt.Tag)
@@ -43,6 +44,7 @@ namespace ThreadsProject.Data.RepositoryConcreters
         public async Task<Post> GetPostWithTagsAndImagesAsync(Expression<Func<Post, bool>> filter, params string[] includes)
         {
             IQueryable<Post> query = _context.Posts
+                .AsNoTracking()
                 .Include(p => p.User)
                 .Include(p => p.Images)
                 .Include(p => p.PostTags).ThenInclude(pt => pt.Tag)

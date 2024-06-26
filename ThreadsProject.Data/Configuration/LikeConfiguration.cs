@@ -13,7 +13,9 @@ namespace ThreadsProject.Data.Configuration
             builder.HasOne(l => l.Post)
                    .WithMany(p => p.Likes)
                    .HasForeignKey(l => l.PostId)
-                   .OnDelete(DeleteBehavior.Restrict); 
+                   .OnDelete(DeleteBehavior.Restrict);
+
+   
         }
     }
 }

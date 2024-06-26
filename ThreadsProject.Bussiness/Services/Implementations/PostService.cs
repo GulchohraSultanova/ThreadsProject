@@ -83,12 +83,21 @@ namespace ThreadsProject.Bussiness.Services.Implementations
         {
             try
             {
-                var post = await _postRepository.GetPostWithTagsAndImagesAsync(p => p.Id == id && p.UserId == userId, "Comments", "Comments.CommentLikes", "Likes", "User");
+                var post = await _postRepository.GetPostWithTagsAndImagesAsync(p => p.Id == id && p.UserId == userId, "Comments", "Comments.CommentLikes", "Likes", "User", "Reposts", "Actions");
                 if (post == null)
                 {
                     throw new GlobalAppException("Post not found or user not authorized.");
                 }
 
+                // Delete all related data
+                _context.Comments.RemoveRange(post.Comments);
+                _context.Likes.RemoveRange(post.Likes);
+                _context.Reposts.RemoveRange(post.Reposts);
+                _context.Actions.RemoveRange(post.Actions);
+
+                await _context.SaveChangesAsync();
+
+                // Finally delete the post
                 await _postRepository.DeleteAsync(post);
             }
             catch (Exception ex)
@@ -96,6 +105,7 @@ namespace ThreadsProject.Bussiness.Services.Implementations
                 throw new GlobalAppException("An error occurred while deleting the post.", ex);
             }
         }
+
 
         public async Task<IQueryable<PostGetDto>> GetExplorePostsAsync()
         {

@@ -210,5 +210,45 @@ namespace ThreadsProject.API.Controllers
                 Data = comments
             });
         }
+        [HttpGet("replies")]
+        [Authorize]
+        public async Task<IActionResult> GetCommentsWithPostsByUserId()
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (userId == null)
+            {
+                return Unauthorized(new
+                {
+                    StatusCode = StatusCodes.Status401Unauthorized,
+                    Error = "Unauthorized"
+                });
+            }
+
+            try
+            {
+                var commentsWithPosts = await _commentService.GetCommentsWithPostsByUserIdAsync(userId);
+                return Ok(new
+                {
+                    StatusCode = StatusCodes.Status200OK,
+                    Data = commentsWithPosts
+                });
+            }
+            catch (GlobalAppException ex)
+            {
+                return BadRequest(new
+                {
+                    StatusCode = StatusCodes.Status400BadRequest,
+                    Error = ex.Message
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError,
+                    Error = "An unexpected error occurred. Please try again later."
+                });
+            }
+        }
     }
 }

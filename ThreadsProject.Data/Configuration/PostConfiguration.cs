@@ -14,7 +14,7 @@ namespace ThreadsProject.Data.Configuration
             builder.HasMany(p => p.Images)
            .WithOne(i => i.Post)
            .HasForeignKey(i => i.PostId)
-           .OnDelete(DeleteBehavior.Restrict);
+           .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasMany(p => p.Comments)
                    .WithOne(c => c.Post)
@@ -34,7 +34,7 @@ namespace ThreadsProject.Data.Configuration
             builder.HasMany(p => p.Actions)
                    .WithOne(a => a.Post)
                    .HasForeignKey(a => a.PostId)
-                   .OnDelete(DeleteBehavior.Cascade);
+                   .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

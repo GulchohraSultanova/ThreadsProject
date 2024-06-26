@@ -88,7 +88,9 @@ namespace ThreadsProject.Controllers
                 return BadRequest(new
                 {
                     StatusCode = StatusCodes.Status400BadRequest,
-                    Error = ex.Message
+                    Error = ex.Message,
+                    InnerException = ex.InnerException?.Message,
+                    StackTrace = ex.StackTrace
                 });
             }
             catch (Exception ex)
@@ -96,10 +98,13 @@ namespace ThreadsProject.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, new
                 {
                     StatusCode = StatusCodes.Status500InternalServerError,
-                    Error = "An unexpected error occurred. Please try again later."
+                    Error = "An unexpected error occurred. Please try again later.",
+                    InnerException = ex.InnerException?.Message,
+                    StackTrace = ex.StackTrace
                 });
             }
         }
+
 
         [HttpGet("explore")]
         public async Task<IActionResult> GetExplorePosts()

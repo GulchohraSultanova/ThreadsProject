@@ -14,9 +14,7 @@ namespace ThreadsProject.Core.Entities
         public bool IsPublic { get; set; } = true;
         public bool IsVerified { get; set; }
         public bool IsDeleted { get; set; }
-        public DateTime? BanStartDate { get; set; }
-        public DateTime? BanEndDate { get; set; }
-        public int BanCount { get; set; }
+        public bool IsBanned { get; set; }
 
         public virtual ICollection<Post> Posts { get; set; } = new List<Post>();
         public virtual ICollection<Follower> Followers { get; set; } = new List<Follower>();

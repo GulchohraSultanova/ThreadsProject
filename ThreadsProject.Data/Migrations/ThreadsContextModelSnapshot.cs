@@ -455,15 +455,6 @@ namespace ThreadsProject.Data.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<int>("BanCount")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("BanEndDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("BanStartDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Bio")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -485,6 +476,9 @@ namespace ThreadsProject.Data.Migrations
 
                     b.Property<string>("ImgUrl")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsBanned")
+                        .HasColumnType("bit");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -671,13 +665,13 @@ namespace ThreadsProject.Data.Migrations
                     b.HasOne("ThreadsProject.Core.Entities.Comment", "Comment")
                         .WithMany("CommentLikes")
                         .HasForeignKey("CommentId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("ThreadsProject.Core.Entities.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Comment");

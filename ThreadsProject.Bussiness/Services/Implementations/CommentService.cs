@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ThreadsProject.Bussiness.DTOs.CommentDto;
+using ThreadsProject.Bussiness.DTOs.PostDto;
 using ThreadsProject.Bussiness.Services.Interfaces;
 using ThreadsProject.Core.Entities;
 using ThreadsProject.Core.GlobalException;
@@ -126,6 +127,30 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             {
                 throw new GlobalAppException("An error occurred while unliking the comment.", ex);
             }
+        }
+        public async Task<IEnumerable<CommentWithPostDto>> GetCommentsWithPostsByUserIdAsync(string userId)
+        {
+            var comments = await _commentRepository.GetAllAsync(c => c.UserId == userId);
+
+            var result = new List<CommentWithPostDto>();
+
+            foreach (var comment in comments)
+            {
+                var post = await _postRepository.GetPostWithTagsAndImagesAsync(p => p.Id == comment.PostId, "Comments", "Comments.CommentLikes", "Likes", "User");
+                if (post != null)
+                {
+                    var commentWithPostDto = new CommentWithPostDto
+                    {
+                        CommentId = comment.Id,
+                        CommentContent = comment.Content,
+                        CommentCreatedDate = comment.CreatedDate,
+                        Post = _mapper.Map<PostGetDto>(post)
+                    };
+                    result.Add(commentWithPostDto);
+                }
+            }
+
+            return result;
         }
     }
 }

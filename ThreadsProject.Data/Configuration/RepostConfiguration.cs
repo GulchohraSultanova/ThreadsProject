@@ -9,6 +9,10 @@ namespace ThreadsProject.Data.Configuration
         public void Configure(EntityTypeBuilder<Repost> builder)
         {
             builder.Property(x => x.CreatedDate).IsRequired().HasDefaultValueSql("GETDATE()");
+            builder.HasOne(r => r.Post)
+           .WithMany(p => p.Reposts)
+           .HasForeignKey(r => r.PostId)
+           .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasOne(r => r.Post)
                    .WithMany(p => p.Reposts)

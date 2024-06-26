@@ -14,13 +14,13 @@ namespace ThreadsProject.Data.Configuration
                 .HasOne(cl => cl.Comment)
                 .WithMany(c => c.CommentLikes)
                 .HasForeignKey(cl => cl.CommentId)
-                .OnDelete(DeleteBehavior.Restrict);  // Yorum silindiğinde, CommentLike kayıtlarını silme
+                .OnDelete(DeleteBehavior.Cascade);  // Yorum silindiğinde, CommentLike kayıtlarını silme
 
             builder
                 .HasOne(cl => cl.User)
                 .WithMany()
                 .HasForeignKey(cl => cl.UserId)
-                .OnDelete(DeleteBehavior.Restrict);  // Kullanıcı silindiğinde, CommentLike kayıtlarını silme
+                .OnDelete(DeleteBehavior.Cascade);  // Kullanıcı silindiğinde, CommentLike kayıtlarını silme
         }
     }
 }

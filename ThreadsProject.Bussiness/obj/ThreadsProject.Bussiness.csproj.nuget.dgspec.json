@@ -54,6 +54,10 @@
               "target": "Package",
               "version": "[13.0.1, )"
             },
+            "CloudinaryDotNet": {
+              "target": "Package",
+              "version": "[1.26.2, )"
+            },
             "FluentValidation.AspNetCore": {
               "target": "Package",
               "version": "[11.3.0, )"
@@ -97,6 +101,10 @@
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
               "version": "[7.6.0, )"
+            },
+            "dotenv.net": {
+              "target": "Package",
+              "version": "[3.2.0, )"
             }
           },
           "imports": [
@@ -161,6 +169,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "CloudinaryDotNet": {
+              "target": "Package",
+              "version": "[1.26.2, )"
+            },
             "FluentValidation.AspNetCore": {
               "target": "Package",
               "version": "[11.3.0, )"
@@ -208,6 +220,10 @@
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
               "version": "[7.6.0, )"
+            },
+            "dotenv.net": {
+              "target": "Package",
+              "version": "[3.2.0, )"
             }
           },
           "imports": [
@@ -276,6 +292,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "CloudinaryDotNet": {
+              "target": "Package",
+              "version": "[1.26.2, )"
+            },
             "FluentValidation.AspNetCore": {
               "target": "Package",
               "version": "[11.3.0, )"
@@ -319,6 +339,10 @@
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
               "version": "[7.6.0, )"
+            },
+            "dotenv.net": {
+              "target": "Package",
+              "version": "[3.2.0, )"
             }
           },
           "imports": [

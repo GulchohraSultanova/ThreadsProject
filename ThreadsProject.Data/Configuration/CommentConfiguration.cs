@@ -15,6 +15,10 @@ namespace ThreadsProject.Data.Configuration
                    .WithMany(p => p.Comments)
                    .HasForeignKey(c => c.PostId)
                    .OnDelete(DeleteBehavior.Restrict);  // Post silindiğinde, yorumları silme
+            builder.HasMany(c => c.CommentLikes)
+                 .WithOne(cl => cl.Comment)
+                 .HasForeignKey(cl => cl.CommentId)
+                 .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasOne(c => c.User)
                    .WithMany()
