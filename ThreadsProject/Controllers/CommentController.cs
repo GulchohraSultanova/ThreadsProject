@@ -210,9 +210,40 @@ namespace ThreadsProject.API.Controllers
                 Data = comments
             });
         }
+        [HttpGet("user/{userId}/replies")]
+        [Authorize]
+        public async Task<IActionResult> GetUserRepliesWithPostsByUserId(string userId)
+        {
+            try
+            {
+                var commentsWithPosts = await _commentService.GetUserRepliesWithPostsByUserIdAsync(userId);
+                return Ok(new
+                {
+                    StatusCode = StatusCodes.Status200OK,
+                    Data = commentsWithPosts
+                });
+            }
+            catch (GlobalAppException ex)
+            {
+                return BadRequest(new
+                {
+                    StatusCode = StatusCodes.Status400BadRequest,
+                    Error = ex.Message
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError,
+                    Error = "An unexpected error occurred. Please try again later."
+                });
+            }
+        }
+
         [HttpGet("replies")]
         [Authorize]
-        public async Task<IActionResult> GetCommentsWithPostsByUserId()
+        public async Task<IActionResult> GetMyRepliesWithPosts()
         {
             var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             if (userId == null)
@@ -226,7 +257,7 @@ namespace ThreadsProject.API.Controllers
 
             try
             {
-                var commentsWithPosts = await _commentService.GetCommentsWithPostsByUserIdAsync(userId);
+                var commentsWithPosts = await _commentService.GetMyRepliesWithPostsAsync(userId);
                 return Ok(new
                 {
                     StatusCode = StatusCodes.Status200OK,

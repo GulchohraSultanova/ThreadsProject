@@ -37,10 +37,15 @@ namespace ThreadsProject.Bussiness.Services.Implementations
 
         public async Task LikePostAsync(int postId, string userId)
         {
-            var post = await _postRepository.GetByIdAsync(postId);
+            var post = await _postRepository.GetPostWithUserAsync(postId);
             if (post == null)
             {
                 throw new GlobalAppException("Post not found.");
+            }
+
+            if (post.User == null)
+            {
+                throw new GlobalAppException("Post owner not found.");
             }
 
             var user = await _userService.GetUserByIdAsync(userId);
@@ -70,11 +75,22 @@ namespace ThreadsProject.Bussiness.Services.Implementations
 
             var like = _mapper.Map<Like>(likeDto);
 
-            await _likeRepository.AddAsync(like);
-
-            // SignalR ile bildirim gönderme
-            await _likeHubContext.Clients.All.SendAsync("ReceiveLikeNotification", postId, userId);
+            try
+            {
+                await _likeRepository.AddAsync(like);
+                // SignalR ile bildirim gönderme
+                await _likeHubContext.Clients.All.SendAsync("ReceiveLikeNotification", postId, userId);
+            }
+            catch (Exception ex)
+            {
+              
+                throw new GlobalAppException("An unexpected error occurred while liking the post.", ex);
+            }
         }
+
+
+
+
 
         public async Task UnlikePostAsync(int postId, string userId)
         {

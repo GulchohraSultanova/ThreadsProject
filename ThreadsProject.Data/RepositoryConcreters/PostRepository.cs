@@ -63,5 +63,13 @@ namespace ThreadsProject.Data.RepositoryConcreters
 
             return await query.FirstOrDefaultAsync();
         }
+        public async Task<Post> GetPostWithUserAsync(int postId)
+        {
+            return await _context.Posts
+                .Include(p => p.User)
+                .FirstOrDefaultAsync(p => p.Id == postId);
+        }
+
+
     }
 }

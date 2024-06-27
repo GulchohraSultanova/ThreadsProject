@@ -18,6 +18,8 @@ namespace ThreadsProject.Bussiness.Services.Interfaces
         Task EditUserAsync(string userId, UserEditDto userEditDto);
         Task DeleteUserAsync(string userId);
         Task<UsersGetDto> GetUserByUsernameAsync(string username, string requesterId);
+        Task<IEnumerable<UsersGetDto>> GetRandomUsersAsync(int count = 10, string currentUserId = null);
+        Task<IEnumerable<UsersGetDto>> SearchUsersAsync(string searchTerm);
 
 
 

@@ -153,3 +153,5 @@ C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject\bin\Debug\net8.0\AutoM
 C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject\obj\Debug\net8.0\ThreadsProject.sourcelink.json
 C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject\bin\Debug\net8.0\System.Net.WebSockets.WebSocketProtocol.dll
+C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject\bin\Debug\net8.0\CloudinaryDotNet.dll
+C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject\bin\Debug\net8.0\dotenv.net.dll

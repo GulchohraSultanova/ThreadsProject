@@ -14,6 +14,8 @@ using ThreadsProject.Bussiness.ExternalServices.Interfaces;
 using ThreadsProject.Bussiness.Services.Interfaces;
 using ThreadsProject.Data.DAL;
 using ThreadsProject.Bussiness.DTOs.FollowsDto;
+using CloudinaryDotNet.Actions;
+using CloudinaryDotNet;
 
 namespace ThreadsProject.Bussiness.Services.Implementations
 {
@@ -26,8 +28,9 @@ namespace ThreadsProject.Bussiness.Services.Implementations
         private readonly ITokenService _tokenService;
         private readonly IUserEmailSender _emailSender;
         private readonly IConfiguration _configuration;
+        private readonly Cloudinary _cloudinary;
 
-        public UserService(IMapper mapper, UserManager<User> userManager, ILogger<UserService> logger, ThreadsContext context, ITokenService tokenService, IUserEmailSender emailSender, IConfiguration configuration)
+        public UserService(IMapper mapper, UserManager<User> userManager, ILogger<UserService> logger, ThreadsContext context, ITokenService tokenService, IUserEmailSender emailSender, IConfiguration configuration, Cloudinary cloudinary)
         {
             _mapper = mapper;
             _userManager = userManager;
@@ -36,6 +39,7 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             _tokenService = tokenService;
             _emailSender = emailSender;
             _configuration = configuration;
+            _cloudinary = cloudinary;
         }
 
         public async Task Register(RegisterDto registerDto)
@@ -232,8 +236,27 @@ namespace ThreadsProject.Bussiness.Services.Implementations
                 user.UserName = userEditDto.UserName;
                 user.Bio = userEditDto.Bio;
                 user.IsPublic = userEditDto.IsPublic;
-                user.ImgUrl = userEditDto.ImgUrl;
-               
+
+                if (!string.IsNullOrEmpty(userEditDto.ImgUrl))
+                {
+                    var uploadParams = new ImageUploadParams()
+                    {
+                        File = new FileDescription(userEditDto.ImgUrl),
+                        UseFilename = true,
+                        UniqueFilename = false,
+                        Overwrite = true
+                    };
+                    var uploadResult = await _cloudinary.UploadAsync(uploadParams);
+
+                    if (uploadResult.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        user.ImgUrl = uploadResult.SecureUrl.AbsoluteUri;
+                    }
+                    else
+                    {
+                        throw new GlobalAppException("Image upload failed.");
+                    }
+                }
 
                 var result = await _userManager.UpdateAsync(user);
                 if (!result.Succeeded)
@@ -253,6 +276,8 @@ namespace ThreadsProject.Bussiness.Services.Implementations
                 throw new GlobalAppException("An unexpected error occurred while updating the user", ex);
             }
         }
+
+
 
         public async Task DeleteUserAsync(string userId)
         {
@@ -332,6 +357,52 @@ namespace ThreadsProject.Bussiness.Services.Implementations
                 throw new GlobalAppException("User not found!", ex);
             }
         }
+        public async Task<IEnumerable<UsersGetDto>> GetRandomUsersAsync(int count = 10, string currentUserId = null)
+        {
+            try
+            {
+                var random = new Random();
+                var users = await _userManager.Users
+                    .Where(u => !u.IsDeleted && u.IsPublic && u.EmailConfirmed && u.Id != currentUserId)
+                    .Include(u => u.Followers)
+                    .Include(u => u.Following)
+                    .ToListAsync(); // Veritabanı sorgusunu burada tamamlayın
+
+                var randomUsers = users
+                    .OrderBy(u => random.Next())
+                    .Take(count)
+                    .ToList(); // Sonuçları bellek içi sıralayıp listeleyin
+
+                return randomUsers.Select(user => _mapper.Map<UsersGetDto>(user));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in GetRandomUsersAsync: {ex.Message}");
+                throw new Exception("An error occurred while retrieving random users", ex);
+            }
+        }
+
+
+
+
+
+
+        public async Task<IEnumerable<UsersGetDto>> SearchUsersAsync(string searchTerm)
+        {
+            searchTerm = searchTerm.Trim();
+            if (string.IsNullOrEmpty(searchTerm))
+            {
+                throw new ArgumentException("Search term cannot be empty", nameof(searchTerm));
+            }
+
+            var users = await _userManager.Users
+                .Where(u => !u.IsDeleted  && u.EmailConfirmed && u.UserName.StartsWith(searchTerm))
+                .ToListAsync();
+
+            return users.Select(user => _mapper.Map<UsersGetDto>(user));
+        }
+
+
 
 
 

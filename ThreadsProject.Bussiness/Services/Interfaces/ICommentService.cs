@@ -14,6 +14,7 @@ namespace ThreadsProject.Bussiness.Services.Interfaces
         Task DeleteCommentAsync(int commentId, string userId);
         Task LikeCommentAsync(int commentId, string userId);
         Task UnlikeCommentAsync(int commentId, string userId);
-        Task<IEnumerable<CommentWithPostDto>> GetCommentsWithPostsByUserIdAsync(string userId);
+        Task<IEnumerable<CommentWithPostDto>> GetUserRepliesWithPostsByUserIdAsync(string userId);
+        Task<IEnumerable<CommentWithPostDto>> GetMyRepliesWithPostsAsync(string userId);
     }
 }

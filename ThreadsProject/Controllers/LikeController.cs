@@ -4,6 +4,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using ThreadsProject.Bussiness.Services.Interfaces;
 using ThreadsProject.Core.GlobalException;
+using System;
 
 namespace ThreadsProject.Controllers
 {
@@ -43,6 +44,7 @@ namespace ThreadsProject.Controllers
             }
             catch (GlobalAppException ex)
             {
+                Console.WriteLine($"GlobalAppException: {ex.Message}");
                 return BadRequest(new
                 {
                     StatusCode = StatusCodes.Status400BadRequest,
@@ -51,6 +53,7 @@ namespace ThreadsProject.Controllers
             }
             catch (Exception ex)
             {
+                Console.WriteLine($"Exception: {ex.Message}");
                 return StatusCode(StatusCodes.Status500InternalServerError, new
                 {
                     StatusCode = StatusCodes.Status500InternalServerError,
@@ -84,6 +87,7 @@ namespace ThreadsProject.Controllers
             }
             catch (GlobalAppException ex)
             {
+                Console.WriteLine($"GlobalAppException: {ex.Message}");
                 return BadRequest(new
                 {
                     StatusCode = StatusCodes.Status400BadRequest,
@@ -92,14 +96,13 @@ namespace ThreadsProject.Controllers
             }
             catch (Exception ex)
             {
+                Console.WriteLine($"Exception: {ex.Message}");
                 return StatusCode(StatusCodes.Status500InternalServerError, new
                 {
                     StatusCode = StatusCodes.Status500InternalServerError,
                     Error = "An unexpected error occurred. Please try again later."
                 });
             }
-
         }
-
     }
 }

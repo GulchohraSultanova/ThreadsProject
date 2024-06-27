@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using ThreadsProject.Bussiness.DTOs.PostDto;
+using ThreadsProject.Bussiness.Exceptions;
 using ThreadsProject.Bussiness.Services.Interfaces;
 using ThreadsProject.Core.GlobalException;
 
@@ -47,7 +48,9 @@ namespace ThreadsProject.Controllers
                 return BadRequest(new
                 {
                     StatusCode = StatusCodes.Status400BadRequest,
-                    Error = ex.Message
+                    Error = ex.Message,
+                    InnerException = ex.InnerException?.Message,
+                    StackTrace = ex.StackTrace
                 });
             }
             catch (Exception ex)
@@ -55,10 +58,13 @@ namespace ThreadsProject.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, new
                 {
                     StatusCode = StatusCodes.Status500InternalServerError,
-                    Error = "An unexpected error occurred. Please try again later."
+                    Error = "An unexpected error occurred. Please try again later.",
+                    InnerException = ex.InnerException?.Message,
+                    StackTrace = ex.StackTrace
                 });
             }
         }
+
 
         [HttpDelete("delete/{id}")]
         [Authorize]
@@ -237,6 +243,14 @@ namespace ThreadsProject.Controllers
                     Data = posts
                 });
             }
+            catch (PrivateProfileException ex)
+            {
+                return BadRequest(new
+                {
+                    StatusCode = StatusCodes.Status400BadRequest,
+                    Error = ex.Message
+                });
+            }
             catch (GlobalAppException ex)
             {
                 return BadRequest(new
@@ -254,5 +268,48 @@ namespace ThreadsProject.Controllers
                 });
             }
         }
+
+
+        [HttpGet("{userId}/post/{postId}")]
+        [Authorize]
+        public async Task<IActionResult> GetPostByUserIdAndPostId(string userId, int postId)
+        {
+            var requesterId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (requesterId == null)
+            {
+                return Unauthorized(new
+                {
+                    StatusCode = StatusCodes.Status401Unauthorized,
+                    Error = "Unauthorized"
+                });
+            }
+
+            try
+            {
+                var post = await _postService.GetPostByUserIdAndPostIdAsync(userId, postId);
+                return Ok(new
+                {
+                    StatusCode = StatusCodes.Status200OK,
+                    Data = post
+                });
+            }
+            catch (GlobalAppException ex)
+            {
+                return BadRequest(new
+                {
+                    StatusCode = StatusCodes.Status400BadRequest,
+                    Error = ex.Message
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError,
+                    Error = "An unexpected error occurred. Please try again later."
+                });
+            }
+        }
+
     }
 }

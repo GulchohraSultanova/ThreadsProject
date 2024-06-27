@@ -6,6 +6,8 @@ C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject\obj\Release\net8.0\Pub
 C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject\obj\Release\net8.0\PubTmp\Out\AutoMapper.dll
 C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject\obj\Release\net8.0\PubTmp\Out\Azure.Core.dll
 C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject\obj\Release\net8.0\PubTmp\Out\Azure.Identity.dll
+C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject\obj\Release\net8.0\PubTmp\Out\CloudinaryDotNet.dll
+C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject\obj\Release\net8.0\PubTmp\Out\dotenv.net.dll
 C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject\obj\Release\net8.0\PubTmp\Out\FluentValidation.dll
 C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject\obj\Release\net8.0\PubTmp\Out\FluentValidation.AspNetCore.dll
 C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject\obj\Release\net8.0\PubTmp\Out\FluentValidation.DependencyInjectionExtensions.dll

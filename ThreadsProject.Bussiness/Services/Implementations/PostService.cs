@@ -1,4 +1,7 @@
 ﻿using AutoMapper;
+using CloudinaryDotNet;
+using CloudinaryDotNet.Actions;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -7,11 +10,13 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using ThreadsProject.Bussiness.DTOs.PostDto;
+using ThreadsProject.Bussiness.Exceptions;
 using ThreadsProject.Bussiness.Services.Interfaces;
 using ThreadsProject.Core.Entities;
 using ThreadsProject.Core.GlobalException;
 using ThreadsProject.Core.RepositoryAbstracts;
 using ThreadsProject.Data.DAL;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ThreadsProject.Bussiness.Services.Implementations
 {
@@ -25,6 +30,7 @@ namespace ThreadsProject.Bussiness.Services.Implementations
         private readonly IFollowerRepository _followerRepository;
         private readonly UserManager<User> _userManager;
         private readonly ThreadsContext _context;
+        private readonly Cloudinary _cloudinary;
 
         public PostService(
             IPostRepository postRepository,
@@ -34,6 +40,7 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             ILikeRepository likeRepository,
             IFollowerRepository followerRepository,
             UserManager<User> userManager,
+               Cloudinary cloudinary,
             ThreadsContext context)
         {
             _postRepository = postRepository;
@@ -44,6 +51,20 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             _followerRepository = followerRepository;
             _userManager = userManager;
             _context = context;
+            _cloudinary = cloudinary;
+        }
+        private async Task<string> UploadImageToCloudinaryAsync(IFormFile imageFile)
+        {
+            var uploadParams = new ImageUploadParams()
+            {
+                File = new FileDescription(imageFile.FileName, imageFile.OpenReadStream()),
+                UseFilename = true,
+                UniqueFilename = false,
+                Overwrite = true
+            };
+
+            var uploadResult = await _cloudinary.UploadAsync(uploadParams);
+            return uploadResult.SecureUrl.ToString();
         }
 
         public async Task AddPostAsync(CreatePostDto createPostDto, string userId)
@@ -69,6 +90,34 @@ namespace ThreadsProject.Bussiness.Services.Implementations
                 }
             }
 
+            if (createPostDto.Images != null && createPostDto.Images.Any())
+            {
+                post.Images = new List<PostImage>();
+                foreach (var image in createPostDto.Images)
+                {
+                    var uploadParams = new ImageUploadParams()
+                    {
+                        File = new FileDescription(image), // image is assumed to be a file path or a base64 string
+                        UseFilename = true,
+                        UniqueFilename = false,
+                        Overwrite = true
+                    };
+                    var uploadResult = await _cloudinary.UploadAsync(uploadParams);
+
+                    if (uploadResult.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        post.Images.Add(new PostImage
+                        {
+                            ImageUrl = uploadResult.SecureUrl.AbsoluteUri
+                        });
+                    }
+                    else
+                    {
+                        throw new GlobalAppException("Image upload failed.");
+                    }
+                }
+            }
+
             try
             {
                 await _postRepository.AddAsync(post);
@@ -78,6 +127,8 @@ namespace ThreadsProject.Bussiness.Services.Implementations
                 throw new GlobalAppException("An error occurred while adding the post.", ex);
             }
         }
+
+
 
         public async Task DeletePostAsync(int id, string userId)
         {
@@ -183,7 +234,7 @@ namespace ThreadsProject.Bussiness.Services.Implementations
 
                 if (!user.IsPublic && userId != requesterId && !isFollowing)
                 {
-                    return Enumerable.Empty<PostGetDto>().AsQueryable();
+                    throw new PrivateProfileException("This profile is private!");
                 }
 
                 var posts = await _postRepository.GetAllPostsWithTagsAndImagesAsync(
@@ -193,9 +244,29 @@ namespace ThreadsProject.Bussiness.Services.Implementations
 
                 return posts.Select(post => _mapper.Map<PostGetDto>(post)).AsQueryable();
             }
-            catch (Exception ex)
+            catch (Exception ex) when (ex is not PrivateProfileException)
             {
                 throw new GlobalAppException("An error occurred while retrieving the user's posts.", ex);
+            }
+        }
+
+
+
+        public async Task<PostGetDto> GetPostByUserIdAndPostIdAsync(string userId, int postId)
+        {
+            try
+            {
+                var post = await _postRepository.GetPostWithTagsAndImagesAsync(p => p.UserId == userId && p.Id == postId, "Comments", "Comments.CommentLikes", "Likes", "User");
+                if (post == null)
+                {
+                    throw new GlobalAppException("Post not found.");
+                }
+
+                return _mapper.Map<PostGetDto>(post);
+            }
+            catch (Exception ex)
+            {
+                throw new GlobalAppException("An error occurred while retrieving the user's post.", ex);
             }
         }
     }

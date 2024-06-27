@@ -28,7 +28,7 @@ namespace ThreadsProject.Bussiness.Profilies
                 .ForMember(dest => dest.Bio, opt => opt.MapFrom(src => src.Bio))
                 .ForMember(dest => dest.IsPublic, opt => opt.MapFrom(src => src.IsPublic))
                 .ForMember(dest => dest.CreatedTime, opt => opt.MapFrom(src => src.CreatedDate))
-                .ForMember(dest => dest.Followers, opt => opt.MapFrom(src => src.Followers.Select(f => new FollowDto
+                .ForMember(dest => dest.Followers, opt => opt.MapFrom(src => src.Followers != null ? src.Followers.Select(f => new FollowDto
                 {
                     UserId = f.FollowerUserId,
                     Name = f.FollowerUser.Name,
@@ -37,8 +37,8 @@ namespace ThreadsProject.Bussiness.Profilies
                     ImgUrl = f.FollowerUser.ImgUrl,
                     IsVerified = f.FollowerUser.IsVerified
 
-                }).ToList()))
-                .ForMember(dest => dest.Followings, opt => opt.MapFrom(src => src.Following.Select(f => new FollowDto
+                }).ToList() : new List<FollowDto>()))
+                .ForMember(dest => dest.Followings, opt => opt.MapFrom(src => src.Following != null ? src.Following.Select(f => new FollowDto
                 {
                     UserId = f.FollowingUserId,
                     Name = f.FollowingUser.Name,
@@ -46,9 +46,7 @@ namespace ThreadsProject.Bussiness.Profilies
                     UserName = f.FollowingUser.UserName,
                     ImgUrl = f.FollowingUser.ImgUrl,
                     IsVerified = f.FollowingUser.IsVerified
-                }).ToList()));
-           
-         
+                }).ToList() : new List<FollowDto>()));
         }
     }
 }

@@ -24,14 +24,18 @@ namespace ThreadsProject.Data.RepositoryConcreters
 
         public async Task<IEnumerable<Comment>> GetAllCommentsWithLikesAsync(Expression<Func<Comment, bool>> filter = null)
         {
-            IQueryable<Comment> query = _context.Comments.Include(c => c.CommentLikes);
+            IQueryable<Comment> query = _context.Comments
+      .AsNoTracking()
+      .Include(c => c.User)
+      .Include(c => c.CommentLikes);
 
             if (filter != null)
             {
                 query = query.Where(filter);
             }
 
-            return await query.ToListAsync();
+
+            return await Task.FromResult(query);
         }
 
         public async Task<Comment> GetCommentWithLikesAsync(Expression<Func<Comment, bool>> filter)

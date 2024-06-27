@@ -1,6 +1,8 @@
 ﻿
+using CloudinaryDotNet;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ThreadsProject.Bussiness.ExternalServices.Implementations;
 using ThreadsProject.Bussiness.ExternalServices.Interfaces;
@@ -17,7 +19,7 @@ namespace ThreadsProject.Bussiness
 {
     public static class ServiceRegistration
     {
-        public static void AddServices(this IServiceCollection services)
+        public static void AddServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddScoped<IUserService, UserService>();
           
@@ -31,7 +33,8 @@ namespace ThreadsProject.Bussiness
             services.AddScoped<ILikeService, LikeService>();
             services.AddScoped<ICommentService, CommentService>();
             services.AddScoped<IRepostService, RepostService>();
-           
+  
+
 
 
             services.AddScoped<IPostRepository,PostRepository>();
@@ -44,7 +47,10 @@ namespace ThreadsProject.Bussiness
             services.AddScoped<ICommentLikeRepository, CommentLikeRepository>();
             services.AddScoped<IRepostRepository, RepostRepository>();
             services.AddSignalR();
-
+            var cloudinarySettings = configuration.GetSection("CloudinarySettings").Get<CloudinarySettings>();
+            var cloudinaryAccount = new Account(cloudinarySettings.CloudName, cloudinarySettings.ApiKey, cloudinarySettings.ApiSecret);
+            var cloudinary = new Cloudinary(cloudinaryAccount);
+            services.AddSingleton(cloudinary);
 
 
 

@@ -12,5 +12,6 @@ namespace ThreadsProject.Core.RepositoryAbstracts
     {
         Task<IQueryable<Post>> GetAllPostsWithTagsAndImagesAsync(Expression<Func<Post, bool>> filter, params string[] includes);
         Task<Post> GetPostWithTagsAndImagesAsync(Expression<Func<Post, bool>> filter, params string[] includes);
+        Task<Post> GetPostWithUserAsync(int postId);
     }
 }

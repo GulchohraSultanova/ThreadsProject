@@ -381,5 +381,72 @@ namespace ThreadsProject.Controllers
                 });
             }
         }
+        [HttpGet("random")]
+        [Authorize]
+        public async Task<IActionResult> GetRandomUsers([FromQuery] int count = 10)
+        {
+            var currentUserId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (currentUserId == null)
+            {
+                return Unauthorized(new
+                {
+                    StatusCode = StatusCodes.Status401Unauthorized,
+                    Error = "Unauthorized"
+                });
+            }
+
+            try
+            {
+                var users = await _userService.GetRandomUsersAsync(count, currentUserId);
+                return Ok(new
+                {
+                    StatusCode = StatusCodes.Status200OK,
+                    Data = users
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError,
+                    Error = "An unexpected error occurred. Please try again later."
+                });
+            }
+        }
+
+
+
+
+        [Authorize]
+        [HttpGet("search")]
+        public async Task<IActionResult> SearchUsers(string searchTerm)
+        {
+            try
+            {
+                var users = await _userService.SearchUsersAsync(searchTerm);
+                return Ok(new
+                {
+                    StatusCode = StatusCodes.Status200OK,
+                    Data = users
+                });
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new
+                {
+                    StatusCode = StatusCodes.Status400BadRequest,
+                    Error = ex.Message
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError,
+                    Error = "An unexpected error occurred. Please try again later."
+                });
+            }
+        }
+
     }
 }

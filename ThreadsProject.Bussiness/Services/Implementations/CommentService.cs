@@ -128,7 +128,7 @@ namespace ThreadsProject.Bussiness.Services.Implementations
                 throw new GlobalAppException("An error occurred while unliking the comment.", ex);
             }
         }
-        public async Task<IEnumerable<CommentWithPostDto>> GetCommentsWithPostsByUserIdAsync(string userId)
+        public async Task<IEnumerable<CommentWithPostDto>> GetUserRepliesWithPostsByUserIdAsync(string userId)
         {
             var comments = await _commentRepository.GetAllAsync(c => c.UserId == userId);
 
@@ -152,5 +152,32 @@ namespace ThreadsProject.Bussiness.Services.Implementations
 
             return result;
         }
+
+        public async Task<IEnumerable<CommentWithPostDto>> GetMyRepliesWithPostsAsync(string userId)
+        {
+            var comments = await _commentRepository.GetAllAsync(c => c.UserId == userId);
+
+            var result = new List<CommentWithPostDto>();
+
+            foreach (var comment in comments)
+            {
+                var post = await _postRepository.GetPostWithTagsAndImagesAsync(p => p.Id == comment.PostId, "Comments", "Comments.CommentLikes", "Likes", "User");
+                if (post != null)
+                {
+                    var commentWithPostDto = new CommentWithPostDto
+                    {
+                        CommentId = comment.Id,
+                        CommentContent = comment.Content,
+                        CommentCreatedDate = comment.CreatedDate,
+                        Post = _mapper.Map<PostGetDto>(post)
+                    };
+                    result.Add(commentWithPostDto);
+                }
+            }
+
+            return result;
+        }
+
+
     }
 }

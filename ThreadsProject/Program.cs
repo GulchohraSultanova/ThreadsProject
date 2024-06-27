@@ -15,7 +15,11 @@ using ThreadsProject.Data.DAL;
 using ThreadsProject.Core.Hubs;  // SignalR Hub için ekleme
 using YourApiProject.Filters;
 
+
+
+
 var builder = WebApplication.CreateBuilder(args);
+
 
 // Add services to the container.
 builder.Services.AddControllers();
@@ -81,7 +85,7 @@ builder.Services.AddControllers()
         };
     });
 
-builder.Services.AddServices();
+builder.Services.AddServices(builder.Configuration);
 builder.Services.AddControllers(config =>
 {
     config.Filters.Add<CustomValidationFilter>();
