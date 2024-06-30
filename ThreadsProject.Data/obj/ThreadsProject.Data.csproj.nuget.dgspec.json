@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gulco\\source\\repos\\ThreadsProject\\ThreadsProject.Data\\ThreadsProject.Data.csproj": {}
+    "C:\\Users\\gulco\\OneDrive\\İş masası\\ThreadsProject\\ThreadsProject.Data\\ThreadsProject.Data.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gulco\\source\\repos\\ThreadsProject\\ThreadsProject.Core\\ThreadsProject.Core.csproj": {
+    "C:\\Users\\gulco\\OneDrive\\İş masası\\ThreadsProject\\ThreadsProject.Core\\ThreadsProject.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gulco\\source\\repos\\ThreadsProject\\ThreadsProject.Core\\ThreadsProject.Core.csproj",
+        "projectUniqueName": "C:\\Users\\gulco\\OneDrive\\İş masası\\ThreadsProject\\ThreadsProject.Core\\ThreadsProject.Core.csproj",
         "projectName": "ThreadsProject.Core",
-        "projectPath": "C:\\Users\\gulco\\source\\repos\\ThreadsProject\\ThreadsProject.Core\\ThreadsProject.Core.csproj",
+        "projectPath": "C:\\Users\\gulco\\OneDrive\\İş masası\\ThreadsProject\\ThreadsProject.Core\\ThreadsProject.Core.csproj",
         "packagesPath": "C:\\Users\\gulco\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gulco\\source\\repos\\ThreadsProject\\ThreadsProject.Core\\obj\\",
+        "outputPath": "C:\\Users\\gulco\\OneDrive\\İş masası\\ThreadsProject\\ThreadsProject.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gulco\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -123,14 +123,14 @@
         }
       }
     },
-    "C:\\Users\\gulco\\source\\repos\\ThreadsProject\\ThreadsProject.Data\\ThreadsProject.Data.csproj": {
+    "C:\\Users\\gulco\\OneDrive\\İş masası\\ThreadsProject\\ThreadsProject.Data\\ThreadsProject.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gulco\\source\\repos\\ThreadsProject\\ThreadsProject.Data\\ThreadsProject.Data.csproj",
+        "projectUniqueName": "C:\\Users\\gulco\\OneDrive\\İş masası\\ThreadsProject\\ThreadsProject.Data\\ThreadsProject.Data.csproj",
         "projectName": "ThreadsProject.Data",
-        "projectPath": "C:\\Users\\gulco\\source\\repos\\ThreadsProject\\ThreadsProject.Data\\ThreadsProject.Data.csproj",
+        "projectPath": "C:\\Users\\gulco\\OneDrive\\İş masası\\ThreadsProject\\ThreadsProject.Data\\ThreadsProject.Data.csproj",
         "packagesPath": "C:\\Users\\gulco\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gulco\\source\\repos\\ThreadsProject\\ThreadsProject.Data\\obj\\",
+        "outputPath": "C:\\Users\\gulco\\OneDrive\\İş masası\\ThreadsProject\\ThreadsProject.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gulco\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -148,8 +148,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\gulco\\source\\repos\\ThreadsProject\\ThreadsProject.Core\\ThreadsProject.Core.csproj": {
-                "projectPath": "C:\\Users\\gulco\\source\\repos\\ThreadsProject\\ThreadsProject.Core\\ThreadsProject.Core.csproj"
+              "C:\\Users\\gulco\\OneDrive\\İş masası\\ThreadsProject\\ThreadsProject.Core\\ThreadsProject.Core.csproj": {
+                "projectPath": "C:\\Users\\gulco\\OneDrive\\İş masası\\ThreadsProject\\ThreadsProject.Core\\ThreadsProject.Core.csproj"
               }
             }
           }

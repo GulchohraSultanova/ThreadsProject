@@ -140,10 +140,10 @@ using (var scope = app.Services.CreateScope())
     var services = scope.ServiceProvider;
     var userManager = services.GetRequiredService<UserManager<User>>();
     var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
-    await RoleInitializer.InitializeAsync(userManager, roleManager);
+    await InitializeRolesAsync(roleManager);
 }
 
-// Rolleri ve admin kullanıcıyı başlat
+
 
 
 
@@ -168,3 +168,14 @@ app.MapHub<LikeHub>("/likeHub");
 app.MapHub<CommentHub>("/commentHub");
 
 app.Run();
+async Task InitializeRolesAsync(RoleManager<IdentityRole> roleManager)
+{
+    string roleName = "User";
+
+    var roleExist = await roleManager.RoleExistsAsync(roleName);
+    if (!roleExist)
+    {
+        await roleManager.CreateAsync(new IdentityRole(roleName));
+    }
+}
+

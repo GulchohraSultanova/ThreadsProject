@@ -13,3 +13,18 @@ C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Core\obj\Debug\net8.0\
 C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Core\obj\Debug\net8.0\ThreadsProject.Core.genruntimeconfig.cache
 C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Core\obj\Debug\net8.0\ref\ThreadsProject.Core.dll
 C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Core\obj\Debug\net8.0\ThreadsProject.Core.sourcelink.json
+C:\Users\gulco\OneDrive\İş masası\ThreadsProject\ThreadsProject.Core\bin\Debug\net8.0\ThreadsProject.Core.deps.json
+C:\Users\gulco\OneDrive\İş masası\ThreadsProject\ThreadsProject.Core\bin\Debug\net8.0\ThreadsProject.Core.runtimeconfig.json
+C:\Users\gulco\OneDrive\İş masası\ThreadsProject\ThreadsProject.Core\bin\Debug\net8.0\ThreadsProject.Core.dll
+C:\Users\gulco\OneDrive\İş masası\ThreadsProject\ThreadsProject.Core\bin\Debug\net8.0\ThreadsProject.Core.pdb
+C:\Users\gulco\OneDrive\İş masası\ThreadsProject\ThreadsProject.Core\obj\Debug\net8.0\ThreadsProject.Core.csproj.AssemblyReference.cache
+C:\Users\gulco\OneDrive\İş masası\ThreadsProject\ThreadsProject.Core\obj\Debug\net8.0\ThreadsProject.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gulco\OneDrive\İş masası\ThreadsProject\ThreadsProject.Core\obj\Debug\net8.0\ThreadsProject.Core.AssemblyInfoInputs.cache
+C:\Users\gulco\OneDrive\İş masası\ThreadsProject\ThreadsProject.Core\obj\Debug\net8.0\ThreadsProject.Core.AssemblyInfo.cs
+C:\Users\gulco\OneDrive\İş masası\ThreadsProject\ThreadsProject.Core\obj\Debug\net8.0\ThreadsProject.Core.csproj.CoreCompileInputs.cache
+C:\Users\gulco\OneDrive\İş masası\ThreadsProject\ThreadsProject.Core\obj\Debug\net8.0\ThreadsProject.Core.sourcelink.json
+C:\Users\gulco\OneDrive\İş masası\ThreadsProject\ThreadsProject.Core\obj\Debug\net8.0\ThreadsProject.Core.dll
+C:\Users\gulco\OneDrive\İş masası\ThreadsProject\ThreadsProject.Core\obj\Debug\net8.0\refint\ThreadsProject.Core.dll
+C:\Users\gulco\OneDrive\İş masası\ThreadsProject\ThreadsProject.Core\obj\Debug\net8.0\ThreadsProject.Core.pdb
+C:\Users\gulco\OneDrive\İş masası\ThreadsProject\ThreadsProject.Core\obj\Debug\net8.0\ThreadsProject.Core.genruntimeconfig.cache
+C:\Users\gulco\OneDrive\İş masası\ThreadsProject\ThreadsProject.Core\obj\Debug\net8.0\ref\ThreadsProject.Core.dll

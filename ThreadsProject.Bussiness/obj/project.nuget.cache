@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YdS5H1MPteg=",
+  "dgSpecHash": "GvIRBrng1v0=",
   "success": true,
-  "projectFilePath": "C:\\Users\\gulco\\source\\repos\\ThreadsProject\\ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj",
+  "projectFilePath": "C:\\Users\\gulco\\OneDrive\\İş masası\\ThreadsProject\\ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gulco\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\gulco\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",

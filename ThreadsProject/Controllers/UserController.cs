@@ -58,22 +58,16 @@ namespace ThreadsProject.Controllers
                         Error = "User registration failed."
                     });
                 }
+                var roleResult = await _userManager.AddToRoleAsync(user, "User");
 
-               
-                var roleResult = await _userManager.AddToRoleAsync(user, "Admin");
-                if (!roleResult.Succeeded)
-                {
-                    return StatusCode(StatusCodes.Status500InternalServerError, new
-                    {
-                        StatusCode = StatusCodes.Status500InternalServerError,
-                        Error = "Failed to assign role to the user."
-                    });
-                }
+
+
+
 
                 return StatusCode(StatusCodes.Status201Created, new
                 {
                     StatusCode = StatusCodes.Status201Created,
-                    Message = "User registered successfully and assigned to Admin role. Please check your email to confirm your account."
+                    Message = "User registered successfully!"
                 });
             }
             catch (GlobalAppException ex)

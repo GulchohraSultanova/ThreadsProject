@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nza+BXpczKk=",
+  "dgSpecHash": "8ydD8u/AiT8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\gulco\\source\\repos\\ThreadsProject\\ThreadsProject.Core\\ThreadsProject.Core.csproj",
+  "projectFilePath": "C:\\Users\\gulco\\OneDrive\\İş masası\\ThreadsProject\\ThreadsProject.Core\\ThreadsProject.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gulco\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\gulco\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

@@ -18,3 +18,23 @@ C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Bussiness\obj\Release\
 C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Bussiness\obj\Release\net8.0\ThreadsProject.Bussiness.genruntimeconfig.cache
 C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Bussiness\obj\Release\net8.0\ref\ThreadsProject.Bussiness.dll
 C:\Users\gulco\source\repos\ThreadsProject\ThreadsProject.Bussiness\obj\Release\net8.0\ThreadsProject.Bussiness.sourcelink.json
+C:\Users\gulco\OneDrive\İş masası\ThreadsProject\ThreadsProject.Bussiness\bin\Release\net8.0\ThreadsProject.Bussiness.deps.json
+C:\Users\gulco\OneDrive\İş masası\ThreadsProject\ThreadsProject.Bussiness\bin\Release\net8.0\ThreadsProject.Bussiness.runtimeconfig.json
+C:\Users\gulco\OneDrive\İş masası\ThreadsProject\ThreadsProject.Bussiness\bin\Release\net8.0\ThreadsProject.Bussiness.dll
+C:\Users\gulco\OneDrive\İş masası\ThreadsProject\ThreadsProject.Bussiness\bin\Release\net8.0\ThreadsProject.Bussiness.pdb
+C:\Users\gulco\OneDrive\İş masası\ThreadsProject\ThreadsProject.Bussiness\bin\Release\net8.0\ThreadsProject.Core.dll
+C:\Users\gulco\OneDrive\İş masası\ThreadsProject\ThreadsProject.Bussiness\bin\Release\net8.0\ThreadsProject.Data.dll
+C:\Users\gulco\OneDrive\İş masası\ThreadsProject\ThreadsProject.Bussiness\bin\Release\net8.0\ThreadsProject.Data.pdb
+C:\Users\gulco\OneDrive\İş masası\ThreadsProject\ThreadsProject.Bussiness\bin\Release\net8.0\ThreadsProject.Core.pdb
+C:\Users\gulco\OneDrive\İş masası\ThreadsProject\ThreadsProject.Bussiness\obj\Release\net8.0\ThreadsProject.Bussiness.csproj.AssemblyReference.cache
+C:\Users\gulco\OneDrive\İş masası\ThreadsProject\ThreadsProject.Bussiness\obj\Release\net8.0\ThreadsProject.Bussiness.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gulco\OneDrive\İş masası\ThreadsProject\ThreadsProject.Bussiness\obj\Release\net8.0\ThreadsProject.Bussiness.AssemblyInfoInputs.cache
+C:\Users\gulco\OneDrive\İş masası\ThreadsProject\ThreadsProject.Bussiness\obj\Release\net8.0\ThreadsProject.Bussiness.AssemblyInfo.cs
+C:\Users\gulco\OneDrive\İş masası\ThreadsProject\ThreadsProject.Bussiness\obj\Release\net8.0\ThreadsProject.Bussiness.csproj.CoreCompileInputs.cache
+C:\Users\gulco\OneDrive\İş masası\ThreadsProject\ThreadsProject.Bussiness\obj\Release\net8.0\ThreadsProject.Bussiness.sourcelink.json
+C:\Users\gulco\OneDrive\İş masası\ThreadsProject\ThreadsProject.Bussiness\obj\Release\net8.0\ThreadsP.45BABF1B.Up2Date
+C:\Users\gulco\OneDrive\İş masası\ThreadsProject\ThreadsProject.Bussiness\obj\Release\net8.0\ThreadsProject.Bussiness.dll
+C:\Users\gulco\OneDrive\İş masası\ThreadsProject\ThreadsProject.Bussiness\obj\Release\net8.0\refint\ThreadsProject.Bussiness.dll
+C:\Users\gulco\OneDrive\İş masası\ThreadsProject\ThreadsProject.Bussiness\obj\Release\net8.0\ThreadsProject.Bussiness.pdb
+C:\Users\gulco\OneDrive\İş masası\ThreadsProject\ThreadsProject.Bussiness\obj\Release\net8.0\ThreadsProject.Bussiness.genruntimeconfig.cache
+C:\Users\gulco\OneDrive\İş masası\ThreadsProject\ThreadsProject.Bussiness\obj\Release\net8.0\ref\ThreadsProject.Bussiness.dll

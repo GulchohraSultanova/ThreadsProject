@@ -8631,11 +8631,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gulco\\source\\repos\\ThreadsProject\\ThreadsProject\\ThreadsProject.csproj",
+      "projectUniqueName": "C:\\Users\\gulco\\OneDrive\\İş masası\\ThreadsProject\\ThreadsProject\\ThreadsProject.csproj",
       "projectName": "ThreadsProject",
-      "projectPath": "C:\\Users\\gulco\\source\\repos\\ThreadsProject\\ThreadsProject\\ThreadsProject.csproj",
+      "projectPath": "C:\\Users\\gulco\\OneDrive\\İş masası\\ThreadsProject\\ThreadsProject\\ThreadsProject.csproj",
       "packagesPath": "C:\\Users\\gulco\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gulco\\source\\repos\\ThreadsProject\\ThreadsProject\\obj\\",
+      "outputPath": "C:\\Users\\gulco\\OneDrive\\İş masası\\ThreadsProject\\ThreadsProject\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\gulco\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -8653,8 +8653,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\gulco\\source\\repos\\ThreadsProject\\ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj": {
-              "projectPath": "C:\\Users\\gulco\\source\\repos\\ThreadsProject\\ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj"
+            "C:\\Users\\gulco\\OneDrive\\İş masası\\ThreadsProject\\ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj": {
+              "projectPath": "C:\\Users\\gulco\\OneDrive\\İş masası\\ThreadsProject\\ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj"
             }
           }
         }

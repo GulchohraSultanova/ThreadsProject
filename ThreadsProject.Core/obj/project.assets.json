@@ -8098,11 +8098,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gulco\\source\\repos\\ThreadsProject\\ThreadsProject.Core\\ThreadsProject.Core.csproj",
+      "projectUniqueName": "C:\\Users\\gulco\\OneDrive\\İş masası\\ThreadsProject\\ThreadsProject.Core\\ThreadsProject.Core.csproj",
       "projectName": "ThreadsProject.Core",
-      "projectPath": "C:\\Users\\gulco\\source\\repos\\ThreadsProject\\ThreadsProject.Core\\ThreadsProject.Core.csproj",
+      "projectPath": "C:\\Users\\gulco\\OneDrive\\İş masası\\ThreadsProject\\ThreadsProject.Core\\ThreadsProject.Core.csproj",
       "packagesPath": "C:\\Users\\gulco\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gulco\\source\\repos\\ThreadsProject\\ThreadsProject.Core\\obj\\",
+      "outputPath": "C:\\Users\\gulco\\OneDrive\\İş masası\\ThreadsProject\\ThreadsProject.Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\gulco\\AppData\\Roaming\\NuGet\\NuGet.Config",
