@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="IIS Web Application Name" description="" value="gulu2406-001-site1" tags="IisApp">
+  <parameter name="IIS Web Application Name" description="" value="ThreadsProject20240630231852" tags="IisApp">
     <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\gulco\\OneDrive\\İş\ masası\\ThreadsProject\\ThreadsProject\\obj\\Release\\net8\.0\\PubTmp\\Out\\$" />
   </parameter>
 </parameters>

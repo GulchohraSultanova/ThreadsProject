@@ -16,6 +16,7 @@ using ThreadsProject.Data.DAL;
 using ThreadsProject.Bussiness.DTOs.FollowsDto;
 using CloudinaryDotNet.Actions;
 using CloudinaryDotNet;
+using ThreadsProject.Core.RepositoryAbstracts;
 
 namespace ThreadsProject.Bussiness.Services.Implementations
 {
@@ -29,8 +30,11 @@ namespace ThreadsProject.Bussiness.Services.Implementations
         private readonly IUserEmailSender _emailSender;
         private readonly IConfiguration _configuration;
         private readonly Cloudinary _cloudinary;
+        private readonly IFollowerRepository _followerRepository;
+        private readonly IFollowingRepository _followingRepository;
+        private readonly IUserActionRepository _userActionRepository;
 
-        public UserService(IMapper mapper, UserManager<User> userManager, ILogger<UserService> logger, ThreadsContext context, ITokenService tokenService, IUserEmailSender emailSender, IConfiguration configuration, Cloudinary cloudinary)
+        public UserService(IMapper mapper, UserManager<User> userManager, ILogger<UserService> logger, ThreadsContext context, ITokenService tokenService, IUserEmailSender emailSender, IConfiguration configuration, Cloudinary cloudinary, IFollowerRepository followerRepository, IFollowingRepository followingRepository, IUserActionRepository userActionRepository)
         {
             _mapper = mapper;
             _userManager = userManager;
@@ -40,6 +44,9 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             _emailSender = emailSender;
             _configuration = configuration;
             _cloudinary = cloudinary;
+            _followerRepository = followerRepository;
+            _followingRepository = followingRepository;
+            _userActionRepository = userActionRepository;
         }
 
         public async Task Register(RegisterDto registerDto)
@@ -84,7 +91,7 @@ namespace ThreadsProject.Bussiness.Services.Implementations
                 var confirmationLink = $"{clientUrl}/api/user/confirmemail?token={Uri.EscapeDataString(token)}&userId={Uri.EscapeDataString(user.Id)}";
 
                 // Send confirmation email
-                await _emailSender.SendEmailAsync(user.Email, "Confirm your email", $"Please confirm your email by clicking this link: <a href='{confirmationLink}'>here</a>.");
+                await _emailSender.SendEmailAsync(user.Email, "Confirm your email", $"Please confirm your email by clicking this link: <br><br><a href='{confirmationLink}' class='button'>Click here</a>");
             }
             catch (GlobalAppException ex)
             {
@@ -298,16 +305,46 @@ namespace ThreadsProject.Bussiness.Services.Implementations
                     throw new GlobalAppException("User not found");
                 }
 
+                // Remove followers and followings
+                var followers = await _followerRepository.GetAllAsync(f => f.UserId == userId || f.FollowerUserId == userId);
+                var followings = await _followingRepository.GetAllAsync(f => f.UserId == userId || f.FollowingUserId == userId);
+
+                if (followers.Any())
+                {
+                    foreach (var follower in followers)
+                    {
+                        await _followerRepository.DeleteAsync(follower);
+                    }
+                }
+
+                if (followings.Any())
+                {
+                    foreach (var following in followings)
+                    {
+                        await _followingRepository.DeleteAsync(following);
+                    }
+                }
+
+                // Remove user actions associated with followings
+                var userActions = await _userActionRepository.GetAllAsync(a => a.UserId == userId && a.ActionType == "Followed");
+                if (userActions.Any())
+                {
+                    foreach (var action in userActions)
+                    {
+                        await _userActionRepository.DeleteAsync(action);
+                    }
+                }
+
                 user.IsDeleted = true;
                 string guid = $"_deleted_{Guid.NewGuid()}";
 
-                if (user.UserName.Length + guid.Length > 256)  // Uzunluk kontrolü
+                if (user.UserName.Length + guid.Length > 256)  // Length check
                 {
                     user.UserName = user.UserName.Substring(0, 256 - guid.Length);
                 }
                 user.UserName += guid;
 
-                if (user.Email.Length + guid.Length > 512)  // Uzunluk kontrolü
+                if (user.Email.Length + guid.Length > 512)  // Length check
                 {
                     user.Email = user.Email.Substring(0, 512 - guid.Length);
                 }
@@ -331,6 +368,7 @@ namespace ThreadsProject.Bussiness.Services.Implementations
                 throw new GlobalAppException("An unexpected error occurred while deleting the user", ex);
             }
         }
+
         public async Task<UsersGetDto> GetUserByUsernameAsync(string username, string requesterId)
         {
             try
@@ -532,6 +570,35 @@ namespace ThreadsProject.Bussiness.Services.Implementations
                 throw new GlobalAppException("An error occurred while changing the password.", ex);
             }
         }
+        public async Task SendUrlToUserAsync(SendUrlDto sendUrlDto)
+        {
+            if (sendUrlDto == null || string.IsNullOrEmpty(sendUrlDto.Url) || string.IsNullOrEmpty(sendUrlDto.UserName))
+            {
+                throw new GlobalAppException("URL and username must be provided.");
+            }
+
+            try
+            {
+                var user = await _userManager.Users
+                    .FirstOrDefaultAsync(u => u.UserName == sendUrlDto.UserName && !u.IsDeleted && !u.IsBanned && u.EmailConfirmed && !u.AdminOrUser);
+
+                if (user == null)
+                {
+                    throw new GlobalAppException("User not found.");
+                }
+
+                // Kullanıcıya URL içeren e-postayı gönder
+                var message = $"Please visit the following URL: <a href='{sendUrlDto.Url}'>Click here</a>";
+
+                await _emailSender.SendUrlEmailAsync(user.Email, "Important URL", message);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while sending the URL to the user.");
+                throw new GlobalAppException("An error occurred while sending the URL to the user.", ex);
+            }
+        }
+
 
 
 

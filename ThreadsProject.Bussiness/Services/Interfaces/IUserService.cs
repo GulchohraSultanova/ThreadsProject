@@ -24,6 +24,7 @@ namespace ThreadsProject.Bussiness.Services.Interfaces
         Task ResetPasswordAsync(ResetPasswordDto resetPasswordDto);
         Task<UsersGetDto> GetUserByIdAsync(string id, string requesterId);
         Task ChangePasswordAsync(string userId, ChangePasswordDto changePasswordDto);
+        Task SendUrlToUserAsync(SendUrlDto sendUrlDto);
 
 
 

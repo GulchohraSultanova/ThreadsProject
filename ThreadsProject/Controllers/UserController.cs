@@ -664,6 +664,48 @@ namespace ThreadsProject.Controllers
                 });
             }
         }
+        [HttpPost("send-url")]
+        [Authorize]
+        public async Task<IActionResult> SendUrlToUser([FromBody] SendUrlDto sendUrlDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(new
+                {
+                    StatusCode = StatusCodes.Status400BadRequest,
+                    Error = "Invalid input data"
+                });
+            }
+
+            try
+            {
+                await _userService.SendUrlToUserAsync(sendUrlDto);
+                return Ok(new
+                {
+                    StatusCode = StatusCodes.Status200OK,
+                    Message = "URL sent successfully."
+                });
+            }
+            catch (GlobalAppException ex)
+            {
+                _logger.LogError(ex, "An error occurred while sending the URL to the user");
+                return BadRequest(new
+                {
+                    StatusCode = StatusCodes.Status400BadRequest,
+                    Error = ex.Message
+                });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An unexpected error occurred");
+                return StatusCode(StatusCodes.Status500InternalServerError, new
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError,
+                    Error = "An unexpected error occurred. Please try again later."
+                });
+            }
+        }
+
 
 
 
