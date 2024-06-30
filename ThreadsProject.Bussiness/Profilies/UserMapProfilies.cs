@@ -26,6 +26,7 @@ namespace ThreadsProject.Bussiness.Profilies
                 .ForMember(dest => dest.Surname, opt => opt.MapFrom(src => src.Surname))
                 .ForMember(dest => dest.ImgUrl, opt => opt.MapFrom(src => src.ImgUrl))
                 .ForMember(dest => dest.Bio, opt => opt.MapFrom(src => src.Bio))
+                .ForMember(dest=>dest.IsBanned,opt=>opt.MapFrom(src=>src.IsBanned))
                 .ForMember(dest => dest.IsPublic, opt => opt.MapFrom(src => src.IsPublic))
                 .ForMember(dest => dest.CreatedTime, opt => opt.MapFrom(src => src.CreatedDate))
                 .ForMember(dest => dest.Followers, opt => opt.MapFrom(src => src.Followers != null ? src.Followers.Select(f => new FollowDto

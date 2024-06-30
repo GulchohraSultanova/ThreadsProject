@@ -10,5 +10,7 @@ namespace ThreadsProject.Bussiness.DTOs.CommentDto
     {
         public int PostId { get; set; }
         public string Content { get; set; }
+        public int? ParentCommentId { get; set; }
+        public string? ReplyUsername { get; set; }
     }
 }

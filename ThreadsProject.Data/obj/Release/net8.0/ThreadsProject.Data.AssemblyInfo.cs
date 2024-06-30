@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ThreadsProject.Data")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d0436cb87a1e67e50d9393459b0121b0eb318f5a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fd26ceebeda662d42e6fb57c91571e865b0a9699")]
 [assembly: System.Reflection.AssemblyProductAttribute("ThreadsProject.Data")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ThreadsProject.Data")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

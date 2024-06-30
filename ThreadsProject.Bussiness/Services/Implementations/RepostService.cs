@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ThreadsProject.Bussiness.DTOs.ActionDtos;
 using ThreadsProject.Bussiness.DTOs.RepostDto;
 using ThreadsProject.Bussiness.Services.Interfaces;
 using ThreadsProject.Core.Entities;
@@ -19,15 +20,23 @@ namespace ThreadsProject.Bussiness.Services.Implementations
         private readonly IPostRepository _postRepository;
         private readonly IMapper _mapper;
         private readonly UserManager<User> _userManager;
+        private readonly IUserActionRepository _userActionRepository;
         private readonly ThreadsContext _context;
 
-        public RepostService(IRepostRepository repostRepository, IPostRepository postRepository, IMapper mapper, UserManager<User> userManager, ThreadsContext context)
+        public RepostService(
+            IRepostRepository repostRepository,
+            IPostRepository postRepository,
+            IMapper mapper,
+            UserManager<User> userManager,
+            ThreadsContext context,
+            IUserActionRepository userActionRepository)
         {
             _repostRepository = repostRepository;
             _postRepository = postRepository;
             _mapper = mapper;
             _userManager = userManager;
             _context = context;
+            _userActionRepository = userActionRepository;
         }
 
         public async Task AddRepostAsync(RepostCreateDto repostCreateDto, string userId)
@@ -48,6 +57,16 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             try
             {
                 await _repostRepository.AddAsync(repost);
+
+                // Repost aksiyonu ekle
+                var action = new CreateUserActionDto
+                {
+                    UserId = userId,
+                    TargetUserId = post.UserId,
+                    PostId = repostCreateDto.PostId,
+                    ActionType = "Reposted"
+                };
+                await _userActionRepository.AddAsync(_mapper.Map<UserAction>(action));
             }
             catch (Exception ex)
             {
@@ -66,6 +85,13 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             try
             {
                 await _repostRepository.DeleteAsync(repost);
+
+                // Repost aksiyonunu sil
+                var existingAction = await _userActionRepository.GetAsync(a => a.UserId == userId && a.PostId == repost.PostId && a.ActionType == "Reposted");
+                if (existingAction != null)
+                {
+                    await _userActionRepository.DeleteAsync(existingAction);
+                }
             }
             catch (Exception ex)
             {
@@ -89,6 +115,7 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             var reposts = await _repostRepository.GetAllRepostsWithDetailsAsync();
             return _mapper.Map<IEnumerable<RepostGetDto>>(reposts);
         }
+
         public async Task<IQueryable<RepostGetDto>> GetRepostsByUserIdAsync(string userId, string requesterId)
         {
             var user = await _userManager.Users
@@ -112,6 +139,5 @@ namespace ThreadsProject.Bussiness.Services.Implementations
 
             return reposts.Select(repost => _mapper.Map<RepostGetDto>(repost)).AsQueryable();
         }
-
     }
 }

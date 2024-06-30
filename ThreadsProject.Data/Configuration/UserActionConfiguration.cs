@@ -16,10 +16,6 @@ namespace ThreadsProject.Data.Configuration
                    .HasForeignKey(a => a.PostId)
                    .OnDelete(DeleteBehavior.Restrict); // Changed to Restrict
 
-            builder.HasOne(a => a.Request)
-                   .WithMany(r => r.Actions)
-                   .HasForeignKey(a => a.RequestId)
-                   .OnDelete(DeleteBehavior.Restrict); // Changed to Restrict
         }
     }
 }

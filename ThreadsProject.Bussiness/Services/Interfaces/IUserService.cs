@@ -20,6 +20,10 @@ namespace ThreadsProject.Bussiness.Services.Interfaces
         Task<UsersGetDto> GetUserByUsernameAsync(string username, string requesterId);
         Task<IEnumerable<UsersGetDto>> GetRandomUsersAsync(int count = 10, string currentUserId = null);
         Task<IEnumerable<UsersGetDto>> SearchUsersAsync(string searchTerm);
+        Task SendPasswordResetLinkAsync(ForgotPasswordDto forgot);
+        Task ResetPasswordAsync(ResetPasswordDto resetPasswordDto);
+        Task<UsersGetDto> GetUserByIdAsync(string id, string requesterId);
+        Task ChangePasswordAsync(string userId, ChangePasswordDto changePasswordDto);
 
 
 

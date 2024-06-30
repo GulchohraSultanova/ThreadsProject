@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -14,10 +15,12 @@ namespace ThreadsProject.Controllers
     public class PostController : ControllerBase
     {
         private readonly IPostService _postService;
+        private readonly ILogger<PostController> _logger;
 
-        public PostController(IPostService postService)
+        public PostController(IPostService postService, ILogger<PostController> logger)
         {
             _postService = postService;
+            _logger = logger;
         }
 
         [HttpPost("create")]
@@ -110,18 +113,47 @@ namespace ThreadsProject.Controllers
                 });
             }
         }
-
-
         [HttpGet("explore")]
-        public async Task<IActionResult> GetExplorePosts()
+        [Authorize]
+        public async Task<IActionResult> GetExplorePosts(int countPerTag = 5)
         {
-            var posts = await _postService.GetExplorePostsAsync();
-            return Ok(new
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (userId == null)
             {
-                StatusCode = StatusCodes.Status200OK,
-                Data = posts
-            });
+                return Unauthorized(new
+                {
+                    StatusCode = StatusCodes.Status401Unauthorized,
+                    Error = "Unauthorized"
+                });
+            }
+
+            try
+            {
+                var posts = await _postService.GetExplorePostsAsync(userId, countPerTag);
+                return Ok(new
+                {
+                    StatusCode = StatusCodes.Status200OK,
+                    Data = posts
+                });
+            }
+            catch (GlobalAppException ex)
+            {
+                return BadRequest(new
+                {
+                    StatusCode = StatusCodes.Status400BadRequest,
+                    Error = ex.Message
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError,
+                    Error = "An unexpected error occurred. Please try again later."
+                });
+            }
         }
+
 
         [HttpGet("home")]
         [Authorize]
@@ -269,6 +301,45 @@ namespace ThreadsProject.Controllers
             }
         }
 
+        [HttpGet("random-public-posts")]
+        public async Task<IActionResult> GetRandomPublicPosts([FromQuery] int count = 5)
+        {
+            var seenPostIds = HttpContext.Session.Get<HashSet<int>>("SeenPostIds") ?? new HashSet<int>();
+
+            try
+            {
+                var posts = await _postService.GetRandomPublicPostsAsync(count, seenPostIds);
+
+                // Güncellenen seenPostIds setini sessiona kaydedin
+                HttpContext.Session.Set("SeenPostIds", seenPostIds);
+
+                return Ok(new
+                {
+                    StatusCode = StatusCodes.Status200OK,
+                    Data = posts
+                });
+            }
+            catch (GlobalAppException ex)
+            {
+                _logger.LogError(ex, ex.Message);
+                return BadRequest(new
+                {
+                    StatusCode = StatusCodes.Status400BadRequest,
+                    Error = ex.Message
+                });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An unexpected error occurred.");
+                return StatusCode(StatusCodes.Status500InternalServerError, new
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError,
+                    Error = "An unexpected error occurred. Please try again later."
+                });
+            }
+        }
+
+
 
         [HttpGet("{userId}/post/{postId}")]
         [Authorize]
@@ -291,6 +362,46 @@ namespace ThreadsProject.Controllers
                 {
                     StatusCode = StatusCodes.Status200OK,
                     Data = post
+                });
+            }
+            catch (GlobalAppException ex)
+            {
+                return BadRequest(new
+                {
+                    StatusCode = StatusCodes.Status400BadRequest,
+                    Error = ex.Message
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError,
+                    Error = "An unexpected error occurred. Please try again later."
+                });
+            }
+        }
+        [HttpGet("liked")]
+        [Authorize]
+        public async Task<IActionResult> GetLikedPostsByUser()
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (userId == null)
+            {
+                return Unauthorized(new
+                {
+                    StatusCode = StatusCodes.Status401Unauthorized,
+                    Error = "Unauthorized"
+                });
+            }
+
+            try
+            {
+                var posts = await _postService.GetLikedPostsByUserAsync(userId);
+                return Ok(new
+                {
+                    StatusCode = StatusCodes.Status200OK,
+                    Data = posts
                 });
             }
             catch (GlobalAppException ex)

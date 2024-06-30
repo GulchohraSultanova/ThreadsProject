@@ -157,18 +157,51 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             }
         }
 
-
-        public async Task<IQueryable<PostGetDto>> GetExplorePostsAsync()
+        public async Task<IEnumerable<PostGetDto>> GetExplorePostsAsync(string userId, int countPerTag)
         {
-            try
+            var tags = await _tagRepository.GetAllAsync();
+            var userFollowingIds = await _followerRepository.GetAllAsync(f => f.FollowerUserId == userId);
+            var followingUserIds = userFollowingIds.Select(f => f.UserId).ToList();
+
+            var posts = new List<Post>();
+            var seenPostIds = new HashSet<int>();
+
+            foreach (var tag in tags)
             {
-                var posts = await _postRepository.GetAllPostsWithTagsAndImagesAsync(p => p.User.IsPublic && !p.User.IsDeleted, "Comments", "Comments.CommentLikes", "Likes", "User");
-                return posts.Select(post => _mapper.Map<PostGetDto>(post)).AsQueryable();
+                var tagPosts = await _postRepository.GetAllPostsWithTagsAndImagesAsync(
+                    p => p.PostTags.Any(pt => pt.TagId == tag.Id) &&
+                         p.UserId != userId &&
+                         !followingUserIds.Contains(p.UserId) &&
+                         p.User.IsPublic && !p.User.IsBanned,
+                    "Comments", "Comments.CommentLikes", "Likes", "User");
+
+                var uniquePosts = tagPosts
+                    .Where(p => !seenPostIds.Contains(p.Id))
+                    .OrderBy(x => Guid.NewGuid())
+                    .Take(countPerTag)
+                    .ToList();
+
+                foreach (var post in uniquePosts)
+                {
+                    seenPostIds.Add(post.Id);
+                }
+
+                posts.AddRange(uniquePosts);
             }
-            catch (Exception ex)
-            {
-                throw new GlobalAppException("An error occurred while getting explore posts.", ex);
-            }
+
+            return posts.Select(post => _mapper.Map<PostGetDto>(post));
+        }
+        public async Task<IEnumerable<PostGetDto>> GetLikedPostsByUserAsync(string userId)
+        {
+            var likedPosts = await _likeRepository.GetAllAsync(like => like.UserId == userId);
+
+            var postIds = likedPosts.Select(like => like.PostId).ToList();
+
+            var posts = await _postRepository.GetAllPostsWithTagsAndImagesAsync(
+                p => postIds.Contains(p.Id) && p.User.IsPublic && !p.User.IsBanned,
+                "Comments", "Comments.CommentLikes", "Likes", "User");
+
+            return posts.Select(post => _mapper.Map<PostGetDto>(post));
         }
 
         public async Task<IQueryable<PostGetDto>> GetHomePostsAsync(string userId)
@@ -178,7 +211,7 @@ namespace ThreadsProject.Bussiness.Services.Implementations
                 var followings = await _followerRepository.GetAllAsync(f => f.FollowerUserId == userId);
                 var followingIds = followings.Select(f => f.UserId).ToList();
 
-                var posts = await _postRepository.GetAllPostsWithTagsAndImagesAsync(p => followingIds.Contains(p.UserId) && !p.User.IsDeleted, "Comments", "Comments.CommentLikes", "Likes", "User");
+                var posts = await _postRepository.GetAllPostsWithTagsAndImagesAsync(p => followingIds.Contains(p.UserId) && !p.User.IsDeleted && !p.User.IsBanned, "Comments", "Comments.CommentLikes", "Likes", "User");
                 return posts.Select(post => _mapper.Map<PostGetDto>(post)).AsQueryable();
             }
             catch (Exception ex)
@@ -207,7 +240,7 @@ namespace ThreadsProject.Bussiness.Services.Implementations
         {
             try
             {
-                var posts = await _postRepository.GetAllPostsWithTagsAndImagesAsync(p => p.UserId == userId && !p.User.IsDeleted, "Comments", "Comments.CommentLikes", "Likes", "User");
+                var posts = await _postRepository.GetAllPostsWithTagsAndImagesAsync(p => p.UserId == userId && !p.User.IsDeleted && !p.User.IsBanned, "Comments", "Comments.CommentLikes", "Likes", "User");
                 return posts.Select(post => _mapper.Map<PostGetDto>(post)).AsQueryable();
             }
             catch (Exception ex)
@@ -249,6 +282,33 @@ namespace ThreadsProject.Bussiness.Services.Implementations
                 throw new GlobalAppException("An error occurred while retrieving the user's posts.", ex);
             }
         }
+        public async Task<IEnumerable<PostGetDto>> GetRandomPublicPostsAsync(int count, HashSet<int> seenPostIds)
+        {
+            var random = new Random();
+
+            // Tüm gerekli postları veritabanından alıyoruz.
+            var posts = await _postRepository.GetAllPostsWithTagsAndImagesAsync(
+                p => p.User.IsPublic && !p.User.IsBanned && !seenPostIds.Contains(p.Id),
+                "Comments", "Comments.CommentLikes", "Likes", "User");
+
+            // Bellek içi sıralama ve belirli bir sayıda post alma
+            var randomPosts = posts
+                .AsEnumerable() // Veritabanı sorgusunu burada tamamlayın ve bellek içi işlemleri başlatın
+                .OrderBy(x => random.Next())
+                .Take(count)
+                .ToList();
+
+            foreach (var post in randomPosts)
+            {
+                seenPostIds.Add(post.Id);
+            }
+
+            return randomPosts.Select(post => _mapper.Map<PostGetDto>(post));
+        }
+
+
+
+
 
 
 

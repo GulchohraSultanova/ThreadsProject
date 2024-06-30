@@ -6,7 +6,9 @@ using Microsoft.Extensions.Logging;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using ThreadsProject.Bussiness.DTOs.SupportsDto;
 using ThreadsProject.Bussiness.DTOs.UserDtos;
+using ThreadsProject.Bussiness.Services.Implementations;
 using ThreadsProject.Bussiness.Services.Interfaces;
 using ThreadsProject.Core.Entities;
 using ThreadsProject.Core.GlobalException;
@@ -20,12 +22,14 @@ namespace ThreadsProject.Controllers
         private readonly IUserService _userService;
         private readonly ILogger<UserController> _logger;
         private readonly UserManager<User> _userManager;
+        private readonly ISupportService _supportService;
 
-        public UserController(IUserService userService, ILogger<UserController> logger, UserManager<User> userManager)
+        public UserController(IUserService userService, ILogger<UserController> logger, UserManager<User> userManager, ISupportService supportService)
         {
             _userService = userService;
             _logger = logger;
             _userManager = userManager;
+            _supportService = supportService;
         }
 
         [HttpPost("register")]
@@ -43,10 +47,33 @@ namespace ThreadsProject.Controllers
             try
             {
                 await _userService.Register(registerDto);
+
+                // Kullanıcıyı bul
+                var user = await _userManager.FindByEmailAsync(registerDto.Email);
+                if (user == null)
+                {
+                    return BadRequest(new
+                    {
+                        StatusCode = StatusCodes.Status400BadRequest,
+                        Error = "User registration failed."
+                    });
+                }
+
+               
+                var roleResult = await _userManager.AddToRoleAsync(user, "Admin");
+                if (!roleResult.Succeeded)
+                {
+                    return StatusCode(StatusCodes.Status500InternalServerError, new
+                    {
+                        StatusCode = StatusCodes.Status500InternalServerError,
+                        Error = "Failed to assign role to the user."
+                    });
+                }
+
                 return StatusCode(StatusCodes.Status201Created, new
                 {
                     StatusCode = StatusCodes.Status201Created,
-                    Message = "User registered successfully. Please check your email to confirm your account."
+                    Message = "User registered successfully and assigned to Admin role. Please check your email to confirm your account."
                 });
             }
             catch (GlobalAppException ex)
@@ -68,6 +95,7 @@ namespace ThreadsProject.Controllers
                 });
             }
         }
+
 
         [HttpGet("confirmemail")]
         public async Task<IActionResult> ConfirmEmail([FromQuery] string token, [FromQuery] string userId)
@@ -101,11 +129,7 @@ namespace ThreadsProject.Controllers
                 if (result.Succeeded)
                 {
                     _logger.LogInformation($"Email confirmed successfully for userId: {userId}");
-                    return Ok(new
-                    {
-                        StatusCode = StatusCodes.Status200OK,
-                        Message = "Email confirmed successfully."
-                    });
+                    return Redirect("https://frontend-final-navy.vercel.app/email-verify");
                 }
                 else
                 {
@@ -128,6 +152,7 @@ namespace ThreadsProject.Controllers
                 });
             }
         }
+
 
         [HttpGet("getAll")]
         [Authorize]
@@ -381,6 +406,46 @@ namespace ThreadsProject.Controllers
                 });
             }
         }
+        [HttpGet("data/{id}")]
+        [Authorize]
+        public async Task<IActionResult> GetUserById(string id)
+        {
+            var requesterId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(requesterId))
+            {
+                return Unauthorized(new
+                {
+                    StatusCode = StatusCodes.Status401Unauthorized,
+                    Error = "Unauthorized"
+                });
+            }
+
+            try
+            {
+                var userDto = await _userService.GetUserByIdAsync(id, requesterId);
+                return Ok(new
+                {
+                    StatusCode = StatusCodes.Status200OK,
+                    Data = userDto
+                });
+            }
+            catch (GlobalAppException ex)
+            {
+                return BadRequest(new
+                {
+                    StatusCode = StatusCodes.Status400BadRequest,
+                    Error = ex.Message
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError,
+                    Error = "An unexpected error occurred. Please try again later."
+                });
+            }
+        }
         [HttpGet("random")]
         [Authorize]
         public async Task<IActionResult> GetRandomUsers([FromQuery] int count = 10)
@@ -447,6 +512,166 @@ namespace ThreadsProject.Controllers
                 });
             }
         }
+
+        [HttpPost("forgot-password")]
+        public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordDto forgotPasswordDto)
+        {
+            try
+            {
+                await _userService.SendPasswordResetLinkAsync(forgotPasswordDto);
+                return Ok(new
+                {
+                    StatusCode = StatusCodes.Status200OK,
+                    Message = "Password reset link sent successfully."
+                });
+            }
+            catch (GlobalAppException ex)
+            {
+                return BadRequest(new
+                {
+                    StatusCode = StatusCodes.Status400BadRequest,
+                    Error = ex.Message
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError,
+                    Error = "An unexpected error occurred. Please try again later."
+                });
+            }
+        }
+        [HttpPost("reset-password")]
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordDto resetPasswordDto)
+        {
+            if (resetPasswordDto.NewPassword != resetPasswordDto.ConfirmPassword)
+            {
+                return BadRequest(new
+                {
+                    StatusCode = StatusCodes.Status400BadRequest,
+                    Error = "Passwords do not match."
+                });
+            }
+
+            try
+            {
+                await _userService.ResetPasswordAsync(resetPasswordDto);
+                return Ok(new
+                {
+                    StatusCode = StatusCodes.Status200OK,
+                    Message = "Password reset successfully"
+                });
+            }
+            catch (GlobalAppException ex)
+            {
+                _logger.LogError(ex, "An error occurred while resetting the password");
+                return BadRequest(new
+                {
+                    StatusCode = StatusCodes.Status400BadRequest,
+                    Error = ex.Message
+                });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An unexpected error occurred");
+                return StatusCode(StatusCodes.Status500InternalServerError, new
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError,
+                    Error = "An unexpected error occurred. Please try again later."
+                });
+            }
+        }
+        [HttpPost("change-password")]
+        [Authorize]
+        public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordDto changePasswordDto)
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (userId == null)
+            {
+                return Unauthorized(new
+                {
+                    StatusCode = StatusCodes.Status401Unauthorized,
+                    Error = "Unauthorized"
+                });
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(new
+                {
+                    StatusCode = StatusCodes.Status400BadRequest,
+                    Error = "Invalid input data"
+                });
+            }
+
+            try
+            {
+                await _userService.ChangePasswordAsync(userId, changePasswordDto);
+                return Ok(new
+                {
+                    StatusCode = StatusCodes.Status200OK,
+                    Message = "Password changed successfully."
+                });
+            }
+            catch (GlobalAppException ex)
+            {
+                _logger.LogError(ex, "An error occurred while changing the password");
+                return BadRequest(new
+                {
+                    StatusCode = StatusCodes.Status400BadRequest,
+                    Error = ex.Message
+                });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An unexpected error occurred");
+                return StatusCode(StatusCodes.Status500InternalServerError, new
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError,
+                    Error = "An unexpected error occurred. Please try again later."
+                });
+            }
+        }
+
+
+
+
+        [HttpPost("support")]
+        [Authorize]
+        public async Task<IActionResult> CreateSupport([FromBody] CreateSupportDto createSupportDto)
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (userId == null)
+            {
+                return Unauthorized(new
+                {
+                    StatusCode = StatusCodes.Status401Unauthorized,
+                    Error = "Unauthorized"
+                });
+            }
+
+            try
+            {
+                await _supportService.CreateSupportAsync(createSupportDto, userId);
+                return Ok(new
+                {
+                    StatusCode = StatusCodes.Status200OK,
+                    Message = "Support request created successfully."
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError,
+                    Error = "An unexpected error occurred. Please try again later."
+                });
+            }
+        }
+
+
 
     }
 }

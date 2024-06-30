@@ -106,7 +106,7 @@ namespace ThreadsProject.Bussiness.Services.Implementations
                     .ThenInclude(f => f.FollowerUser)
                 .Include(u => u.Following)
                     .ThenInclude(f => f.FollowingUser)
-                .Where(u => !u.IsDeleted);
+                .Where(u => !u.IsDeleted && u.EmailConfirmed && !u.IsBanned && !u.AdminOrUser);
 
             if (filter != null)
             {
@@ -140,7 +140,7 @@ namespace ThreadsProject.Bussiness.Services.Implementations
                         .ThenInclude(f => f.FollowerUser)
                     .Include(u => u.Following)
                         .ThenInclude(f => f.FollowingUser)
-                    .FirstOrDefaultAsync(u => u.Id == userId && !u.IsDeleted);
+                    .FirstOrDefaultAsync(u => u.Id == userId && !u.IsDeleted && u.EmailConfirmed && !u.IsBanned && !u.AdminOrUser);
 
                 if (user == null)
                 {
@@ -156,7 +156,7 @@ namespace ThreadsProject.Bussiness.Services.Implementations
                 throw new GlobalAppException("An unexpected error occurred while retrieving the user", ex);
             }
         }
-
+   
 
 
 
@@ -165,7 +165,7 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             try
             {
                 var user = await _userManager.Users
-                    .Where(u => (u.UserName == dto.UserNameOrEmail || u.Email == dto.UserNameOrEmail) && !u.IsDeleted)
+                    .Where(u => (u.UserName == dto.UserNameOrEmail || u.Email == dto.UserNameOrEmail) && !u.IsDeleted  && !u.AdminOrUser)
                     .FirstOrDefaultAsync();
 
                 if (user == null)
@@ -176,6 +176,10 @@ namespace ThreadsProject.Bussiness.Services.Implementations
                 if (!user.EmailConfirmed)
                 {
                     throw new GlobalAppException("Email not verified. Please confirm your email.");
+                }
+                if (user.IsBanned)
+                {
+                    throw new GlobalAppException("User is banned!");
                 }
 
                 var isPasswordValid = await _userManager.CheckPasswordAsync(user, dto.Password);
@@ -336,7 +340,7 @@ namespace ThreadsProject.Bussiness.Services.Implementations
                         .ThenInclude(f => f.FollowerUser)
                     .Include(u => u.Following)
                         .ThenInclude(f => f.FollowingUser)
-                    .FirstOrDefaultAsync(u => u.UserName == username && !u.IsDeleted);
+                    .FirstOrDefaultAsync(u => u.UserName == username && !u.IsDeleted && !u.IsBanned && u.EmailConfirmed && !u.AdminOrUser);
 
                 if (user == null)
                 {
@@ -357,15 +361,47 @@ namespace ThreadsProject.Bussiness.Services.Implementations
                 throw new GlobalAppException("User not found!", ex);
             }
         }
+        public async Task<UsersGetDto> GetUserByIdAsync(string id, string requesterId)
+        {
+            try
+            {
+                var user = await _userManager.Users
+                    .Include(u => u.Followers)
+                        .ThenInclude(f => f.FollowerUser)
+                    .Include(u => u.Following)
+                        .ThenInclude(f => f.FollowingUser)
+                    .FirstOrDefaultAsync(u => u.Id == id && !u.IsDeleted && !u.IsBanned && u.EmailConfirmed && !u.AdminOrUser);
+
+                if (user == null)
+                {
+                    throw new GlobalAppException("User not found.");
+                }
+
+                var isFollowing = await _context.Followers
+                    .AnyAsync(f => f.UserId == user.Id && f.FollowerUserId == requesterId);
+
+                var userDto = _mapper.Map<UsersGetDto>(user);
+
+
+                return userDto;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while retrieving the user by username");
+                throw new GlobalAppException("User not found!", ex);
+            }
+        }
         public async Task<IEnumerable<UsersGetDto>> GetRandomUsersAsync(int count = 10, string currentUserId = null)
         {
             try
             {
                 var random = new Random();
                 var users = await _userManager.Users
-                    .Where(u => !u.IsDeleted && u.IsPublic && u.EmailConfirmed && u.Id != currentUserId)
-                    .Include(u => u.Followers)
-                    .Include(u => u.Following)
+                    .Where(u => !u.IsDeleted && u.IsPublic && !u.IsBanned && u.EmailConfirmed && u.Id != currentUserId && !u.AdminOrUser)
+                  .Include(u => u.Followers)
+                .ThenInclude(f => f.FollowerUser)
+                .Include(u => u.Following)
+                .ThenInclude(f => f.FollowingUser)
                     .ToListAsync(); // Veritabanı sorgusunu burada tamamlayın
 
                 var randomUsers = users
@@ -396,11 +432,110 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             }
 
             var users = await _userManager.Users
-                .Where(u => !u.IsDeleted  && u.EmailConfirmed && u.UserName.StartsWith(searchTerm))
+                .Where(u => !u.IsDeleted && u.EmailConfirmed && !u.IsBanned && !u.AdminOrUser && u.UserName.StartsWith(searchTerm))
+                .Include(u => u.Followers)
+                .ThenInclude(f => f.FollowerUser)
+                .Include(u => u.Following)
+                .ThenInclude(f => f.FollowingUser)
                 .ToListAsync();
 
             return users.Select(user => _mapper.Map<UsersGetDto>(user));
         }
+
+   
+     public async Task SendPasswordResetLinkAsync(ForgotPasswordDto forgot)
+        {
+            var user = await _userManager.FindByEmailAsync(forgot.Email);
+            if (user == null || user.IsDeleted)
+            {
+                throw new GlobalAppException("User not found with the provided email.");
+            }
+
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var resetLink = $"http://frontend-final-navy.vercel.app/reset-password?token={Uri.EscapeDataString(token)}&userId={Uri.EscapeDataString(user.Id)}";
+
+            await _emailSender.SendEmailAsync(user.Email, "Reset your password", $"Please reset your password by clicking this link: <a href='{resetLink}'>here</a>.");
+        }
+
+
+        public async Task ResetPasswordAsync(ResetPasswordDto resetPasswordDto)
+        {
+            if (resetPasswordDto.NewPassword != resetPasswordDto.ConfirmPassword)
+            {
+                throw new GlobalAppException("Passwords do not match.");
+            }
+
+            try
+            {
+                var user = await _userManager.FindByIdAsync(resetPasswordDto.UserId);
+                if (user == null)
+                {
+                    throw new GlobalAppException("User not found.");
+                }
+
+                var resetPassResult = await _userManager.ResetPasswordAsync(user, resetPasswordDto.Token, resetPasswordDto.NewPassword);
+                if (!resetPassResult.Succeeded)
+                {
+                    var errors = string.Join(", ", resetPassResult.Errors.Select(e => e.Description));
+                    _logger.LogError($"Password reset failed: {errors}");
+                    throw new GlobalAppException($"Password reset failed: {errors}");
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while resetting the password.");
+                throw new GlobalAppException("An error occurred while resetting the password.", ex);
+            }
+        }
+        public async Task ChangePasswordAsync(string userId, ChangePasswordDto changePasswordDto)
+        {
+            if (string.IsNullOrEmpty(userId))
+            {
+                throw new GlobalAppException("User ID cannot be null or empty");
+            }
+
+            if (changePasswordDto.NewPassword != changePasswordDto.ConfirmPassword)
+            {
+                throw new GlobalAppException("Passwords do not match.");
+            }
+
+            try
+            {
+                var user = await _userManager.FindByIdAsync(userId);
+                if (user == null)
+                {
+                    throw new GlobalAppException("User not found.");
+                }
+
+                var isCurrentPasswordValid = await _userManager.CheckPasswordAsync(user, changePasswordDto.CurrentPassword);
+                if (!isCurrentPasswordValid)
+                {
+                    throw new GlobalAppException("Current password is incorrect.");
+                }
+
+                if (changePasswordDto.NewPassword == changePasswordDto.CurrentPassword)
+                {
+                    throw new GlobalAppException("New password cannot be the same as the current password.");
+                }
+
+                var resetPassResult = await _userManager.ChangePasswordAsync(user, changePasswordDto.CurrentPassword, changePasswordDto.NewPassword);
+                if (!resetPassResult.Succeeded)
+                {
+                    var errors = string.Join(", ", resetPassResult.Errors.Select(e => e.Description));
+                    _logger.LogError($"Password change failed: {errors}");
+                    throw new GlobalAppException($"Password change failed: {errors}");
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while changing the password.");
+                throw new GlobalAppException("An error occurred while changing the password.", ex);
+            }
+        }
+
+
+
+
 
 
 

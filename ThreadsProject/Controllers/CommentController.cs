@@ -203,13 +203,26 @@ namespace ThreadsProject.API.Controllers
         [HttpGet("{postId}")]
         public async Task<IActionResult> GetCommentsByPostId(int postId)
         {
-            var comments = await _commentService.GetCommentsByPostIdAsync(postId);
-            return Ok(new
+            try
             {
-                StatusCode = StatusCodes.Status200OK,
-                Data = comments
-            });
+                var comments = await _commentService.GetCommentsByPostIdAsync(postId);
+                return Ok(new
+                {
+                    StatusCode = StatusCodes.Status200OK,
+                    Data = comments
+                });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Unexpected error in GetCommentsByPostId.");
+                return StatusCode(StatusCodes.Status500InternalServerError, new
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError,
+                    Error = "An unexpected error occurred. Please try again later."
+                });
+            }
         }
+
         [HttpGet("user/{userId}/replies")]
         [Authorize]
         public async Task<IActionResult> GetUserRepliesWithPostsByUserId(string userId)
@@ -281,5 +294,7 @@ namespace ThreadsProject.API.Controllers
                 });
             }
         }
+   
+
     }
 }

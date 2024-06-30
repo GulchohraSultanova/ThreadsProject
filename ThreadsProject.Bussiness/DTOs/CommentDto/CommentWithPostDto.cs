@@ -9,6 +9,7 @@ namespace ThreadsProject.Bussiness.DTOs.CommentDto
         public int CommentId { get; set; }
         public string CommentContent { get; set; }
         public DateTime CommentCreatedDate { get; set; }
+        public string time => CommentCreatedDate.ToRelativeTime();
         public PostGetDto Post { get; set; }
     }
 }

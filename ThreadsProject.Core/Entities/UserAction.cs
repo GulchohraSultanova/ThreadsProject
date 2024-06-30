@@ -12,12 +12,15 @@ namespace ThreadsProject.Core.Entities
         public int Id { get; set; }
         public string UserId { get; set; }
         public int? PostId { get; set; }
-        public int? RequestId { get; set; }
+        public int? CommentId { get; set; }
+        public string TargetUserId { get; set; }
+
         public string ActionType { get; set; }
         public DateTime CreatedDate { get; set; }
 
         public virtual User User { get; set; }
         public virtual Post Post { get; set; }
-        public virtual FollowRequest Request { get; set; }
+        public virtual Comment Comment { get; set; }
+
     }
 }

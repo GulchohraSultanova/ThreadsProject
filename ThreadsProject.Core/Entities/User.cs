@@ -15,6 +15,7 @@ namespace ThreadsProject.Core.Entities
         public bool IsVerified { get; set; }
         public bool IsDeleted { get; set; }
         public bool IsBanned { get; set; }
+        public bool AdminOrUser { get; set; }
 
         public virtual ICollection<Post> Posts { get; set; } = new List<Post>();
         public virtual ICollection<Follower> Followers { get; set; } = new List<Follower>();
@@ -23,5 +24,6 @@ namespace ThreadsProject.Core.Entities
         public virtual ICollection<Repost> Reposts { get; set; } = new List<Repost>();
         public virtual ICollection<FollowRequest> SentRequests { get; set; } = new List<FollowRequest>();
         public virtual ICollection<FollowRequest> ReceivedRequests { get; set; } = new List<FollowRequest>();
+        public virtual ICollection<Support> Supports { get; set; }= new List<Support>();
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 using ThreadsProject.Core.Entities;
@@ -20,11 +21,19 @@ namespace ThreadsProject.Data.DAL
         public DbSet<PostTag> PostTags { get; set; }
         public DbSet<FollowRequest> Requests { get; set; }
         public DbSet<CommentLike> CommentLikes { get; set; }
+        public DbSet<Support> Supports { get; set; }
         public ThreadsContext(DbContextOptions<ThreadsContext> options) : base(options)
         {
         }
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            builder.Entity<IdentityRole>().ToTable("AspNetRoles");
+            builder.Entity<User>().ToTable("AspNetUsers");
+            builder.Entity<IdentityUserRole<string>>().ToTable("AspNetUserRoles");
+            builder.Entity<IdentityUserClaim<string>>().ToTable("AspNetUserClaims");
+            builder.Entity<IdentityUserLogin<string>>().ToTable("AspNetUserLogins");
+            builder.Entity<IdentityRoleClaim<string>>().ToTable("AspNetRoleClaims");
+            builder.Entity<IdentityUserToken<string>>().ToTable("AspNetUserTokens");
             base.OnModelCreating(builder);
             builder.ApplyConfiguration(new UserConfiguration());
             builder.ApplyConfiguration(new PostConfiguration());
@@ -39,6 +48,7 @@ namespace ThreadsProject.Data.DAL
             builder.ApplyConfiguration(new RequestConfiguration());
             builder.ApplyConfiguration(new PostImageConfugration());
             builder.ApplyConfiguration(new CommentLikeConfiguration());
+            builder.ApplyConfiguration(new SupportConfiguration());
 
         }
     }

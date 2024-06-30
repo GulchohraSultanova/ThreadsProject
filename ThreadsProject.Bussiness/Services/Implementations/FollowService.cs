@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
+using Azure.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ThreadsProject.Bussiness.DTOs.ActionDtos;
 using ThreadsProject.Bussiness.DTOs.FollowsDto;
 using ThreadsProject.Bussiness.Services.Interfaces;
 using ThreadsProject.Core.Entities;
@@ -18,18 +20,20 @@ namespace ThreadsProject.Bussiness.Services.Implementations
         private readonly IFollowerRepository _followerRepository;
         private readonly IFollowingRepository _followingRepository;
         private readonly IUserService _userService;
+        private readonly IUserActionService _userActionService;
+        private readonly IUserActionRepository _userActionRepository;
         private readonly IMapper _mapper;
 
-        public FollowService(IRequestRepository requestRepository, IFollowerRepository followerRepository, IFollowingRepository followingRepository, IUserService userService, IMapper mapper)
+        public FollowService(IRequestRepository requestRepository, IFollowerRepository followerRepository, IFollowingRepository followingRepository, IUserService userService, IMapper mapper, IUserActionService userActionService, IUserActionRepository userActionRepository)
         {
             _requestRepository = requestRepository;
             _followerRepository = followerRepository;
             _followingRepository = followingRepository;
             _userService = userService;
             _mapper = mapper;
+            _userActionService = userActionService;
+            _userActionRepository = userActionRepository;
         }
-
-      
 
         public async Task AcceptFollowRequestAsync(int requestId)
         {
@@ -39,7 +43,11 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             {
                 throw new GlobalAppException("Request not found.");
             }
-            
+            if (request.SenderId == request.ReceiverId)
+            {
+                throw new GlobalAppException("You cannot follow yourself.");
+            }
+
             var sender = await _userService.GetUserByIdAsync(request.SenderId);
             var receiver = await _userService.GetUserByIdAsync(request.ReceiverId);
 
@@ -52,10 +60,25 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             await _followingRepository.AddAsync(new Following { UserId = request.SenderId, FollowingUserId = request.ReceiverId, CreatedDate = DateTime.UtcNow });
 
             await _requestRepository.DeleteAsync(request);
+
+            // Takip aksiyonu ekle
+            var action = new CreateUserActionDto
+            {
+                UserId = request.SenderId,
+                TargetUserId = request.ReceiverId,
+                ActionType = "Followed"
+            };
+            await _userActionService.CreateUserActionAsync(action);
         }
 
         public async Task FollowAsync(string senderId, string receiverId)
+
         {
+            if (senderId == receiverId)
+            {
+                throw new GlobalAppException("You cannot follow yourself.");
+            }
+
             var sender = await _userService.GetUserByIdAsync(senderId);
             var receiver = await _userService.GetUserByIdAsync(receiverId);
 
@@ -82,13 +105,22 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             {
                 await _followerRepository.AddAsync(new Follower { UserId = receiverId, FollowerUserId = senderId, CreatedDate = DateTime.UtcNow });
                 await _followingRepository.AddAsync(new Following { UserId = senderId, FollowingUserId = receiverId, CreatedDate = DateTime.UtcNow });
+
+                // Takip aksiyonu ekle
+                var action = new CreateUserActionDto
+                {
+                    UserId =senderId,
+                    TargetUserId = receiverId,
+
+                    ActionType = "Followed"
+                };
+                await _userActionService.CreateUserActionAsync(action);
             }
             else
             {
                 await _requestRepository.AddAsync(new FollowRequest { SenderId = senderId, ReceiverId = receiverId, CreatedDate = DateTime.UtcNow });
             }
         }
-
 
         public async Task<IEnumerable<FollowDto>> GetFollowersAsync(string userId)
         {
@@ -107,6 +139,7 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             var requests = await _requestRepository.GetAllAsync(r => r.ReceiverId == userId, "Sender");
             return _mapper.Map<IEnumerable<FollowRequestDto>>(requests);
         }
+
         public async Task RejectFollowRequestAsync(int requestId)
         {
             var request = await _requestRepository.GetByIdAsync(requestId);
@@ -118,6 +151,7 @@ namespace ThreadsProject.Bussiness.Services.Implementations
 
             await _requestRepository.DeleteAsync(request);
         }
+
         public async Task RemoveFollowingAsync(string userId, string followingId)
         {
             var following = await _followingRepository.GetAsync(f => f.UserId == userId && f.FollowingUserId == followingId);
@@ -133,6 +167,13 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             }
 
             await _followingRepository.DeleteAsync(following);
+
+            // Takip aksiyonunu sil
+            var existingAction = await _userActionRepository.GetAsync(a => a.UserId == userId && a.ActionType == "Followed");
+            if (existingAction != null)
+            {
+                await _userActionRepository.DeleteAsync(existingAction);
+            }
         }
 
         public async Task RemoveFollowerAsync(string userId, string followerId)
@@ -150,12 +191,21 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             }
 
             await _followerRepository.DeleteAsync(follower);
+
+            // Takip aksiyonunu sil
+            var existingAction = await _userActionRepository.GetAsync(a => a.UserId == followerId && a.ActionType == "Followed");
+            if (existingAction != null)
+            {
+                await _userActionRepository.DeleteAsync(existingAction);
+            }
         }
+
         public async Task<IEnumerable<SentFollowRequestDto>> GetSentFollowRequestsAsync(string userId)
         {
             var sentRequests = await _requestRepository.GetAllAsync(r => r.SenderId == userId, "Receiver");
             return _mapper.Map<IEnumerable<SentFollowRequestDto>>(sentRequests);
         }
+
         public async Task CancelFollowRequestAsync(string senderId, string receiverId)
         {
             var request = await _requestRepository.GetAsync(r => r.SenderId == senderId && r.ReceiverId == receiverId);
@@ -167,6 +217,5 @@ namespace ThreadsProject.Bussiness.Services.Implementations
 
             await _requestRepository.DeleteAsync(request);
         }
-
     }
 }

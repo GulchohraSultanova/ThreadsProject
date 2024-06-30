@@ -14,11 +14,13 @@ namespace ThreadsProject.Bussiness.Services.Implementations
     {
         private readonly ITagRepository _tagRepository;
         private readonly IMapper _mapper;
+        private readonly IPostRepository _postRepository;
 
-        public TagService(ITagRepository tagRepository, IMapper mapper)
+        public TagService(ITagRepository tagRepository, IMapper mapper, IPostRepository postRepository)
         {
             _tagRepository = tagRepository;
             _mapper = mapper;
+            _postRepository = postRepository;
         }
 
         public async Task AddTagAsync(CreateTagDto createTagDto)
@@ -44,13 +46,23 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             try
             {
                 var tags = await _tagRepository.GetAllAsync();
-                return _mapper.Map<IEnumerable<TagGetDto>>(tags);
+                var tagDtos = _mapper.Map<IEnumerable<TagGetDto>>(tags);
+
+                foreach (var tagDto in tagDtos)
+                {
+                    // Her bir tag için post sayısını hesapla
+                    var postCount = await _postRepository.CountAsync(p => p.PostTags.Any(t => t.TagId == tagDto.Id));
+                    tagDto.PostCount = postCount;
+                }
+
+                return tagDtos;
             }
             catch (Exception ex)
             {
                 throw new GlobalAppException("An error occurred while getting all tags.", ex);
             }
         }
+
         public async Task<TagGetDto> GetTagByIdAsync(int id)
         {
             try

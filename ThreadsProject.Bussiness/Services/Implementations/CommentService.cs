@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ThreadsProject.Bussiness.DTOs.ActionDtos;
 using ThreadsProject.Bussiness.DTOs.CommentDto;
 using ThreadsProject.Bussiness.DTOs.PostDto;
 using ThreadsProject.Bussiness.Services.Interfaces;
 using ThreadsProject.Core.Entities;
 using ThreadsProject.Core.GlobalException;
 using ThreadsProject.Core.RepositoryAbstracts;
+using ThreadsProject.Data.RepositoryConcreters;
 
 namespace ThreadsProject.Bussiness.Services.Implementations
 {
@@ -18,14 +20,18 @@ namespace ThreadsProject.Bussiness.Services.Implementations
         private readonly IPostRepository _postRepository;
         private readonly IFollowerRepository _followerRepository;
         private readonly IMapper _mapper;
+        private readonly IUserActionService _userActionService;
+        private readonly IUserActionRepository _userActionRepository;
 
-        public CommentService(ICommentRepository commentRepository, IPostRepository postRepository, IFollowerRepository followerRepository, IMapper mapper, ICommentLikeRepository commentLikeRepository)
+        public CommentService(ICommentRepository commentRepository, IPostRepository postRepository, IFollowerRepository followerRepository, IMapper mapper, ICommentLikeRepository commentLikeRepository, IUserActionService userActionService, IUserActionRepository userActionRepository)
         {
             _commentRepository = commentRepository;
             _postRepository = postRepository;
             _followerRepository = followerRepository;
             _mapper = mapper;
             _commentLikeRepository = commentLikeRepository;
+            _userActionService = userActionService;
+            _userActionRepository = userActionRepository;
         }
 
         public async Task AddCommentAsync(CreateCommentDto createCommentDto, string userId)
@@ -49,6 +55,20 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             try
             {
                 await _commentRepository.AddAsync(comment);
+
+                // Kullanıcı kendi postuna yorum yapmıyorsa aksiyon ekleyelim
+                if (post.UserId != userId)
+                {
+                    var action = new CreateUserActionDto
+                    {
+                        UserId = userId,  // Yorumu yapan kullanıcı
+                        PostId = post.Id,
+                        TargetUserId = post.UserId,
+                        CommentId = comment.Id,
+                        ActionType = "Commented"
+                    };
+                    await _userActionService.CreateUserActionAsync(action);
+                }
             }
             catch (Exception ex)
             {
@@ -56,15 +76,36 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             }
         }
 
+
+
         public async Task<IEnumerable<CommentGetDto>> GetCommentsByPostIdAsync(int postId)
         {
-            var comments = await _commentRepository.GetAllCommentsWithLikesAsync(c => c.PostId == postId);
-            return _mapper.Map<IEnumerable<CommentGetDto>>(comments);
+            var comments = await _commentRepository.GetAllCommentsWithLikesAsync(c => c.PostId == postId && c.ParentCommentId == null); // Fetch only top-level comments
+            var commentDtos = _mapper.Map<IEnumerable<CommentGetDto>>(comments);
+
+            foreach (var commentDto in commentDtos)
+            {
+                await LoadRepliesAsync(commentDto);
+            }
+
+            return commentDtos;
         }
 
+        private async Task LoadRepliesAsync(CommentGetDto commentDto)
+        {
+            var replies = await _commentRepository.GetAllCommentsWithLikesAsync(c => c.ParentCommentId == commentDto.Id);
+            var replyDtos = _mapper.Map<IEnumerable<CommentGetDto>>(replies);
+
+            commentDto.Replies = replyDtos.ToList();
+
+            foreach (var replyDto in commentDto.Replies)
+            {
+                await LoadRepliesAsync(replyDto); // Recursively load replies
+            }
+        }
         public async Task DeleteCommentAsync(int commentId, string userId)
         {
-            var comment = await _commentRepository.GetAsync(c => c.Id == commentId && c.UserId == userId);
+            var comment = await _commentRepository.GetAsync(c => c.Id == commentId && c.UserId == userId, "Replies");
             if (comment == null)
             {
                 throw new GlobalAppException("Comment not found or user not authorized.");
@@ -72,6 +113,20 @@ namespace ThreadsProject.Bussiness.Services.Implementations
 
             try
             {
+                // Silinecek yorumun aksiyonlarını da sil
+                var actions = await _userActionRepository.GetAllAsync(a => a.CommentId == commentId);
+                foreach (var action in actions)
+                {
+                    await _userActionRepository.DeleteAsync(action);
+                }
+
+                // Tüm yanıtları sil
+                foreach (var reply in comment.Replies.ToList())
+                {
+                    await DeleteCommentAndRepliesAsync(reply.Id, userId);
+                }
+
+                // Yorumu sil
                 await _commentRepository.DeleteAsync(comment);
             }
             catch (Exception ex)
@@ -79,6 +134,28 @@ namespace ThreadsProject.Bussiness.Services.Implementations
                 throw new GlobalAppException("An error occurred while deleting the comment.", ex);
             }
         }
+
+        private async Task DeleteCommentAndRepliesAsync(int commentId, string userId)
+        {
+            var comment = await _commentRepository.GetAsync(c => c.Id == commentId, "Replies");
+            if (comment != null)
+            {
+                // Silinecek yorumun aksiyonlarını da sil
+                var actions = await _userActionRepository.GetAllAsync(a => a.CommentId == commentId);
+                foreach (var action in actions)
+                {
+                    await _userActionRepository.DeleteAsync(action);
+                }
+
+                foreach (var reply in comment.Replies.ToList())
+                {
+                    await DeleteCommentAndRepliesAsync(reply.Id, userId);
+                }
+                await _commentRepository.DeleteAsync(comment);
+            }
+        }
+
+
 
         public async Task LikeCommentAsync(int commentId, string userId)
         {
@@ -128,6 +205,7 @@ namespace ThreadsProject.Bussiness.Services.Implementations
                 throw new GlobalAppException("An error occurred while unliking the comment.", ex);
             }
         }
+
         public async Task<IEnumerable<CommentWithPostDto>> GetUserRepliesWithPostsByUserIdAsync(string userId)
         {
             var comments = await _commentRepository.GetAllAsync(c => c.UserId == userId);
@@ -177,7 +255,5 @@ namespace ThreadsProject.Bussiness.Services.Implementations
 
             return result;
         }
-
-
     }
 }

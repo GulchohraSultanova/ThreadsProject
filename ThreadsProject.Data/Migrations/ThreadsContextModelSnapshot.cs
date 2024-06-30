@@ -172,14 +172,22 @@ namespace ThreadsProject.Data.Migrations
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("GETDATE()");
 
+                    b.Property<int?>("ParentCommentId")
+                        .HasColumnType("int");
+
                     b.Property<int>("PostId")
                         .HasColumnType("int");
+
+                    b.Property<string>("ReplyUsername")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ParentCommentId");
 
                     b.HasIndex("PostId");
 
@@ -429,6 +437,34 @@ namespace ThreadsProject.Data.Migrations
                     b.ToTable("Reposts");
                 });
 
+            modelBuilder.Entity("ThreadsProject.Core.Entities.Support", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Supports");
+                });
+
             modelBuilder.Entity("ThreadsProject.Core.Entities.Tag", b =>
                 {
                     b.Property<int>("Id")
@@ -454,6 +490,9 @@ namespace ThreadsProject.Data.Migrations
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
+
+                    b.Property<bool>("AdminOrUser")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Bio")
                         .IsRequired()
@@ -564,6 +603,9 @@ namespace ThreadsProject.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("CommentId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
@@ -572,8 +614,9 @@ namespace ThreadsProject.Data.Migrations
                     b.Property<int?>("PostId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("RequestId")
-                        .HasColumnType("int");
+                    b.Property<string>("TargetUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
                         .IsRequired()
@@ -581,9 +624,9 @@ namespace ThreadsProject.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PostId");
+                    b.HasIndex("CommentId");
 
-                    b.HasIndex("RequestId");
+                    b.HasIndex("PostId");
 
                     b.HasIndex("UserId");
 
@@ -643,6 +686,10 @@ namespace ThreadsProject.Data.Migrations
 
             modelBuilder.Entity("ThreadsProject.Core.Entities.Comment", b =>
                 {
+                    b.HasOne("ThreadsProject.Core.Entities.Comment", "ParentComment")
+                        .WithMany("Replies")
+                        .HasForeignKey("ParentCommentId");
+
                     b.HasOne("ThreadsProject.Core.Entities.Post", "Post")
                         .WithMany("Comments")
                         .HasForeignKey("PostId")
@@ -654,6 +701,8 @@ namespace ThreadsProject.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.Navigation("ParentComment");
 
                     b.Navigation("Post");
 
@@ -815,16 +864,26 @@ namespace ThreadsProject.Data.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("ThreadsProject.Core.Entities.Support", b =>
+                {
+                    b.HasOne("ThreadsProject.Core.Entities.User", "User")
+                        .WithMany("Supports")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("ThreadsProject.Core.Entities.UserAction", b =>
                 {
+                    b.HasOne("ThreadsProject.Core.Entities.Comment", "Comment")
+                        .WithMany()
+                        .HasForeignKey("CommentId");
+
                     b.HasOne("ThreadsProject.Core.Entities.Post", "Post")
                         .WithMany("Actions")
                         .HasForeignKey("PostId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("ThreadsProject.Core.Entities.FollowRequest", "Request")
-                        .WithMany("Actions")
-                        .HasForeignKey("RequestId")
                         .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("ThreadsProject.Core.Entities.User", "User")
@@ -833,9 +892,9 @@ namespace ThreadsProject.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Post");
+                    b.Navigation("Comment");
 
-                    b.Navigation("Request");
+                    b.Navigation("Post");
 
                     b.Navigation("User");
                 });
@@ -843,11 +902,8 @@ namespace ThreadsProject.Data.Migrations
             modelBuilder.Entity("ThreadsProject.Core.Entities.Comment", b =>
                 {
                     b.Navigation("CommentLikes");
-                });
 
-            modelBuilder.Entity("ThreadsProject.Core.Entities.FollowRequest", b =>
-                {
-                    b.Navigation("Actions");
+                    b.Navigation("Replies");
                 });
 
             modelBuilder.Entity("ThreadsProject.Core.Entities.Post", b =>
@@ -885,6 +941,8 @@ namespace ThreadsProject.Data.Migrations
                     b.Navigation("Reposts");
 
                     b.Navigation("SentRequests");
+
+                    b.Navigation("Supports");
                 });
 #pragma warning restore 612, 618
         }

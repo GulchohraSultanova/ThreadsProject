@@ -14,7 +14,8 @@ namespace ThreadsProject.Core.RepositoryAbstracts
         Task<T> GetAsync(Expression<Func<T, bool>> ? filter=null , params string[] includes);
         Task AddAsync(T entity);
         Task DeleteAsync(T entity);
-        Task<T> GetByIdAsync(int id); 
+        Task<T> GetByIdAsync(int id);
+        Task<int> CountAsync(Expression<Func<T, bool>> filter);
 
     }
 }

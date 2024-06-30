@@ -33,6 +33,9 @@ namespace ThreadsProject.Bussiness
             services.AddScoped<ILikeService, LikeService>();
             services.AddScoped<ICommentService, CommentService>();
             services.AddScoped<IRepostService, RepostService>();
+            services.AddScoped<ISupportService, SupportService>();
+            services.AddScoped<IAdminService, AdminService>();
+            services.AddScoped<IUserActionService, UserActionService>();
   
 
 
@@ -46,6 +49,8 @@ namespace ThreadsProject.Bussiness
             services.AddScoped<ICommentRepository, CommentRepository>();
             services.AddScoped<ICommentLikeRepository, CommentLikeRepository>();
             services.AddScoped<IRepostRepository, RepostRepository>();
+            services.AddScoped<ISupportRepository, SupportRepository>();
+            services.AddScoped<IUserActionRepository, UserActionRepository>();
             services.AddSignalR();
             var cloudinarySettings = configuration.GetSection("CloudinarySettings").Get<CloudinarySettings>();
             var cloudinaryAccount = new Account(cloudinarySettings.CloudName, cloudinarySettings.ApiKey, cloudinarySettings.ApiSecret);

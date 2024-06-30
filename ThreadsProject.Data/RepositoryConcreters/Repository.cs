@@ -97,6 +97,18 @@ namespace ThreadsProject.Data.RepositoryConcreters
                 throw new GlobalAppException($"An error occurred while getting the {typeof(T).Name.ToLower()} by ID.", ex);
             }
         }
+        public async Task<int> CountAsync(Expression<Func<T, bool>> filter)
+        {
+            try
+            {
+                return await _context.Set<T>().CountAsync(filter);
+            }
+            catch (Exception ex)
+            {
+                throw new GlobalAppException($"An error occurred while counting {typeof(T).Name.ToLower()}s.", ex);
+            }
+        }
+
 
     }
 }

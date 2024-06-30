@@ -20,6 +20,7 @@ namespace ThreadsProject.Bussiness.DTOs.UserDtos
         public string Surname { get; set; }
         public string ImgUrl { get; set; }  
         public string Bio {  get; set; }
+        public string IsBanned { get; set; }
         public bool IsPublic { get; set; } = true;
         public DateTime CreatedTime { get; set; }
         public ICollection<FollowDto> Followers { get; set; }

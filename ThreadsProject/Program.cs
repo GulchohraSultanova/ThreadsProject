@@ -12,18 +12,22 @@ using ThreadsProject.Core.GlobalException;
 using ThreadsProject.Bussiness.Profilies;
 using ThreadsProject.Core.Entities;
 using ThreadsProject.Data.DAL;
-using ThreadsProject.Core.Hubs;  // SignalR Hub için ekleme
+using ThreadsProject.Core.Hubs;
 using YourApiProject.Filters;
-
-
-
+using ThreadsProject.Data; // RoleInitializer için ekleme
 
 var builder = WebApplication.CreateBuilder(args);
-
 
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddDistributedMemoryCache(); // Oturumlar için gerekli
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
 builder.Services.AddSwaggerGen(opt =>
 {
     opt.SwaggerDoc("v1", new OpenApiInfo { Title = "MyAPI", Version = "v1" });
@@ -36,6 +40,7 @@ builder.Services.AddSwaggerGen(opt =>
         BearerFormat = "JWT",
         Scheme = "bearer"
     });
+
 
     opt.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
@@ -57,6 +62,8 @@ builder.Services.AddDbContext<ThreadsContext>(opt =>
 {
     opt.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
 });
+
+
 
 builder.Services.AddIdentity<User, IdentityRole>(opt =>
 {
@@ -121,10 +128,27 @@ builder.Services.Configure<DataProtectionTokenProviderOptions>(options =>
     options.TokenLifespan = TimeSpan.FromHours(24);
 });
 
+
 // SignalR Ekleme
 builder.Services.AddSignalR();
 
 var app = builder.Build();
+
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var userManager = services.GetRequiredService<UserManager<User>>();
+    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+    await RoleInitializer.InitializeAsync(userManager, roleManager);
+}
+
+// Rolleri ve admin kullanıcıyı başlat
+
+
+
+
+app.UseSession();
 
 app.UseDeveloperExceptionPage();
 app.UseSwagger();
@@ -142,6 +166,5 @@ app.MapControllers();
 
 app.MapHub<LikeHub>("/likeHub");
 app.MapHub<CommentHub>("/commentHub");
-
 
 app.Run();

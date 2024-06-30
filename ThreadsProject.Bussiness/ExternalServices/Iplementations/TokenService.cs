@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
@@ -16,10 +17,12 @@ namespace ThreadsProject.Bussiness.ExternalServices.Implementations
     public class TokenService : ITokenService
     {
         private readonly IConfiguration _configuration;
+        private readonly UserManager<User> _userManager;
 
-        public TokenService(IConfiguration configuration)
+        public TokenService(IConfiguration configuration, UserManager<User> userManager)
         {
             _configuration = configuration;
+            _userManager = userManager;
         }
 
         public TokenResponseDto CreateToken(User user, int expireDate = 180)
@@ -28,11 +31,18 @@ namespace ThreadsProject.Bussiness.ExternalServices.Implementations
                 {
                     new Claim(ClaimTypes.Name, user.UserName),
                     new Claim(ClaimTypes.Email, user.Email),
-                    
                     new Claim(ClaimTypes.Surname, user.Surname),
                     new Claim(ClaimTypes.NameIdentifier, user.Id),
                     new Claim(ClaimTypes.GivenName, user.Name)
                 };
+
+            // Rolleri ekle
+            var roles = _userManager.GetRolesAsync(user).Result;
+            foreach (var role in roles)
+            {
+                claims.Add(new Claim(ClaimTypes.Role, role));
+            }
+
             SymmetricSecurityKey securityKey = new SymmetricSecurityKey(
                 Encoding.UTF8.GetBytes(_configuration["Jwt:SigningKey"]));
             SigningCredentials signingCredentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
@@ -50,7 +60,6 @@ namespace ThreadsProject.Bussiness.ExternalServices.Implementations
                 Token = token,
                 ExpireDate = jwtSecurityToken.ValidTo,
                 UserName = user.UserName,
-            
             };
         }
     }
