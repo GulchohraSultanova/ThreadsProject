@@ -130,7 +130,7 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             var isFollowing = await _context.Followers
                 .AnyAsync(f => f.UserId == userId && f.FollowerUserId == requesterId);
 
-            if (!user.IsPublic && !user.IsBanned  && !user.IsDeleted && userId != requesterId && !isFollowing)
+            if (!user.IsPublic && userId != requesterId && !isFollowing)
             {
                 return Enumerable.Empty<RepostGetDto>().AsQueryable();
             }

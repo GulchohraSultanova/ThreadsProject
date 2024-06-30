@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ThreadsProject")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+41a806be6a6ba471bfb274bfaff9b2a3850d24c9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d4a6491bf1f03fb73bbe993e6c8fcece4f546e7c")]
 [assembly: System.Reflection.AssemblyProductAttribute("ThreadsProject")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ThreadsProject")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

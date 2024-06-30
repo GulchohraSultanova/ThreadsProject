@@ -124,19 +124,19 @@ namespace ThreadsProject.Bussiness.Services.Implementations
 
         public async Task<IEnumerable<FollowDto>> GetFollowersAsync(string userId)
         {
-            var followers = await _followerRepository.GetAllAsync(f => f.UserId == userId && !f.User.IsDeleted && ! f.User.IsBanned, "FollowerUser");
+            var followers = await _followerRepository.GetAllAsync(f => f.UserId == userId, "FollowerUser");
             return _mapper.Map<IEnumerable<FollowDto>>(followers);
         }
 
         public async Task<IEnumerable<FollowDto>> GetFollowingsAsync(string userId)
         {
-            var followings = await _followingRepository.GetAllAsync(f => f.UserId == userId && !f.User.IsDeleted && !f.User.IsBanned, "FollowingUser");
+            var followings = await _followingRepository.GetAllAsync(f => f.UserId == userId, "FollowingUser");
             return _mapper.Map<IEnumerable<FollowDto>>(followings);
         }
 
         public async Task<IEnumerable<FollowRequestDto>> GetFollowRequestsAsync(string userId)
         {
-            var requests = await _requestRepository.GetAllAsync(r => r.ReceiverId == userId , "Sender");
+            var requests = await _requestRepository.GetAllAsync(r => r.ReceiverId == userId, "Sender");
             return _mapper.Map<IEnumerable<FollowRequestDto>>(requests);
         }
 

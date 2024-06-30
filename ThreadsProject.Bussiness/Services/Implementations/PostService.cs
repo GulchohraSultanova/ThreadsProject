@@ -214,7 +214,7 @@ namespace ThreadsProject.Bussiness.Services.Implementations
                     p => p.PostTags.Any(pt => pt.TagId == tag.Id) &&
                          p.UserId != userId &&
                          !followingUserIds.Contains(p.UserId) &&
-                         p.User.IsPublic && !p.User.IsBanned && ! p.User.IsDeleted,
+                         p.User.IsPublic && !p.User.IsBanned,
                     "Comments", "Comments.CommentLikes", "Likes", "User");
 
                 var uniquePosts = tagPosts
@@ -240,7 +240,7 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             var postIds = likedPosts.Select(like => like.PostId).ToList();
 
             var posts = await _postRepository.GetAllPostsWithTagsAndImagesAsync(
-                p => postIds.Contains(p.Id) && p.User.IsPublic && !p.User.IsBanned && !p.User.IsDeleted,
+                p => postIds.Contains(p.Id) && p.User.IsPublic && !p.User.IsBanned,
                 "Comments", "Comments.CommentLikes", "Likes", "User");
 
             return posts.Select(post => _mapper.Map<PostGetDto>(post));
@@ -330,7 +330,7 @@ namespace ThreadsProject.Bussiness.Services.Implementations
 
             // Tüm gerekli postları veritabanından alıyoruz.
             var posts = await _postRepository.GetAllPostsWithTagsAndImagesAsync(
-                p => p.User.IsPublic && !p.User.IsBanned && ! p.User.IsDeleted && !seenPostIds.Contains(p.Id),
+                p => p.User.IsPublic && !p.User.IsBanned && !seenPostIds.Contains(p.Id),
                 "Comments", "Comments.CommentLikes", "Likes", "User");
 
             // Bellek içi sıralama ve belirli bir sayıda post alma
@@ -356,7 +356,7 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             try
             {
                 var posts = await _postRepository.GetAllPostsWithTagsAndImagesAsync(
-                    p => p.PostTags.Any(pt => pt.TagId == tagId) && p.User.IsPublic && !p.User.IsBanned && !p.User.IsDeleted,
+                    p => p.PostTags.Any(pt => pt.TagId == tagId) && p.User.IsPublic && !p.User.IsBanned,
                     "Comments", "Comments.CommentLikes", "Likes", "User"
                 );
 

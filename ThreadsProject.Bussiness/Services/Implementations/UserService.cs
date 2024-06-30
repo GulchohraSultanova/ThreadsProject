@@ -337,9 +337,9 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             {
                 var user = await _userManager.Users
                     .Include(u => u.Followers)
-                        .ThenInclude(f => !f.FollowerUser.IsDeleted && !f.FollowerUser.IsBanned)
+                        .ThenInclude(f => f.FollowerUser)
                     .Include(u => u.Following)
-                        .ThenInclude(f => !f.FollowingUser.IsDeleted && !f.FollowingUser.IsBanned)
+                        .ThenInclude(f => f.FollowingUser)
                     .FirstOrDefaultAsync(u => u.UserName == username && !u.IsDeleted && !u.IsBanned && u.EmailConfirmed && !u.AdminOrUser);
 
                 if (user == null)
@@ -367,9 +367,9 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             {
                 var user = await _userManager.Users
                     .Include(u => u.Followers)
-                        .ThenInclude(f => !f.FollowerUser.IsDeleted && !f.FollowerUser.IsBanned)
+                        .ThenInclude(f => f.FollowerUser)
                     .Include(u => u.Following)
-                        .ThenInclude(f => !f.FollowingUser.IsDeleted && !f.FollowingUser.IsBanned)
+                        .ThenInclude(f => f.FollowingUser)
                     .FirstOrDefaultAsync(u => u.Id == id && !u.IsDeleted && !u.IsBanned && u.EmailConfirmed && !u.AdminOrUser);
 
                 if (user == null)
@@ -399,9 +399,9 @@ namespace ThreadsProject.Bussiness.Services.Implementations
                 var users = await _userManager.Users
                     .Where(u => !u.IsDeleted && u.IsPublic && !u.IsBanned && u.EmailConfirmed && u.Id != currentUserId && !u.AdminOrUser)
                   .Include(u => u.Followers)
-                .ThenInclude(f => !f.FollowerUser.IsDeleted && !f.FollowerUser.IsBanned)
+                .ThenInclude(f => f.FollowerUser)
                 .Include(u => u.Following)
-                .ThenInclude(f => !f.FollowingUser.IsDeleted && !f.FollowingUser.IsBanned)
+                .ThenInclude(f => f.FollowingUser)
                     .ToListAsync(); // Veritabanı sorgusunu burada tamamlayın
 
                 var randomUsers = users
@@ -434,9 +434,9 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             var users = await _userManager.Users
                 .Where(u => !u.IsDeleted && u.EmailConfirmed && !u.IsBanned && !u.AdminOrUser && u.UserName.StartsWith(searchTerm))
                 .Include(u => u.Followers)
-                .ThenInclude(f => !f.FollowerUser.IsDeleted && !f.FollowerUser.IsBanned)
+                .ThenInclude(f => f.FollowerUser)
                 .Include(u => u.Following)
-                .ThenInclude(f => !f.FollowingUser.IsDeleted && !f.FollowingUser.IsBanned)
+                .ThenInclude(f => f.FollowingUser)
                 .ToListAsync();
 
             return users.Select(user => _mapper.Map<UsersGetDto>(user));

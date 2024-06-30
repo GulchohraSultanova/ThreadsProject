@@ -63,7 +63,7 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             }
 
             // Kullanıcı kendi postunu veya takip ettiği postları beğenebilir
-            var isFollowing = await _followerRepository.GetAsync(f => f.UserId == post.UserId && !f.User.IsDeleted && !f.User.IsBanned && f.FollowerUserId == userId);
+            var isFollowing = await _followerRepository.GetAsync(f => f.UserId == post.UserId && f.FollowerUserId == userId);
             if (post.UserId != userId && post.User.IsPublic == false && isFollowing == null)
             {
                 throw new GlobalAppException("You can only like posts from users you follow or public profiles.");
@@ -121,7 +121,7 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             }
 
             await _likeRepository.DeleteAsync(like);
-            var existingAction = await _userActionRepository.GetAsync(a => a.UserId == userId &&  !a.User.IsDeleted && !a.User.IsBanned  && a.PostId == postId && a.ActionType == "PostLiked");
+            var existingAction = await _userActionRepository.GetAsync(a => a.UserId == userId && a.PostId == postId && a.ActionType == "PostLiked");
             if (existingAction != null)
             {
                 await _userActionRepository.DeleteAsync(existingAction);

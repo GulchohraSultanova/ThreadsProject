@@ -3,32 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|solutionrelative:threadsproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.bussiness\\services\\implementations\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|solutionrelative:threadsproject.bussiness\\services\\implementations\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject\\extensions\\sessionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|solutionrelative:threadsproject\\extensions\\sessionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject\\controllers\\followcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|solutionrelative:threadsproject\\controllers\\followcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.bussiness\\services\\implementations\\repostservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|solutionrelative:threadsproject.bussiness\\services\\implementations\\repostservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.bussiness\\services\\implementations\\followservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|solutionrelative:threadsproject.bussiness\\services\\implementations\\followservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|solutionrelative:threadsproject\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.bussiness\\services\\implementations\\postservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|solutionrelative:threadsproject.bussiness\\services\\implementations\\postservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.bussiness\\services\\implementations\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|solutionrelative:threadsproject.bussiness\\services\\implementations\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.bussiness\\services\\implementations\\commentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|solutionrelative:threadsproject.bussiness\\services\\implementations\\commentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject\\extensions\\sessionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|solutionrelative:threadsproject\\extensions\\sessionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.bussiness\\services\\implementations\\followservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|solutionrelative:threadsproject.bussiness\\services\\implementations\\followservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject\\controllers\\followcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|solutionrelative:threadsproject\\controllers\\followcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.bussiness\\services\\implementations\\useractionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -43,16 +43,20 @@
       "RelativeMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|solutionrelative:threadsproject.bussiness\\services\\implementations\\supportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|solutionrelative:threadsproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.bussiness\\services\\implementations\\repostservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|solutionrelative:threadsproject.bussiness\\services\\implementations\\repostservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3788F6A8-6B3E-4874-B3E8-6AD850CAE935}|ThreadsProject.Core\\ThreadsProject.Core.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.core\\repositoryabstracts\\irepostrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3788F6A8-6B3E-4874-B3E8-6AD850CAE935}|ThreadsProject.Core\\ThreadsProject.Core.csproj|solutionrelative:threadsproject.core\\repositoryabstracts\\irepostrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.bussiness\\services\\implementations\\likeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|solutionrelative:threadsproject.bussiness\\services\\implementations\\likeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.bussiness\\services\\implementations\\commentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|solutionrelative:threadsproject.bussiness\\services\\implementations\\commentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject\\controllers\\postcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -77,10 +81,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{3788F6A8-6B3E-4874-B3E8-6AD850CAE935}|ThreadsProject.Core\\ThreadsProject.Core.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.core\\entities\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3788F6A8-6B3E-4874-B3E8-6AD850CAE935}|ThreadsProject.Core\\ThreadsProject.Core.csproj|solutionrelative:threadsproject.core\\entities\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|solutionrelative:threadsproject\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject\\controllers\\useractioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -424,11 +424,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "Post.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Core\\Entities\\Post.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Core\\Entities\\Post.cs",
@@ -441,27 +441,124 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "SupportService.cs",
-              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\SupportService.cs",
-              "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Services\\Implementations\\SupportService.cs",
-              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\SupportService.cs",
-              "RelativeToolTip": "ThreadsProject.Bussiness\\Services\\Implementations\\SupportService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 6,
+              "Title": "FollowController.cs",
+              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Controllers\\FollowController.cs",
+              "RelativeDocumentMoniker": "ThreadsProject\\Controllers\\FollowController.cs",
+              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Controllers\\FollowController.cs",
+              "RelativeToolTip": "ThreadsProject\\Controllers\\FollowController.cs",
+              "ViewState": "AQIAAG0AAAAAAAAAAAAAAIsAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-30T00:52:08.14Z"
+              "WhenOpened": "2024-07-04T22:10:27.288Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "TagService.cs",
-              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\TagService.cs",
-              "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Services\\Implementations\\TagService.cs",
-              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\TagService.cs",
-              "RelativeToolTip": "ThreadsProject.Bussiness\\Services\\Implementations\\TagService.cs",
-              "ViewState": "AQIAAEIAAAAAAAAAAAAcwGoAAABOAAAA",
+              "DocumentIndex": 13,
+              "Title": "LikeService.cs",
+              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\LikeService.cs",
+              "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Services\\Implementations\\LikeService.cs",
+              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\LikeService.cs",
+              "RelativeToolTip": "ThreadsProject.Bussiness\\Services\\Implementations\\LikeService.cs",
+              "ViewState": "AQIAAGAAAAAAAAAAAAAAAH8AAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-02T11:09:16.573Z"
+              "WhenOpened": "2024-07-01T11:51:12.609Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SessionExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Extensions\\SessionExtensions.cs",
+              "RelativeDocumentMoniker": "ThreadsProject\\Extensions\\SessionExtensions.cs",
+              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Extensions\\SessionExtensions.cs",
+              "RelativeToolTip": "ThreadsProject\\Extensions\\SessionExtensions.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-30T15:12:47.809Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "IRepostRepository.cs",
+              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Core\\RepositoryAbstracts\\IRepostRepository.cs",
+              "RelativeDocumentMoniker": "ThreadsProject.Core\\RepositoryAbstracts\\IRepostRepository.cs",
+              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Core\\RepositoryAbstracts\\IRepostRepository.cs",
+              "RelativeToolTip": "ThreadsProject.Core\\RepositoryAbstracts\\IRepostRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-25T18:31:29.852Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Program.cs",
+              "RelativeDocumentMoniker": "ThreadsProject\\Program.cs",
+              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Program.cs",
+              "RelativeToolTip": "ThreadsProject\\Program.cs",
+              "ViewState": "AQIAAJcAAAAAAAAAAAAAALQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-30T15:11:21.203Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FollowService.cs",
+              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\FollowService.cs",
+              "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Services\\Implementations\\FollowService.cs",
+              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\FollowService.cs",
+              "RelativeToolTip": "ThreadsProject.Bussiness\\Services\\Implementations\\FollowService.cs",
+              "ViewState": "AQIAADkAAAAAAAAAAAAgwHEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-29T15:18:52.884Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\UserService.cs",
+              "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Services\\Implementations\\UserService.cs",
+              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\UserService.cs",
+              "RelativeToolTip": "ThreadsProject.Bussiness\\Services\\Implementations\\UserService.cs",
+              "ViewState": "AQIAAIIBAAAAAAAAAAAQwHEBAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-01T17:21:50.582Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CommentService.cs",
+              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\CommentService.cs",
+              "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Services\\Implementations\\CommentService.cs",
+              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\CommentService.cs",
+              "RelativeToolTip": "ThreadsProject.Bussiness\\Services\\Implementations\\CommentService.cs",
+              "ViewState": "AQIAACIAAAAAAAAAAAAawEIAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-30T19:31:51.007Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PostService.cs",
+              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\PostService.cs",
+              "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Services\\Implementations\\PostService.cs",
+              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\PostService.cs",
+              "RelativeToolTip": "ThreadsProject.Bussiness\\Services\\Implementations\\PostService.cs",
+              "ViewState": "AQIAACQBAAAAAAAAAAAAwCsBAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-30T15:01:01.294Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "ThreadsProject\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Controllers\\UserController.cs",
+              "RelativeToolTip": "ThreadsProject\\Controllers\\UserController.cs",
+              "ViewState": "AQIAAG4AAAAAAAAAAAAQwDwAAABRAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-04T17:08:46.153Z"
             },
             {
               "$type": "Document",
@@ -477,82 +574,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FollowController.cs",
-              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Controllers\\FollowController.cs",
-              "RelativeDocumentMoniker": "ThreadsProject\\Controllers\\FollowController.cs",
-              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Controllers\\FollowController.cs",
-              "RelativeToolTip": "ThreadsProject\\Controllers\\FollowController.cs",
-              "ViewState": "AQIAAIYAAAAAAAAAAAAIwB4AAAAXAAAA",
+              "DocumentIndex": 8,
+              "Title": "TagService.cs",
+              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\TagService.cs",
+              "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Services\\Implementations\\TagService.cs",
+              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\TagService.cs",
+              "RelativeToolTip": "ThreadsProject.Bussiness\\Services\\Implementations\\TagService.cs",
+              "ViewState": "AQIAAEIAAAAAAAAAAAAcwGoAAABOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-04T22:10:27.288Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-02T11:09:16.573Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\UserService.cs",
-              "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Services\\Implementations\\UserService.cs",
-              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\UserService.cs",
-              "RelativeToolTip": "ThreadsProject.Bussiness\\Services\\Implementations\\UserService.cs",
-              "ViewState": "AQIAAL0BAAAAAAAAAAA3wLYBAABQAAAA",
+              "DocumentIndex": 9,
+              "Title": "SupportService.cs",
+              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\SupportService.cs",
+              "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Services\\Implementations\\SupportService.cs",
+              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\SupportService.cs",
+              "RelativeToolTip": "ThreadsProject.Bussiness\\Services\\Implementations\\SupportService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-01T17:21:50.582Z"
+              "WhenOpened": "2024-06-30T00:52:08.14Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "LikeService.cs",
-              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\LikeService.cs",
-              "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Services\\Implementations\\LikeService.cs",
-              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\LikeService.cs",
-              "RelativeToolTip": "ThreadsProject.Bussiness\\Services\\Implementations\\LikeService.cs",
-              "ViewState": "AQIAAGAAAAAAAAAAAAAAAH8AAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-01T11:51:12.609Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SessionExtensions.cs",
-              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Extensions\\SessionExtensions.cs",
-              "RelativeDocumentMoniker": "ThreadsProject\\Extensions\\SessionExtensions.cs",
-              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Extensions\\SessionExtensions.cs",
-              "RelativeToolTip": "ThreadsProject\\Extensions\\SessionExtensions.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-30T15:12:47.809Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "IRepostRepository.cs",
-              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Core\\RepositoryAbstracts\\IRepostRepository.cs",
-              "RelativeDocumentMoniker": "ThreadsProject.Core\\RepositoryAbstracts\\IRepostRepository.cs",
-              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Core\\RepositoryAbstracts\\IRepostRepository.cs",
-              "RelativeToolTip": "ThreadsProject.Core\\RepositoryAbstracts\\IRepostRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAiAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-25T18:31:29.852Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Program.cs",
-              "RelativeDocumentMoniker": "ThreadsProject\\Program.cs",
-              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Program.cs",
-              "RelativeToolTip": "ThreadsProject\\Program.cs",
-              "ViewState": "AQIAAJcAAAAAAAAAAAAAALQAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-30T15:11:21.203Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "RepostService.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\RepostService.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Services\\Implementations\\RepostService.cs",
@@ -564,43 +610,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "FollowService.cs",
-              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\FollowService.cs",
-              "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Services\\Implementations\\FollowService.cs",
-              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\FollowService.cs",
-              "RelativeToolTip": "ThreadsProject.Bussiness\\Services\\Implementations\\FollowService.cs",
-              "ViewState": "AQIAAEgAAAAAAAAAAAAgwH4AAABoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-29T15:18:52.884Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "PostService.cs",
-              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\PostService.cs",
-              "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Services\\Implementations\\PostService.cs",
-              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\PostService.cs",
-              "RelativeToolTip": "ThreadsProject.Bussiness\\Services\\Implementations\\PostService.cs",
-              "ViewState": "AQIAANkAAAAAAAAAAAAIwCoBAAAtAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-30T15:01:01.294Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "CommentService.cs",
-              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\CommentService.cs",
-              "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Services\\Implementations\\CommentService.cs",
-              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\CommentService.cs",
-              "RelativeToolTip": "ThreadsProject.Bussiness\\Services\\Implementations\\CommentService.cs",
-              "ViewState": "AQIAAM4AAAAAAAAAAADgv0IAAAAvAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-30T19:31:51.007Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\appsettings.json",
               "RelativeDocumentMoniker": "ThreadsProject\\appsettings.json",
@@ -612,7 +622,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "ITagService.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Interfaces\\ITagService.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Services\\Interfaces\\ITagService.cs",
@@ -621,19 +631,6 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAABIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-02T11:20:22.316Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "ThreadsProject\\Controllers\\UserController.cs",
-              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Controllers\\UserController.cs",
-              "RelativeToolTip": "ThreadsProject\\Controllers\\UserController.cs",
-              "ViewState": "AQIAAFcAAAAAAAAAAAAAADwAAABRAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-04T17:08:46.153Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -649,7 +646,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "TagController.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Controllers\\TagController.cs",
               "RelativeDocumentMoniker": "ThreadsProject\\Controllers\\TagController.cs",
@@ -661,7 +658,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "PostController.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Controllers\\PostController.cs",
               "RelativeDocumentMoniker": "ThreadsProject\\Controllers\\PostController.cs",
@@ -669,12 +666,11 @@
               "RelativeToolTip": "ThreadsProject\\Controllers\\PostController.cs",
               "ViewState": "AQIAACwAAAAAAAAAAAAswGIAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-26T15:52:17.861Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-26T15:52:17.861Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "IPostService.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Interfaces\\IPostService.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Services\\Interfaces\\IPostService.cs",
@@ -694,8 +690,7 @@
               "RelativeToolTip": "ThreadsProject\\Controllers\\RepostController.cs",
               "ViewState": "AQIAAKoAAAAAAAAAAAAAAL8AAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-25T18:45:03.869Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-25T18:45:03.869Z"
             },
             {
               "$type": "Document",
@@ -755,8 +750,7 @@
               "RelativeToolTip": "ThreadsProject\\Controllers\\AdminController.cs",
               "ViewState": "AQIAAIwAAAAAAAAAAAAAAJwAAAAXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-29T20:53:43.136Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-29T20:53:43.136Z"
             },
             {
               "$type": "Document",
@@ -1152,8 +1146,7 @@
               "RelativeToolTip": "ThreadsProject\\Controllers\\CommentController.cs",
               "ViewState": "AQIAAMwAAAAAAAAAAAAmwNsAAABKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-01T12:42:58.074Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-01T12:42:58.074Z"
             },
             {
               "$type": "Document",
