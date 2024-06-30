@@ -53,15 +53,30 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             _context = context;
             _cloudinary = cloudinary;
         }
-        private async Task<string> UploadImageToCloudinaryAsync(IFormFile imageFile)
+        private async Task<string> UploadMediaToCloudinaryAsync(IFormFile mediaFile)
         {
-            var uploadParams = new ImageUploadParams()
+            RawUploadParams uploadParams;
+
+            if (mediaFile.ContentType.StartsWith("video/"))
             {
-                File = new FileDescription(imageFile.FileName, imageFile.OpenReadStream()),
-                UseFilename = true,
-                UniqueFilename = false,
-                Overwrite = true
-            };
+                uploadParams = new VideoUploadParams
+                {
+                    File = new FileDescription(mediaFile.FileName, mediaFile.OpenReadStream()),
+                    UseFilename = true,
+                    UniqueFilename = false,
+                    Overwrite = true
+                };
+            }
+            else
+            {
+                uploadParams = new ImageUploadParams
+                {
+                    File = new FileDescription(mediaFile.FileName, mediaFile.OpenReadStream()),
+                    UseFilename = true,
+                    UniqueFilename = false,
+                    Overwrite = true
+                };
+            }
 
             var uploadResult = await _cloudinary.UploadAsync(uploadParams);
             return uploadResult.SecureUrl.ToString();
@@ -71,7 +86,7 @@ namespace ThreadsProject.Bussiness.Services.Implementations
         {
             if (createPostDto.Images != null && createPostDto.Images.Count > 4)
             {
-                throw new InvalidOperationException("A post can have a maximum of 4 images.");
+                throw new InvalidOperationException("A post can have a maximum of 4 media files.");
             }
 
             var post = _mapper.Map<Post>(createPostDto);
@@ -93,28 +108,14 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             if (createPostDto.Images != null && createPostDto.Images.Any())
             {
                 post.Images = new List<PostImage>();
-                foreach (var image in createPostDto.Images)
+                foreach (var base64Image in createPostDto.Images)
                 {
-                    var uploadParams = new ImageUploadParams()
+                    IFormFile file = ConvertBase64ToIFormFile(base64Image); // Base64 string'den IFormFile'e dönüştürme
+                    var uploadUrl = await UploadMediaToCloudinaryAsync(file);
+                    post.Images.Add(new PostImage
                     {
-                        File = new FileDescription(image), // image is assumed to be a file path or a base64 string
-                        UseFilename = true,
-                        UniqueFilename = false,
-                        Overwrite = true
-                    };
-                    var uploadResult = await _cloudinary.UploadAsync(uploadParams);
-
-                    if (uploadResult.StatusCode == System.Net.HttpStatusCode.OK)
-                    {
-                        post.Images.Add(new PostImage
-                        {
-                            ImageUrl = uploadResult.SecureUrl.AbsoluteUri
-                        });
-                    }
-                    else
-                    {
-                        throw new GlobalAppException("Image upload failed.");
-                    }
+                        ImageUrl = uploadUrl
+                    });
                 }
             }
 
@@ -127,6 +128,47 @@ namespace ThreadsProject.Bussiness.Services.Implementations
                 throw new GlobalAppException("An error occurred while adding the post.", ex);
             }
         }
+
+        private IFormFile ConvertBase64ToIFormFile(string base64String)
+        {
+            var base64Parts = base64String.Split(",");
+            var data = base64Parts.Length > 1 ? base64Parts[1] : base64Parts[0];
+            byte[] bytes = Convert.FromBase64String(data);
+            var stream = new MemoryStream(bytes);
+            var fileName = $"upload_{Guid.NewGuid()}";
+            var contentType = GetContentTypeFromBase64(base64Parts[0]);
+
+            return new FormFile(stream, 0, stream.Length, null, fileName)
+            {
+                Headers = new HeaderDictionary(),
+                ContentType = contentType
+            };
+        }
+
+        private string GetContentTypeFromBase64(string base64Header)
+        {
+            if (base64Header.Contains("data:image/jpeg")) return "image/jpeg";
+            if (base64Header.Contains("data:image/png")) return "image/png";
+            if (base64Header.Contains("data:image/gif")) return "image/gif";
+            if (base64Header.Contains("data:image/bmp")) return "image/bmp";
+            if (base64Header.Contains("data:image/webp")) return "image/webp";
+            if (base64Header.Contains("data:image/heic")) return "image/heic";
+            if (base64Header.Contains("data:image/tiff") || base64Header.Contains("data:image/tif")) return "image/tiff";
+            if (base64Header.Contains("data:image/raw") || base64Header.Contains("data:image/dng") || base64Header.Contains("data:image/cr2") || base64Header.Contains("data:image/nef") || base64Header.Contains("data:image/arw")) return "image/raw";
+            if (base64Header.Contains("data:image/heif")) return "image/heif";
+            if (base64Header.Contains("data:image/hevc")) return "image/hevc";
+            if (base64Header.Contains("data:video/mp4")) return "video/mp4";
+            if (base64Header.Contains("data:video/quicktime")) return "video/quicktime";
+            if (base64Header.Contains("data:video/3gpp")) return "video/3gpp";
+            if (base64Header.Contains("data:video/x-matroska")) return "video/x-matroska";
+            if (base64Header.Contains("data:video/x-msvideo")) return "video/x-msvideo";
+            if (base64Header.Contains("data:video/x-flv")) return "video/x-flv";
+            if (base64Header.Contains("data:video/x-ms-wmv")) return "video/x-ms-wmv";
+            if (base64Header.Contains("data:video/webm")) return "video/webm";
+
+            throw new GlobalAppException("Unsupported file format.");
+        }
+
 
 
 
@@ -309,6 +351,24 @@ namespace ThreadsProject.Bussiness.Services.Implementations
 
 
 
+        public async Task<IEnumerable<PostGetDto>> GetPostsByTagAsync(int tagId)
+        {
+            try
+            {
+                var posts = await _postRepository.GetAllPostsWithTagsAndImagesAsync(
+                    p => p.PostTags.Any(pt => pt.TagId == tagId) && p.User.IsPublic && !p.User.IsBanned,
+                    "Comments", "Comments.CommentLikes", "Likes", "User"
+                );
+
+                var sortedPosts = posts.OrderByDescending(p => p.Likes.Count).ToList();
+
+                return sortedPosts.Select(post => _mapper.Map<PostGetDto>(post));
+            }
+            catch (Exception ex)
+            {
+                throw new GlobalAppException("An error occurred while retrieving the posts by tag.", ex);
+            }
+        }
 
 
 

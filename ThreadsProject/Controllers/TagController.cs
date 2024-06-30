@@ -56,6 +56,39 @@ namespace ThreadsProject.Controllers
                 });
             }
         }
-       
+
+
+        [HttpGet("search")]
+        public async Task<IActionResult> SearchTags([FromQuery] string searchTerm)
+        {
+            try
+            {
+                var tags = await _tagService.SearchTagsAsync(searchTerm);
+                return Ok(new
+                {
+                    StatusCode = StatusCodes.Status200OK,
+                    Data = tags
+                });
+            }
+            catch (GlobalAppException ex)
+            {
+                _logger.LogError(ex, "An error occurred while searching for tags");
+                return BadRequest(new
+                {
+                    StatusCode = StatusCodes.Status400BadRequest,
+                    Error = ex.Message
+                });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An unexpected error occurred");
+                return StatusCode(StatusCodes.Status500InternalServerError, new
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError,
+                    Error = "An unexpected error occurred. Please try again later."
+                });
+            }
+        }
+
     }
 }

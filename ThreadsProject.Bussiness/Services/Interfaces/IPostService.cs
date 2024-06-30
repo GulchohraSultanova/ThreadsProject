@@ -22,5 +22,6 @@ namespace ThreadsProject.Bussiness.Services.Interfaces
         Task<IEnumerable<PostGetDto>> GetExplorePostsAsync(string userId, int countPerTag);
         Task<IEnumerable<PostGetDto>> GetLikedPostsByUserAsync(string userId);
         Task<IEnumerable<PostGetDto>> GetRandomPublicPostsAsync(int count, HashSet<int> seenPostIds);
+        Task<IEnumerable<PostGetDto>> GetPostsByTagAsync(int tagId);
     }
 }

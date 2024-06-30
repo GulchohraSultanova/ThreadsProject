@@ -3,40 +3,108 @@
   "WorkspaceRootPath": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|solutionrelative:threadsproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.bussiness\\services\\implementations\\postservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|solutionrelative:threadsproject.bussiness\\services\\implementations\\postservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|solutionrelative:threadsproject\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject\\controllers\\postcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|solutionrelative:threadsproject\\controllers\\postcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.bussiness\\services\\implementations\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|solutionrelative:threadsproject.bussiness\\services\\implementations\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject\\controllers\\tagcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|solutionrelative:threadsproject\\controllers\\tagcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.bussiness\\externalservices\\interfaces\\itokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|solutionrelative:threadsproject.bussiness\\externalservices\\interfaces\\itokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.bussiness\\services\\interfaces\\ipostservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|solutionrelative:threadsproject.bussiness\\services\\interfaces\\ipostservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.bussiness\\services\\implementations\\tagservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|solutionrelative:threadsproject.bussiness\\services\\implementations\\tagservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.bussiness\\services\\interfaces\\itagservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|solutionrelative:threadsproject.bussiness\\services\\interfaces\\itagservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|solutionrelative:threadsproject\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.bussiness\\externalservices\\iplementations\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|solutionrelative:threadsproject.bussiness\\externalservices\\iplementations\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.bussiness\\services\\implementations\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|solutionrelative:threadsproject.bussiness\\services\\implementations\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3788F6A8-6B3E-4874-B3E8-6AD850CAE935}|ThreadsProject.Core\\ThreadsProject.Core.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.core\\entities\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3788F6A8-6B3E-4874-B3E8-6AD850CAE935}|ThreadsProject.Core\\ThreadsProject.Core.csproj|solutionrelative:threadsproject.core\\entities\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|solutionrelative:threadsproject\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject\\controllers\\useractioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|solutionrelative:threadsproject\\controllers\\useractioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject\\controllers\\repostcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|solutionrelative:threadsproject\\controllers\\repostcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject\\controllers\\likecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|solutionrelative:threadsproject\\controllers\\likecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject\\controllers\\followcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|solutionrelative:threadsproject\\controllers\\followcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|solutionrelative:threadsproject\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3788F6A8-6B3E-4874-B3E8-6AD850CAE935}|ThreadsProject.Core\\ThreadsProject.Core.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.core\\globalexception\\globalexceptionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3788F6A8-6B3E-4874-B3E8-6AD850CAE935}|ThreadsProject.Core\\ThreadsProject.Core.csproj|solutionrelative:threadsproject.core\\globalexception\\globalexceptionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3788F6A8-6B3E-4874-B3E8-6AD850CAE935}|ThreadsProject.Core\\ThreadsProject.Core.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.core\\globalexception\\globalappexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3788F6A8-6B3E-4874-B3E8-6AD850CAE935}|ThreadsProject.Core\\ThreadsProject.Core.csproj|solutionrelative:threadsproject.core\\globalexception\\globalappexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C6665A4-2690-41C6-A96B-CF672E98C4C2}|ThreadsProject.Data\\ThreadsProject.Data.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.data\\migrations\\20240704162938_database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6C6665A4-2690-41C6-A96B-CF672E98C4C2}|ThreadsProject.Data\\ThreadsProject.Data.csproj|solutionrelative:threadsproject.data\\migrations\\20240704162938_database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.bussiness\\services\\implementations\\useractionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|solutionrelative:threadsproject.bussiness\\services\\implementations\\useractionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|solutionrelative:threadsproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject\\helper\\roleinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|solutionrelative:threadsproject\\helper\\roleinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject\\threadsproject.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|solutionrelative:threadsproject\\threadsproject.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{3788F6A8-6B3E-4874-B3E8-6AD850CAE935}|ThreadsProject.Core\\ThreadsProject.Core.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.core\\entities\\repost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3788F6A8-6B3E-4874-B3E8-6AD850CAE935}|ThreadsProject.Core\\ThreadsProject.Core.csproj|solutionrelative:threadsproject.core\\entities\\repost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.bussiness\\services\\implementations\\useractionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|solutionrelative:threadsproject.bussiness\\services\\implementations\\useractionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.bussiness\\dtos\\postdto\\createpostdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|solutionrelative:threadsproject.bussiness\\dtos\\postdto\\createpostdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.bussiness\\externalservices\\interfaces\\itokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|solutionrelative:threadsproject.bussiness\\externalservices\\interfaces\\itokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.bussiness\\externalservices\\iplementations\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|solutionrelative:threadsproject.bussiness\\externalservices\\iplementations\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject\\threadsproject.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|solutionrelative:threadsproject\\threadsproject.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.bussiness\\dtos\\supportsdto\\createsupportdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -87,20 +155,12 @@
       "RelativeMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|solutionrelative:threadsproject.bussiness\\services\\implementations\\followservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject\\controllers\\likecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|solutionrelative:threadsproject\\controllers\\likecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.bussiness\\dtos\\actiondtos\\createuseractiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|solutionrelative:threadsproject.bussiness\\dtos\\actiondtos\\createuseractiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.bussiness\\services\\implementations\\repostservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|solutionrelative:threadsproject.bussiness\\services\\implementations\\repostservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.bussiness\\dtos\\postdto\\createpostdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|solutionrelative:threadsproject.bussiness\\dtos\\postdto\\createpostdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.bussiness\\services\\implementations\\likeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -115,36 +175,12 @@
       "RelativeMoniker": "D:0:0:{3788F6A8-6B3E-4874-B3E8-6AD850CAE935}|ThreadsProject.Core\\ThreadsProject.Core.csproj|solutionrelative:threadsproject.core\\entities\\useraction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject\\controllers\\tagcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|solutionrelative:threadsproject\\controllers\\tagcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject\\controllers\\useractioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|solutionrelative:threadsproject\\controllers\\useractioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|solutionrelative:threadsproject\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject\\controllers\\postcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|solutionrelative:threadsproject\\controllers\\postcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3788F6A8-6B3E-4874-B3E8-6AD850CAE935}|ThreadsProject.Core\\ThreadsProject.Core.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.core\\hubs\\likehub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3788F6A8-6B3E-4874-B3E8-6AD850CAE935}|ThreadsProject.Core\\ThreadsProject.Core.csproj|solutionrelative:threadsproject.core\\hubs\\likehub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3788F6A8-6B3E-4874-B3E8-6AD850CAE935}|ThreadsProject.Core\\ThreadsProject.Core.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.core\\hubs\\commenthub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3788F6A8-6B3E-4874-B3E8-6AD850CAE935}|ThreadsProject.Core\\ThreadsProject.Core.csproj|solutionrelative:threadsproject.core\\hubs\\commenthub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.bussiness\\services\\interfaces\\itagservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|solutionrelative:threadsproject.bussiness\\services\\interfaces\\itagservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.bussiness\\services\\implementations\\tagservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|solutionrelative:threadsproject.bussiness\\services\\implementations\\tagservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3788F6A8-6B3E-4874-B3E8-6AD850CAE935}|ThreadsProject.Core\\ThreadsProject.Core.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.core\\repositoryabstracts\\itagrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -161,10 +197,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.bussiness\\dtos\\tagdto\\taggetdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|solutionrelative:threadsproject.bussiness\\dtos\\tagdto\\taggetdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3788F6A8-6B3E-4874-B3E8-6AD850CAE935}|ThreadsProject.Core\\ThreadsProject.Core.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.core\\entities\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3788F6A8-6B3E-4874-B3E8-6AD850CAE935}|ThreadsProject.Core\\ThreadsProject.Core.csproj|solutionrelative:threadsproject.core\\entities\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3788F6A8-6B3E-4874-B3E8-6AD850CAE935}|ThreadsProject.Core\\ThreadsProject.Core.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.core\\repositoryabstracts\\ipostrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -251,10 +283,6 @@
       "RelativeMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|solutionrelative:threadsproject.bussiness\\dtos\\commentdto\\commentwithpostdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.bussiness\\services\\implementations\\postservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|solutionrelative:threadsproject.bussiness\\services\\implementations\\postservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.bussiness\\dtos\\userdtos\\changepassworddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|solutionrelative:threadsproject.bussiness\\dtos\\userdtos\\changepassworddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -277,10 +305,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{3788F6A8-6B3E-4874-B3E8-6AD850CAE935}|ThreadsProject.Core\\ThreadsProject.Core.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.core\\entities\\commentlike.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3788F6A8-6B3E-4874-B3E8-6AD850CAE935}|ThreadsProject.Core\\ThreadsProject.Core.csproj|solutionrelative:threadsproject.core\\entities\\commentlike.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject\\controllers\\repostcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13F52ED0-6DFF-471E-9B64-DB760F018172}|ThreadsProject\\ThreadsProject.csproj|solutionrelative:threadsproject\\controllers\\repostcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.bussiness\\dtos\\userdtos\\forgotpassworddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -381,10 +405,6 @@
       "RelativeMoniker": "D:0:0:{45AA55A1-17F9-4112-B1F6-F65EAEC9F85C}|ThreadsProject.Bussiness\\ThreadsProject.Bussiness.csproj|solutionrelative:threadsproject.bussiness\\services\\interfaces\\ilikeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3788F6A8-6B3E-4874-B3E8-6AD850CAE935}|ThreadsProject.Core\\ThreadsProject.Core.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.core\\entities\\repost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3788F6A8-6B3E-4874-B3E8-6AD850CAE935}|ThreadsProject.Core\\ThreadsProject.Core.csproj|solutionrelative:threadsproject.core\\entities\\repost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3788F6A8-6B3E-4874-B3E8-6AD850CAE935}|ThreadsProject.Core\\ThreadsProject.Core.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.core\\repositoryabstracts\\icommentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3788F6A8-6B3E-4874-B3E8-6AD850CAE935}|ThreadsProject.Core\\ThreadsProject.Core.csproj|solutionrelative:threadsproject.core\\repositoryabstracts\\icommentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -395,10 +415,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{3788F6A8-6B3E-4874-B3E8-6AD850CAE935}|ThreadsProject.Core\\ThreadsProject.Core.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.core\\repositoryabstracts\\icommentlikerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3788F6A8-6B3E-4874-B3E8-6AD850CAE935}|ThreadsProject.Core\\ThreadsProject.Core.csproj|solutionrelative:threadsproject.core\\repositoryabstracts\\icommentlikerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6C6665A4-2690-41C6-A96B-CF672E98C4C2}|ThreadsProject.Data\\ThreadsProject.Data.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.data\\migrations\\20240704162938_database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6C6665A4-2690-41C6-A96B-CF672E98C4C2}|ThreadsProject.Data\\ThreadsProject.Data.csproj|solutionrelative:threadsproject.data\\migrations\\20240704162938_database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6C6665A4-2690-41C6-A96B-CF672E98C4C2}|ThreadsProject.Data\\ThreadsProject.Data.csproj|c:\\users\\gulco\\onedrive\\\u0130\u015F masas\u0131\\threadsproject\\threadsproject.data\\migrations\\20240704162124_edituser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -412,47 +428,220 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Post.cs",
+              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Core\\Entities\\Post.cs",
+              "RelativeDocumentMoniker": "ThreadsProject.Core\\Entities\\Post.cs",
+              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Core\\Entities\\Post.cs",
+              "RelativeToolTip": "ThreadsProject.Core\\Entities\\Post.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-30T17:01:52.05Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IPostService.cs",
+              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Interfaces\\IPostService.cs",
+              "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Services\\Interfaces\\IPostService.cs",
+              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Interfaces\\IPostService.cs",
+              "RelativeToolTip": "ThreadsProject.Bussiness\\Services\\Interfaces\\IPostService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAABEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-05T12:24:04.376Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "PostController.cs",
+              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Controllers\\PostController.cs",
+              "RelativeDocumentMoniker": "ThreadsProject\\Controllers\\PostController.cs",
+              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Controllers\\PostController.cs",
+              "RelativeToolTip": "ThreadsProject\\Controllers\\PostController.cs",
+              "ViewState": "AQIAACwAAAAAAAAAAAAswGIAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-26T15:52:17.861Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TagController.cs",
+              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Controllers\\TagController.cs",
+              "RelativeDocumentMoniker": "ThreadsProject\\Controllers\\TagController.cs",
+              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Controllers\\TagController.cs",
+              "RelativeToolTip": "ThreadsProject\\Controllers\\TagController.cs",
+              "ViewState": "AQIAAC4AAAAAAAAAAAAmwDoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-29T22:44:55.772Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UserActionController.cs",
+              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Controllers\\UserActionController.cs",
+              "RelativeDocumentMoniker": "ThreadsProject\\Controllers\\UserActionController.cs",
+              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Controllers\\UserActionController.cs",
+              "RelativeToolTip": "ThreadsProject\\Controllers\\UserActionController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-01T12:42:23.828Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "ThreadsProject\\Controllers\\UserController.cs",
               "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Controllers\\UserController.cs",
               "RelativeToolTip": "ThreadsProject\\Controllers\\UserController.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAAADwAAABOAAAA",
+              "ViewState": "AQIAAFcAAAAAAAAAAAAAADwAAABRAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-04T17:08:46.153Z"
+              "WhenOpened": "2024-07-04T17:08:46.153Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TagService.cs",
+              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\TagService.cs",
+              "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Services\\Implementations\\TagService.cs",
+              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\TagService.cs",
+              "RelativeToolTip": "ThreadsProject.Bussiness\\Services\\Implementations\\TagService.cs",
+              "ViewState": "AQIAAEIAAAAAAAAAAAAcwGoAAABOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-02T11:09:16.573Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "ThreadsProject.csproj",
-              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\ThreadsProject.csproj",
-              "RelativeDocumentMoniker": "ThreadsProject\\ThreadsProject.csproj",
-              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\ThreadsProject.csproj",
-              "RelativeToolTip": "ThreadsProject\\ThreadsProject.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-07-04T15:53:51.377Z"
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\UserService.cs",
+              "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Services\\Implementations\\UserService.cs",
+              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\UserService.cs",
+              "RelativeToolTip": "ThreadsProject.Bussiness\\Services\\Implementations\\UserService.cs",
+              "ViewState": "AQIAAJEBAAAAAAAAAAArwKkBAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-01T17:21:50.582Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ITokenService.cs",
-              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\ExternalServices\\Interfaces\\ITokenService.cs",
-              "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\ExternalServices\\Interfaces\\ITokenService.cs",
-              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\ExternalServices\\Interfaces\\ITokenService.cs",
-              "RelativeToolTip": "ThreadsProject.Bussiness\\ExternalServices\\Interfaces\\ITokenService.cs",
+              "DocumentIndex": 5,
+              "Title": "ITagService.cs",
+              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Interfaces\\ITagService.cs",
+              "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Services\\Interfaces\\ITagService.cs",
+              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Interfaces\\ITagService.cs",
+              "RelativeToolTip": "ThreadsProject.Bussiness\\Services\\Interfaces\\ITagService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAABIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-02T11:20:22.316Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PostService.cs",
+              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\PostService.cs",
+              "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Services\\Implementations\\PostService.cs",
+              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\PostService.cs",
+              "RelativeToolTip": "ThreadsProject.Bussiness\\Services\\Implementations\\PostService.cs",
+              "ViewState": "AQIAAEIAAAAAAAAAAAAAAGwBAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-30T15:01:01.294Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\appsettings.json",
+              "RelativeDocumentMoniker": "ThreadsProject\\appsettings.json",
+              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\appsettings.json",
+              "RelativeToolTip": "ThreadsProject\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAACjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-06-26T10:16:21.889Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "RepostController.cs",
+              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Controllers\\RepostController.cs",
+              "RelativeDocumentMoniker": "ThreadsProject\\Controllers\\RepostController.cs",
+              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Controllers\\RepostController.cs",
+              "RelativeToolTip": "ThreadsProject\\Controllers\\RepostController.cs",
+              "ViewState": "AQIAAKoAAAAAAAAAAAAAAL8AAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-25T18:45:03.869Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "LikeController.cs",
+              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Controllers\\LikeController.cs",
+              "RelativeDocumentMoniker": "ThreadsProject\\Controllers\\LikeController.cs",
+              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Controllers\\LikeController.cs",
+              "RelativeToolTip": "ThreadsProject\\Controllers\\LikeController.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAkwDEAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-26T18:30:58.58Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "FollowController.cs",
+              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Controllers\\FollowController.cs",
+              "RelativeDocumentMoniker": "ThreadsProject\\Controllers\\FollowController.cs",
+              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Controllers\\FollowController.cs",
+              "RelativeToolTip": "ThreadsProject\\Controllers\\FollowController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB4AAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-04T22:10:27.288Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "GlobalExceptionMiddleware.cs",
+              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Core\\GlobalException\\GlobalExceptionMiddleware.cs",
+              "RelativeDocumentMoniker": "ThreadsProject.Core\\GlobalException\\GlobalExceptionMiddleware.cs",
+              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Core\\GlobalException\\GlobalExceptionMiddleware.cs",
+              "RelativeToolTip": "ThreadsProject.Core\\GlobalException\\GlobalExceptionMiddleware.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-04T22:04:29.795Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "GlobalAppException.cs",
+              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Core\\GlobalException\\GlobalAppException.cs",
+              "RelativeDocumentMoniker": "ThreadsProject.Core\\GlobalException\\GlobalAppException.cs",
+              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Core\\GlobalException\\GlobalAppException.cs",
+              "RelativeToolTip": "ThreadsProject.Core\\GlobalException\\GlobalAppException.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-04T17:01:09.136Z"
+              "WhenOpened": "2024-07-04T22:04:27.979Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 99,
+              "DocumentIndex": 17,
               "Title": "20240704162938_Database.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Data\\Migrations\\20240704162938_Database.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Data\\Migrations\\20240704162938_Database.cs",
@@ -460,11 +649,51 @@
               "RelativeToolTip": "ThreadsProject.Data\\Migrations\\20240704162938_Database.cs",
               "ViewState": "AQIAABsAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-04T16:29:38.91Z"
+              "WhenOpened": "2024-07-04T16:29:38.91Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 18,
+              "Title": "UserActionService.cs",
+              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\UserActionService.cs",
+              "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Services\\Implementations\\UserActionService.cs",
+              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\UserActionService.cs",
+              "RelativeToolTip": "ThreadsProject.Bussiness\\Services\\Implementations\\UserActionService.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAAAFMAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-30T18:06:13.004Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "ThreadsProject\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "ThreadsProject\\Controllers\\AdminController.cs",
+              "ViewState": "AQIAAIwAAAAAAAAAAAAAAJwAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-29T20:53:43.136Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Program.cs",
+              "RelativeDocumentMoniker": "ThreadsProject\\Program.cs",
+              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Program.cs",
+              "RelativeToolTip": "ThreadsProject\\Program.cs",
+              "ViewState": "AQIAAJQAAAAAAAAAAAAAALUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-30T15:11:21.203Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
               "Title": "RoleInitializer.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Helper\\RoleInitializer.cs",
               "RelativeDocumentMoniker": "ThreadsProject\\Helper\\RoleInitializer.cs",
@@ -472,60 +701,38 @@
               "RelativeToolTip": "ThreadsProject\\Helper\\RoleInitializer.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAB4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-04T16:17:32.309Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "UserActionService.cs",
-              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\UserActionService.cs",
-              "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Services\\Implementations\\UserActionService.cs",
-              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\UserActionService.cs",
-              "RelativeToolTip": "ThreadsProject.Bussiness\\Services\\Implementations\\UserActionService.cs",
-              "ViewState": "AQIAAEgAAAAAAAAAAAAxwFMAAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-30T18:06:13.004Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\appsettings.json",
-              "RelativeDocumentMoniker": "ThreadsProject\\appsettings.json",
-              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\appsettings.json",
-              "RelativeToolTip": "ThreadsProject\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAByAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-06-26T10:16:21.889Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\UserService.cs",
-              "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Services\\Implementations\\UserService.cs",
-              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\UserService.cs",
-              "RelativeToolTip": "ThreadsProject.Bussiness\\Services\\Implementations\\UserService.cs",
-              "ViewState": "AQIAAC0AAAAAAAAAAAAAAFAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-01T17:21:50.582Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Program.cs",
-              "RelativeDocumentMoniker": "ThreadsProject\\Program.cs",
-              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Program.cs",
-              "RelativeToolTip": "ThreadsProject\\Program.cs",
-              "ViewState": "AQIAAJQAAAAAAAAAAAAAAI4AAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-30T15:11:21.203Z",
+              "WhenOpened": "2024-07-04T16:17:32.309Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 21,
+              "Title": "Repost.cs",
+              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Core\\Entities\\Repost.cs",
+              "RelativeDocumentMoniker": "ThreadsProject.Core\\Entities\\Repost.cs",
+              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Core\\Entities\\Repost.cs",
+              "RelativeToolTip": "ThreadsProject.Core\\Entities\\Repost.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-25T18:23:48.528Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "CreatePostDto.cs",
+              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\DTOs\\PostDto\\CreatePostDto.cs",
+              "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\DTOs\\PostDto\\CreatePostDto.cs",
+              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\DTOs\\PostDto\\CreatePostDto.cs",
+              "RelativeToolTip": "ThreadsProject.Bussiness\\DTOs\\PostDto\\CreatePostDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwA4AAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-25T21:19:24.612Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
               "Title": "TokenService.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\ExternalServices\\Iplementations\\TokenService.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\ExternalServices\\Iplementations\\TokenService.cs",
@@ -537,7 +744,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 23,
+              "Title": "ITokenService.cs",
+              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\ExternalServices\\Interfaces\\ITokenService.cs",
+              "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\ExternalServices\\Interfaces\\ITokenService.cs",
+              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\ExternalServices\\Interfaces\\ITokenService.cs",
+              "RelativeToolTip": "ThreadsProject.Bussiness\\ExternalServices\\Interfaces\\ITokenService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-04T17:01:09.136Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "ThreadsProject.csproj",
+              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\ThreadsProject.csproj",
+              "RelativeDocumentMoniker": "ThreadsProject\\ThreadsProject.csproj",
+              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\ThreadsProject.csproj",
+              "RelativeToolTip": "ThreadsProject\\ThreadsProject.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-07-04T15:53:51.377Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
               "Title": "CreateSupportDto.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\DTOs\\SupportsDto\\CreateSupportDto.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\DTOs\\SupportsDto\\CreateSupportDto.cs",
@@ -549,7 +780,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 27,
               "Title": "Comment.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Core\\Entities\\Comment.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Core\\Entities\\Comment.cs",
@@ -561,7 +792,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 29,
               "Title": "FollowRequestDto.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\DTOs\\FollowsDto\\FollowRequestDto.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\DTOs\\FollowsDto\\FollowRequestDto.cs",
@@ -573,7 +804,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 28,
               "Title": "SessionExtensions.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Extensions\\SessionExtensions.cs",
               "RelativeDocumentMoniker": "ThreadsProject\\Extensions\\SessionExtensions.cs",
@@ -581,11 +812,12 @@
               "RelativeToolTip": "ThreadsProject\\Extensions\\SessionExtensions.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-30T15:12:47.809Z"
+              "WhenOpened": "2024-06-30T15:12:47.809Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 30,
               "Title": "SentFollowRequestDto.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\DTOs\\FollowsDto\\SentFollowRequestDto.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\DTOs\\FollowsDto\\SentFollowRequestDto.cs",
@@ -597,7 +829,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 31,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Core\\Entities\\User.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Core\\Entities\\User.cs",
@@ -609,7 +841,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 100,
+              "DocumentIndex": 104,
               "Title": "20240704162124_EditUSer.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Data\\Migrations\\20240704162124_EditUSer.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Data\\Migrations\\20240704162124_EditUSer.cs",
@@ -621,7 +853,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 33,
               "Title": "RepostCreateDto.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\DTOs\\RepostDto\\RepostCreateDto.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\DTOs\\RepostDto\\RepostCreateDto.cs",
@@ -633,7 +865,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 32,
               "Title": "CommentGetDto.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\DTOs\\CommentDto\\CommentGetDto.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\DTOs\\CommentDto\\CommentGetDto.cs",
@@ -645,7 +877,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 34,
               "Title": "UserActionDto.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\DTOs\\ActionDtos\\UserActionDto.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\DTOs\\ActionDtos\\UserActionDto.cs",
@@ -657,7 +889,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 35,
               "Title": "UserActionMapProfilies.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Profilies\\UserActionMapProfilies.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Profilies\\UserActionMapProfilies.cs",
@@ -669,7 +901,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 36,
               "Title": "PostGetDto.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\DTOs\\PostDto\\PostGetDto.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\DTOs\\PostDto\\PostGetDto.cs",
@@ -681,7 +913,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 37,
               "Title": "FollowService.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\FollowService.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Services\\Implementations\\FollowService.cs",
@@ -693,19 +925,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "CreatePostDto.cs",
-              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\DTOs\\PostDto\\CreatePostDto.cs",
-              "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\DTOs\\PostDto\\CreatePostDto.cs",
-              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\DTOs\\PostDto\\CreatePostDto.cs",
-              "RelativeToolTip": "ThreadsProject.Bussiness\\DTOs\\PostDto\\CreatePostDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-25T21:19:24.612Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 39,
               "Title": "RepostService.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\RepostService.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Services\\Implementations\\RepostService.cs",
@@ -717,19 +937,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "LikeController.cs",
-              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Controllers\\LikeController.cs",
-              "RelativeDocumentMoniker": "ThreadsProject\\Controllers\\LikeController.cs",
-              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Controllers\\LikeController.cs",
-              "RelativeToolTip": "ThreadsProject\\Controllers\\LikeController.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAA7wGwAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-26T18:30:58.58Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 38,
               "Title": "CreateUserActionDto.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\DTOs\\ActionDtos\\CreateUserActionDto.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\DTOs\\ActionDtos\\CreateUserActionDto.cs",
@@ -741,7 +949,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 40,
               "Title": "LikeService.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\LikeService.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Services\\Implementations\\LikeService.cs",
@@ -753,7 +961,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 41,
               "Title": "CommentService.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\CommentService.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Services\\Implementations\\CommentService.cs",
@@ -765,7 +973,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 42,
               "Title": "UserAction.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Core\\Entities\\UserAction.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Core\\Entities\\UserAction.cs",
@@ -777,55 +985,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "TagController.cs",
-              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Controllers\\TagController.cs",
-              "RelativeDocumentMoniker": "ThreadsProject\\Controllers\\TagController.cs",
-              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Controllers\\TagController.cs",
-              "RelativeToolTip": "ThreadsProject\\Controllers\\TagController.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAAAB0AAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-29T22:44:55.772Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "UserActionController.cs",
-              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Controllers\\UserActionController.cs",
-              "RelativeDocumentMoniker": "ThreadsProject\\Controllers\\UserActionController.cs",
-              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Controllers\\UserActionController.cs",
-              "RelativeToolTip": "ThreadsProject\\Controllers\\UserActionController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-01T12:42:23.828Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "AdminController.cs",
-              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Controllers\\AdminController.cs",
-              "RelativeDocumentMoniker": "ThreadsProject\\Controllers\\AdminController.cs",
-              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Controllers\\AdminController.cs",
-              "RelativeToolTip": "ThreadsProject\\Controllers\\AdminController.cs",
-              "ViewState": "AQIAAIwAAAAAAAAAAAAAAJAAAAAiAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-29T20:53:43.136Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "PostController.cs",
-              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Controllers\\PostController.cs",
-              "RelativeDocumentMoniker": "ThreadsProject\\Controllers\\PostController.cs",
-              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Controllers\\PostController.cs",
-              "RelativeToolTip": "ThreadsProject\\Controllers\\PostController.cs",
-              "ViewState": "AQIAAJYAAAAAAAAAAAAAAE0BAABPAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-26T15:52:17.861Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 43,
               "Title": "LikeHub.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Core\\Hubs\\LikeHub.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Core\\Hubs\\LikeHub.cs",
@@ -837,7 +997,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 44,
               "Title": "CommentHub.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Core\\Hubs\\CommentHub.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Core\\Hubs\\CommentHub.cs",
@@ -849,31 +1009,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "ITagService.cs",
-              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Interfaces\\ITagService.cs",
-              "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Services\\Interfaces\\ITagService.cs",
-              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Interfaces\\ITagService.cs",
-              "RelativeToolTip": "ThreadsProject.Bussiness\\Services\\Interfaces\\ITagService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-02T11:20:22.316Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "TagService.cs",
-              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\TagService.cs",
-              "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Services\\Implementations\\TagService.cs",
-              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\TagService.cs",
-              "RelativeToolTip": "ThreadsProject.Bussiness\\Services\\Implementations\\TagService.cs",
-              "ViewState": "AQIAADAAAAAAAAAAAAAAADUAAABlAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-02T11:09:16.573Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 45,
               "Title": "ITagRepository.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Core\\RepositoryAbstracts\\ITagRepository.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Core\\RepositoryAbstracts\\ITagRepository.cs",
@@ -885,7 +1021,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 46,
               "Title": "Repository.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Data\\RepositoryConcreters\\Repository.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Data\\RepositoryConcreters\\Repository.cs",
@@ -897,7 +1033,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 47,
               "Title": "IRepository.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Core\\RepositoryAbstracts\\IRepository.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Core\\RepositoryAbstracts\\IRepository.cs",
@@ -909,7 +1045,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 48,
               "Title": "TagGetDto.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\DTOs\\TagDto\\TagGetDto.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\DTOs\\TagDto\\TagGetDto.cs",
@@ -921,7 +1057,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 49,
               "Title": "IPostRepository.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Core\\RepositoryAbstracts\\IPostRepository.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Core\\RepositoryAbstracts\\IPostRepository.cs",
@@ -933,7 +1069,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 50,
               "Title": "PostRepository.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Data\\RepositoryConcreters\\PostRepository.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Data\\RepositoryConcreters\\PostRepository.cs",
@@ -945,7 +1081,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 53,
               "Title": "CommentMapProfilies.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Profilies\\CommentMapProfilies.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Profilies\\CommentMapProfilies.cs",
@@ -957,19 +1093,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
-              "Title": "Post.cs",
-              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Core\\Entities\\Post.cs",
-              "RelativeDocumentMoniker": "ThreadsProject.Core\\Entities\\Post.cs",
-              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Core\\Entities\\Post.cs",
-              "RelativeToolTip": "ThreadsProject.Core\\Entities\\Post.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-30T17:01:52.05Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 51,
               "Title": "RepostRepository.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Data\\RepositoryConcreters\\RepostRepository.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Data\\RepositoryConcreters\\RepostRepository.cs",
@@ -981,7 +1105,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 58,
               "Title": "UserActionRepository.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Data\\RepositoryConcreters\\UserActionRepository.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Data\\RepositoryConcreters\\UserActionRepository.cs",
@@ -993,7 +1117,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 52,
               "Title": "AdminService.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\AdminService.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Services\\Implementations\\AdminService.cs",
@@ -1005,7 +1129,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 54,
               "Title": "IAdminService.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Interfaces\\IAdminService.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Services\\Interfaces\\IAdminService.cs",
@@ -1017,7 +1141,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 56,
               "Title": "UserMapProfilies.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Profilies\\UserMapProfilies.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Profilies\\UserMapProfilies.cs",
@@ -1029,7 +1153,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 55,
               "Title": "CommentController.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Controllers\\CommentController.cs",
               "RelativeDocumentMoniker": "ThreadsProject\\Controllers\\CommentController.cs",
@@ -1037,11 +1161,12 @@
               "RelativeToolTip": "ThreadsProject\\Controllers\\CommentController.cs",
               "ViewState": "AQIAAMwAAAAAAAAAAAAmwNsAAABKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-01T12:42:58.074Z"
+              "WhenOpened": "2024-07-01T12:42:58.074Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 57,
               "Title": "FollowMapProfilies.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Profilies\\FollowMapProfilies.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Profilies\\FollowMapProfilies.cs",
@@ -1053,7 +1178,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 59,
               "Title": "IUserActionRepository.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Core\\RepositoryAbstracts\\IUserActionRepository.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Core\\RepositoryAbstracts\\IUserActionRepository.cs",
@@ -1065,7 +1190,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 60,
               "Title": "CommentLikeRepository.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Data\\RepositoryConcreters\\CommentLikeRepository.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Data\\RepositoryConcreters\\CommentLikeRepository.cs",
@@ -1077,7 +1202,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 61,
               "Title": "FollowRequest.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Core\\Entities\\FollowRequest.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Core\\Entities\\FollowRequest.cs",
@@ -1089,7 +1214,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 64,
               "Title": "UserActionConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Data\\Configuration\\UserActionConfiguration.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Data\\Configuration\\UserActionConfiguration.cs",
@@ -1101,7 +1226,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 63,
               "Title": "Follower.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Core\\Entities\\Follower.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Core\\Entities\\Follower.cs",
@@ -1113,7 +1238,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 62,
               "Title": "Following.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Core\\Entities\\Following.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Core\\Entities\\Following.cs",
@@ -1125,7 +1250,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 65,
               "Title": "RepostMapProfilies.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Profilies\\RepostMapProfilies.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Profilies\\RepostMapProfilies.cs",
@@ -1137,7 +1262,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 67,
               "Title": "CreateCommentDto.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\DTOs\\CommentDto\\CreateCommentDto.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\DTOs\\CommentDto\\CreateCommentDto.cs",
@@ -1149,7 +1274,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 66,
               "Title": "IUserActionService.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Interfaces\\IUserActionService.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Services\\Interfaces\\IUserActionService.cs",
@@ -1161,7 +1286,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 61,
+              "DocumentIndex": 69,
               "Title": "CommentWithPostDto.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\DTOs\\CommentDto\\CommentWithPostDto.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\DTOs\\CommentDto\\CommentWithPostDto.cs",
@@ -1173,7 +1298,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 68,
               "Title": "ServiceRegistration.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\ServiceRegistration.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\ServiceRegistration.cs",
@@ -1185,19 +1310,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 62,
-              "Title": "PostService.cs",
-              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\PostService.cs",
-              "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Services\\Implementations\\PostService.cs",
-              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\PostService.cs",
-              "RelativeToolTip": "ThreadsProject.Bussiness\\Services\\Implementations\\PostService.cs",
-              "ViewState": "AQIAAMIAAAAAAAAAAAAYwNUAAAB5AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-30T15:01:01.294Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 63,
+              "DocumentIndex": 70,
               "Title": "ChangePasswordDto.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\DTOs\\UserDtos\\ChangePasswordDto.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\DTOs\\UserDtos\\ChangePasswordDto.cs",
@@ -1209,7 +1322,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 64,
+              "DocumentIndex": 71,
               "Title": "RegisterDto.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\DTOs\\UserDtos\\RegisterDto.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\DTOs\\UserDtos\\RegisterDto.cs",
@@ -1221,7 +1334,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 65,
+              "DocumentIndex": 72,
               "Title": "ResetPasswordDto.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\DTOs\\UserDtos\\ResetPasswordDto.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\DTOs\\UserDtos\\ResetPasswordDto.cs",
@@ -1233,7 +1346,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 66,
+              "DocumentIndex": 73,
               "Title": "SupportService.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Implementations\\SupportService.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Services\\Implementations\\SupportService.cs",
@@ -1245,7 +1358,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 67,
+              "DocumentIndex": 74,
               "Title": "FollowDto.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\DTOs\\FollowsDto\\FollowDto.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\DTOs\\FollowsDto\\FollowDto.cs",
@@ -1257,19 +1370,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 69,
-              "Title": "RepostController.cs",
-              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Controllers\\RepostController.cs",
-              "RelativeDocumentMoniker": "ThreadsProject\\Controllers\\RepostController.cs",
-              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject\\Controllers\\RepostController.cs",
-              "RelativeToolTip": "ThreadsProject\\Controllers\\RepostController.cs",
-              "ViewState": "AQIAAKoAAAAAAAAAAAAAAKoAAAASAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-25T18:45:03.869Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 68,
+              "DocumentIndex": 75,
               "Title": "CommentLike.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Core\\Entities\\CommentLike.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Core\\Entities\\CommentLike.cs",
@@ -1281,7 +1382,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 70,
+              "DocumentIndex": 76,
               "Title": "ForgotPasswordDto.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\DTOs\\UserDtos\\ForgotPasswordDto.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\DTOs\\UserDtos\\ForgotPasswordDto.cs",
@@ -1293,7 +1394,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 71,
+              "DocumentIndex": 77,
               "Title": "PrivateProfileException.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Exceptions\\PrivateProfileException.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Exceptions\\PrivateProfileException.cs",
@@ -1305,7 +1406,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 72,
+              "DocumentIndex": 78,
               "Title": "ICommentService.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Interfaces\\ICommentService.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Services\\Interfaces\\ICommentService.cs",
@@ -1317,7 +1418,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 73,
+              "DocumentIndex": 79,
               "Title": "CommentRepository.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Data\\RepositoryConcreters\\CommentRepository.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Data\\RepositoryConcreters\\CommentRepository.cs",
@@ -1329,7 +1430,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 75,
+              "DocumentIndex": 81,
               "Title": "CloudinarySettings.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Core\\Entities\\CloudinarySettings.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Core\\Entities\\CloudinarySettings.cs",
@@ -1341,7 +1442,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 74,
+              "DocumentIndex": 80,
               "Title": "LikeMapProfilies.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Profilies\\LikeMapProfilies.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Profilies\\LikeMapProfilies.cs",
@@ -1353,7 +1454,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 76,
+              "DocumentIndex": 82,
               "Title": "PostImage.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Core\\Entities\\PostImage.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Core\\Entities\\PostImage.cs",
@@ -1365,7 +1466,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 78,
+              "DocumentIndex": 84,
               "Title": "LikeConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Data\\Configuration\\LikeConfiguration.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Data\\Configuration\\LikeConfiguration.cs",
@@ -1377,7 +1478,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 77,
+              "DocumentIndex": 83,
               "Title": "PostConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Data\\Configuration\\PostConfiguration.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Data\\Configuration\\PostConfiguration.cs",
@@ -1389,7 +1490,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 79,
+              "DocumentIndex": 85,
               "Title": "CommentLikeConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Data\\Configuration\\CommentLikeConfiguration.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Data\\Configuration\\CommentLikeConfiguration.cs",
@@ -1401,7 +1502,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 80,
+              "DocumentIndex": 86,
               "Title": "CommentConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Data\\Configuration\\CommentConfiguration.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Data\\Configuration\\CommentConfiguration.cs",
@@ -1413,7 +1514,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 81,
+              "DocumentIndex": 87,
               "Title": "20240626111412_EditModels.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\source\\repos\\ThreadsProject\\ThreadsProject.Data\\Migrations\\20240626111412_EditModels.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\source\\repos\\ThreadsProject\\ThreadsProject.Data\\Migrations\\20240626111412_EditModels.cs",
@@ -1425,7 +1526,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 82,
+              "DocumentIndex": 88,
               "Title": "RepostConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Data\\Configuration\\RepostConfiguration.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Data\\Configuration\\RepostConfiguration.cs",
@@ -1437,7 +1538,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 83,
+              "DocumentIndex": 89,
               "Title": "20240626111027_Edit.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\source\\repos\\ThreadsProject\\ThreadsProject.Data\\Migrations\\20240626111027_Edit.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\source\\repos\\ThreadsProject\\ThreadsProject.Data\\Migrations\\20240626111027_Edit.cs",
@@ -1449,7 +1550,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 84,
+              "DocumentIndex": 90,
               "Title": "FollowingConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Data\\Configuration\\FollowingConfiguration.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Data\\Configuration\\FollowingConfiguration.cs",
@@ -1461,7 +1562,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 85,
+              "DocumentIndex": 91,
               "Title": "FollowerConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Data\\Configuration\\FollowerConfiguration.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Data\\Configuration\\FollowerConfiguration.cs",
@@ -1473,7 +1574,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 86,
+              "DocumentIndex": 92,
               "Title": "IRepostRepository.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Core\\RepositoryAbstracts\\IRepostRepository.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Core\\RepositoryAbstracts\\IRepostRepository.cs",
@@ -1485,7 +1586,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 87,
+              "DocumentIndex": 93,
               "Title": "IRepostService.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Interfaces\\IRepostService.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Services\\Interfaces\\IRepostService.cs",
@@ -1497,7 +1598,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 88,
+              "DocumentIndex": 94,
               "Title": "TagMapProfilies.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Profilies\\TagMapProfilies.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Profilies\\TagMapProfilies.cs",
@@ -1509,7 +1610,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 89,
+              "DocumentIndex": 95,
               "Title": "RepostGetDto.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\DTOs\\RepostDto\\RepostGetDto.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\DTOs\\RepostDto\\RepostGetDto.cs",
@@ -1521,7 +1622,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 91,
+              "DocumentIndex": 97,
               "Title": "UserEmailSender.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\ExternalServices\\Iplementations\\UserEmailSender.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\ExternalServices\\Iplementations\\UserEmailSender.cs",
@@ -1533,7 +1634,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 92,
+              "DocumentIndex": 98,
               "Title": "IUserEmailSender.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\ExternalServices\\Interfaces\\IUserEmailSender.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\ExternalServices\\Interfaces\\IUserEmailSender.cs",
@@ -1545,7 +1646,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 90,
+              "DocumentIndex": 96,
               "Title": "LikeDto.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\DTOs\\LikesDto\\LikeDto.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\DTOs\\LikesDto\\LikeDto.cs",
@@ -1557,7 +1658,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 93,
+              "DocumentIndex": 99,
               "Title": "TokenResponseDto.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\DTOs\\UserDtos\\TokenResponseDto.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\DTOs\\UserDtos\\TokenResponseDto.cs",
@@ -1569,7 +1670,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 94,
+              "DocumentIndex": 100,
               "Title": "ILikeService.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\Services\\Interfaces\\ILikeService.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\Services\\Interfaces\\ILikeService.cs",
@@ -1581,19 +1682,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 95,
-              "Title": "Repost.cs",
-              "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Core\\Entities\\Repost.cs",
-              "RelativeDocumentMoniker": "ThreadsProject.Core\\Entities\\Repost.cs",
-              "ToolTip": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Core\\Entities\\Repost.cs",
-              "RelativeToolTip": "ThreadsProject.Core\\Entities\\Repost.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-25T18:23:48.528Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 96,
+              "DocumentIndex": 101,
               "Title": "ICommentRepository.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Core\\RepositoryAbstracts\\ICommentRepository.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Core\\RepositoryAbstracts\\ICommentRepository.cs",
@@ -1605,7 +1694,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 97,
+              "DocumentIndex": 102,
               "Title": "CommentLikeDto.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Bussiness\\DTOs\\CommentDto\\CommentLikeDto.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Bussiness\\DTOs\\CommentDto\\CommentLikeDto.cs",
@@ -1617,7 +1706,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 98,
+              "DocumentIndex": 103,
               "Title": "ICommentLikeRepository.cs",
               "DocumentMoniker": "C:\\Users\\gulco\\OneDrive\\\u0130\u015F masas\u0131\\ThreadsProject\\ThreadsProject.Core\\RepositoryAbstracts\\ICommentLikeRepository.cs",
               "RelativeDocumentMoniker": "ThreadsProject.Core\\RepositoryAbstracts\\ICommentLikeRepository.cs",

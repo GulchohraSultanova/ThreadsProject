@@ -96,6 +96,25 @@ namespace ThreadsProject.Bussiness.Services.Implementations
                 throw new GlobalAppException("An error occurred while deleting the tag.", ex);
             }
         }
+        public async Task<IEnumerable<TagGetDto>> SearchTagsAsync(string searchTerm)
+        {
+            searchTerm = searchTerm.Trim();
+            if (string.IsNullOrEmpty(searchTerm))
+            {
+                throw new GlobalAppException("Search term cannot be empty");
+            }
+
+            var tags = await _tagRepository.GetAllAsync(t => t.Name.StartsWith(searchTerm));
+            var tagDtos = _mapper.Map<IEnumerable<TagGetDto>>(tags);
+
+            foreach (var tagDto in tagDtos)
+            {
+                var postCount = await _postRepository.CountAsync(p => p.PostTags.Any(t => t.TagId == tagDto.Id));
+                tagDto.PostCount = postCount;
+            }
+
+            return tagDtos;
+        }
 
     }
 

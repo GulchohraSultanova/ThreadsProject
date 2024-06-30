@@ -13,5 +13,6 @@ namespace ThreadsProject.Bussiness.Services.Interfaces
         Task<IEnumerable<TagGetDto>> GetAllTagsAsync();
         Task<TagGetDto> GetTagByIdAsync(int id);
         Task DeleteTagAsync(int id);
+        Task<IEnumerable<TagGetDto>> SearchTagsAsync(string searchTerm);
     }
 }

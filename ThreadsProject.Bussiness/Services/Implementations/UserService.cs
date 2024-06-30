@@ -413,8 +413,8 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error in GetRandomUsersAsync: {ex.Message}");
-                throw new Exception("An error occurred while retrieving random users", ex);
+               
+                throw new GlobalAppException("An error occurred while retrieving random users", ex);
             }
         }
 
@@ -428,7 +428,7 @@ namespace ThreadsProject.Bussiness.Services.Implementations
             searchTerm = searchTerm.Trim();
             if (string.IsNullOrEmpty(searchTerm))
             {
-                throw new ArgumentException("Search term cannot be empty", nameof(searchTerm));
+                throw new GlobalAppException("Search term cannot be empty");
             }
 
             var users = await _userManager.Users
